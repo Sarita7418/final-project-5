@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div>
       <Button variant="outline" className="rojo">
-        <Link href="/dashboard">Dashboard</Link>
+        <Link href="/Areas">Dashboard</Link>
       </Button>
     </div>
   );
