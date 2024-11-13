@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import "@/components/Menu";
-import dashboard from "@/public/plomo.svg";
+import dashboard from "@/public/home 2 plomo.svg";
 import lectura from "@/public/carbon_report.svg";
 import sensor from "@/public/material-symbols_sensors-krx-outline-rounded.svg";
 import alerta from "@/public/servicem.svg";
@@ -13,9 +13,8 @@ const Menu = () => {
     <nav className="sidebar">
       <ul className="menu">
         <li className="menu_element">
-          
           <img src={dashboard.src} alt="" />
-          <Link href="">Dashboard</Link>
+          <Link href="/dashboard">Dashboard</Link>
         </li>
         <li className="menu_element">
           <img src={sensor.src} alt="" />

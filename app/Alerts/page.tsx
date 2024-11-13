@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from './components/Header'
 import Menu from './components/Menu'
+import Alert from './components/Alert'
+
 
 function alerts() {
   return (
@@ -8,8 +10,8 @@ function alerts() {
       <Header />
       <section className="content">
         <Menu />
-        <section className="dashboard_content">
-          
+        <section className="alerts_content">
+          <Alert/>
         </section>
       </section>
 </div>

@@ -11,7 +11,7 @@ const Header = () => {
     <header>
       <h1>MANTENIMIENTO</h1>
       <div className="auxiliar">
-        <h2>Dashboard</h2>
+        <h2>Alertas y Anomalias</h2>
         <div className="buttons">
           <Link href="">
             <img src={configLogo.src} alt="" className="headerButton" />
