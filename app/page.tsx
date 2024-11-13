@@ -1,12 +1,14 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button"
-import Link from 'next/link'
-import "@/components/ui/button.css"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import "@/components/ui/button.css";
 
 export default function Home() {
   return (
     <div>
-      <Button variant="outline" className="rojo">Suerte</Button>
+      <Button variant="outline" className="rojo">
+        <Link href="/dashboard">Dashboard</Link>
+      </Button>
     </div>
   );
 }

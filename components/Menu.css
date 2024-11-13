@@ -1,0 +1,34 @@
+.menu{
+    background-color: var(--Light-Purple);
+    height:100vh;
+    width: 260px;
+    border-right: 1px solid var(--Strong-Purple);
+}
+
+.menu_element{
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 15px 45px;
+    color: var(--Light-Gray);
+}
+
+.menu_element img{
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+}
+
+.selected_menu{
+    color: var(--Strong-Purple);
+    padding: 0;
+}
+
+.rectangle_menu{
+    background-color: var(--Strong-Purple);
+    height: 60px;
+    width: 8px;
+    margin-right: 37px;
+    border-radius: 0 15px 15px 0;
+}
