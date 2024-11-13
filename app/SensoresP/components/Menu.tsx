@@ -23,7 +23,7 @@ const Menu = () => {
         </li>
         <li className="menu_element">
           <img src={area.src} alt="" />
-          <Link href="">Áreas</Link>
+          <Link href="/Areas">Áreas</Link>
         </li>
         <li className="menu_element">
           <img src={lectura.src} alt="" />
@@ -31,11 +31,11 @@ const Menu = () => {
         </li>
         <li className="menu_element">
           <img src={alerta.src} alt="" />
-          <Link href="">Alertas</Link>
+          <Link href="/Alerts">Alertas</Link>
         </li>
         <li className="menu_element">
           <img src={config.src} alt="" />
-          <Link href="">Configuración</Link>
+          <Link href="/configuracion">Configuración</Link>
         </li>
       </ul>
     </nav>

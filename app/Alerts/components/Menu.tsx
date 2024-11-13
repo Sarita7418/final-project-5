@@ -18,15 +18,15 @@ const Menu = () => {
         </li>
         <li className="menu_element">
           <img src={sensor.src} alt="" />
-          <Link href="">Sensores</Link>
+          <Link href="/SensoresP">Sensores</Link>
         </li>
         <li className="menu_element">
           <img src={area.src} alt="" />
-          <Link href="">Áreas</Link>
+          <Link href="/Areas">Áreas</Link>
         </li>
         <li className="menu_element">
           <img src={lectura.src} alt="" />
-          <Link href="">Lecturas</Link>
+          <Link href="/Lecturas">Lecturas</Link>
         </li>
         <li className="menu_element selected_menu">
           <div className="rectangle_menu"></div>
@@ -35,7 +35,7 @@ const Menu = () => {
         </li>
         <li className="menu_element">
           <img src={config.src} alt="" />
-          <Link href="">Configuración</Link>
+          <Link href="/configuracion">Configuración</Link>
         </li>
       </ul>
     </nav>
