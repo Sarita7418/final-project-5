@@ -1,0 +1,69 @@
+.element_sensor {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 0;
+}
+
+.sensor_card {
+  height: 170px;
+  width: 348px;
+  background-color: var(--Light-Purple);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.sensor_title {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.sensor_aux {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.green_s{
+  color: #17d951;
+}
+
+.gray_s{
+  color: var(--Light-Gray);
+}
+
+.red_s{
+  color: red;
+}
+
+.container_dash{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1115px;
+    border-radius: 20px;
+    padding: 16px 0 24px 0;
+    border: 1px dashed var(--Strong-Purple);
+}
+
+.container_dash section{
+    display: flex;
+    width: 1067px;
+    justify-content: space-between;
+}
+
+.dashboard_content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    padding-top: 32px;
+}
+
+.container_dash h2{
+    font-size: 28px;
+}
