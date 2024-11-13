@@ -1,0 +1,21 @@
+.buttons_sensor{
+    display: flex;
+    margin-top: 20px;
+    width: 100vw;
+    justify-content: space-around;
+    padding: 0 400px;
+}
+
+.bs_element{
+    background-color: var(--Strong-Purple);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.bs_element img{
+    margin-left: 10px;
+}

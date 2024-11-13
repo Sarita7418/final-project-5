@@ -3,6 +3,10 @@ import Menu from "@/components/Menu";
 import React from "react";
 import SensorCard from "./components/SensorCard";
 import AlertCard from "./components/AlertCard";
+import ConsumoCard from "./components/ConsumoCard";
+import Link from "next/link";
+import report_b from "@/public/carbon_report_white.svg"
+import ButtonsSensor from "./components/ButtonsSensor";
 
 const dashboard = () => {
   return (
@@ -24,9 +28,22 @@ const dashboard = () => {
               </div>
               <div className="sensor_aux">
                 <h3 className="sensor_title red_s">Alertas</h3>
-                <AlertCard/>
+                <AlertCard />
               </div>
             </section>
+            <ButtonsSensor/>
+          </section>
+          <section className="container_consumo">
+            <div>
+              <h3 className="sensor_title purple_db">Consumo total mensual</h3>
+              <ConsumoCard />
+            </div>
+            <Link href="">
+              <button className="b_report_db">
+                <img src={report_b.src} alt="" />
+                <span>Generar reporte</span>
+              </button>
+            </Link>
           </section>
         </section>
       </section>

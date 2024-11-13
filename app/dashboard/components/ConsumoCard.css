@@ -1,0 +1,29 @@
+.purple_db{
+    color: var(--Strong-Purple);
+}
+
+.container_consumo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1115px;
+    border-radius: 20px;
+    padding: 16px 0 24px 0;
+    border: 1px dashed var(--Strong-Purple);
+    margin-bottom: 32px;
+}
+
+.b_report_db{
+    background-color: var(--Strong-Purple);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 32px;
+}
+
+.b_report_db img{
+    margin-right: 10px;
+}

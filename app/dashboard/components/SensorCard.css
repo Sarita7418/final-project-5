@@ -48,6 +48,7 @@
     border-radius: 20px;
     padding: 16px 0 24px 0;
     border: 1px dashed var(--Strong-Purple);
+    margin-bottom: 32px;
 }
 
 .container_dash section{
