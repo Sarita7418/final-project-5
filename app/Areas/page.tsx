@@ -8,8 +8,9 @@ const Areas = () => {
       <Header />
       <section className="content">
         <Menu />
-        <section>
-         
+        <section className="page_content">
+            {/*trabajar aqui*/}
+
         </section>
       </section>
     </div>
