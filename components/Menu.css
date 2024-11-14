@@ -1,6 +1,6 @@
 .menu{
     background-color: var(--Light-Purple);
-    height:100vh;
+    height:200vh;
     width: 260px;
     border-right: 1px solid var(--Strong-Purple);
 }

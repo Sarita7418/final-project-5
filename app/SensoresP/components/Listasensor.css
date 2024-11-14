@@ -1,0 +1,59 @@
+.listas {
+    position: relative;
+    top: 10px;
+    color: #AC39D4;
+    font-family: Manrope;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.SelecRec {
+    position: relative;
+    top: 50px;
+    left: 40px;
+    color: #AC39D4;
+    font-family: Manrope;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+}
+
+.titleGS {
+    font-family: Manrope;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    position: relative;
+    top: 28px;
+    left: 46px;
+    color: black;
+}
+
+.Listarec {
+    display: flex;
+    width: 369px;
+    height: 54px;
+    
+    
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.contelist {
+    width: 1107px;
+    height: 620px;
+    flex-shrink: 0;
+    position: relative;
+    top: 82px;
+    left: 53px;
+    background-color: #CC25D81F;
+    border-radius: 25px;
+    flex-shrink: 0;
+}
