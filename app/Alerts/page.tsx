@@ -10,7 +10,7 @@ function alerts() {
       <Header />
       <section className="content">
         <Menu />
-        <section className="alerts_content">
+        <section className="page_content">
           <Alert/>
         </section>
       </section>
