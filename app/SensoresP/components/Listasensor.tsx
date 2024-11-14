@@ -98,12 +98,15 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
-                  <Button variant="outline" className="form-buttonG">
-                    <Link href="">Guardar</Link>
-                  </Button>{" "}
-                  <Button variant="outline" className="form-buttonG">
-                    <Link href="">Guardar</Link>
-                  </Button>
+                  <TableCell>
+                    {/* Agrega un <TableCell> para los botones */}
+                    <Button variant="outline" className="form-buttonG">
+                      <Link href="">Guardar</Link>
+                    </Button>
+                    <Button variant="outline" className="form-buttonG">
+                      <Link href="">Guardar</Link>
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
