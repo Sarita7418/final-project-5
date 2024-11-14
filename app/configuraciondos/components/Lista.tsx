@@ -1,6 +1,6 @@
 import React from 'react'
 import alerta from "@/public/fluent_warning-16-filled.svg"
-import "./Lista.tsx"
+import "./Lista.jsx"
 import Laura from "@/public/Laura.svg"
 import Rosam from "@/public/Rosam.svg"
 
