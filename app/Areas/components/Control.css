@@ -8,8 +8,8 @@
   background-color: transparent;
 }
 .options button:nth-child(2) {
-    margin-left: 130px; /* Espacio adicional a la izquierda del segundo botón */
-  }
+  margin-left: 130px; /* Espacio adicional a la izquierda del segundo botón */
+}
 
 .options {
   display: flex;
@@ -65,19 +65,19 @@
   border: 1px solid var(--Light-Purple);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
 }
 
 .floor-selector label {
   font-size: 1rem;
   font-weight: 500;
-  color: #333;
+  color: var(--Strong-Purple);
 }
 
 #floor-select {
   padding: 8px;
+  margin-right: 350px;
   font-size: 0.9rem;
   border: 1px solid #d0d0d0;
-  border-radius: 4px;
-  color: #333;
+  border-radius: 8px;
+  color: var(--Strong-Purple);
 }
