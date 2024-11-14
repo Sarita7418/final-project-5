@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-import Listasensor from "./components/Listasensor";
+import Formulario from "./components/Formulario";
 
 const sensor = () => {
   return (
@@ -10,7 +10,7 @@ const sensor = () => {
       <section className="content">
         <Menu />
         <section className="page_content">
-          <Listasensor />
+          <Formulario />
         </section>
       </section>
     </div>
