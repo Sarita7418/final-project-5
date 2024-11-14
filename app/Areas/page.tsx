@@ -9,10 +9,7 @@ const Areas = () => {
       <section className="content">
         <Menu />
         <section className="page_content">
-        <Control/>
-
-
-
+          <Control />
         </section>
       </section>
     </div>

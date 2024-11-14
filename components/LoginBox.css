@@ -1,0 +1,38 @@
+.login-box {
+  font-family: "Manrope";
+  background: linear-gradient(to bottom, var(--Strong-Purple), var(--White));
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+  color: var(--White);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  color: var(--White);
+  font-size: 0.9rem;
+}
+
+.forgot-password {
+  font-weight: 900;
+  font-size: 0.8rem;
+  color: black;
+  opacity: 0.6;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.Red-Social p {
+  font-weight: 700;
+  color: black;
+  text-align: start;
+  margin: 20px 0px;
+}

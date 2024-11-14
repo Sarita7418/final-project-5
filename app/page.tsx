@@ -1,14 +1,12 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import "@/components/ui/button.css";
+import Login from "@/components/Login";
 
 export default function Home() {
   return (
-    <div>
-      <Button variant="outline" className="rojo">
-        <Link href="/Areas">Dashboard</Link>
-      </Button>
+    <div className="login-container">
+     <Login/>
     </div>
   );
 }

@@ -1,0 +1,16 @@
+.social-login {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px; 
+  margin-bottom: 20px;
+}
+
+.social-login button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--White);
+  cursor: pointer;
+  padding: 12px;
+  box-sizing: border-box;
+}
