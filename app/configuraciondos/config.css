@@ -14,7 +14,7 @@ h4{
 .fondo{
     color: var(--Strong-Purple);
     width: 1050px;       /* Ancho del fondo */
-    height: 350px;      /* Alto del fondo */
+    height: 450px;      /* Alto del fondo */
     background-color: rgb(238, 197, 248);;  /* Color de fondo */
     padding-left: 20px;
     border-radius: 20px;
@@ -33,7 +33,7 @@ h4{
 
 .linea {
     height: 1px;             /* Grosor de la línea */
-    background-color: black; /* Color de la línea */
+    background-color: rgb(250, 246, 246); /* Color de la línea */
     width: 97%;              /* Ancho de la línea (80% del ancho de la página) */
     margin: 20px auto;       /* Espaciado alrededor y centrado */
   }

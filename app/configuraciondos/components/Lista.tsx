@@ -3,6 +3,7 @@ import alerta from "@/public/fluent_warning-16-filled.svg"
 import "./Lista.jsx"
 import Laura from "@/public/Laura.svg"
 import Rosam from "@/public/Rosam.svg"
+import Fabricio from "@/public/Fabricio.svg"
 
 const AlertCard = () => {
   return (
@@ -28,6 +29,21 @@ const AlertCard = () => {
                     <span>Admnistración</span> 
                     <span>Asuntos externos</span>
                     <span>laura@gmail.com</span>
+                    <button>Editar</button>
+                    <button>Archivar</button>
+                </div>                
+              </div> 
+            <div className="lineados"></div>
+            <div className="perfil">              
+              <div className="foto">
+                    <img src={Fabricio.src} alt="" />
+                  
+                </div>
+                <div className="datosdos">
+                    <span>Carlos Lopez</span>
+                    <span>Admnistración</span> 
+                    <span>Recepción</span>
+                    <span>clopez@gmail.com</span>
                     <button>Editar</button>
                     <button>Archivar</button>
                 </div>                

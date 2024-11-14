@@ -13,9 +13,9 @@ h4{
 
 .fondo{
     color: var(--Strong-Purple);
-    width: 1050px;       /* Ancho del fondo */
-    height: 350px;      /* Alto del fondo */
-    background-color: rgb(238, 197, 248);;  /* Color de fondo */
+    width: 1050px;       
+    height: 350px;      
+    background-color: rgb(238, 197, 248);
     padding-left: 20px;
     border-radius: 20px;
     margin-left: 16px;
@@ -64,7 +64,7 @@ h4{
     padding-top: 20px;
     padding-bottom: 20px;
     content: normal;
-    width: 1000px;  /* Ancho del contenido */
+    width: 900px;  /* Ancho del contenido */
     height: 20px; /* Alto del contenido */
   }
 
@@ -75,7 +75,7 @@ h4{
     padding-top: 20px;
     padding-bottom: 20px;
     content: normal;
-    width: 1018px;  /* Ancho del contenido */
+    width: 920px;  /* Ancho del contenido */
     height: 20px; /* Alto del contenido */
   }
 
@@ -110,6 +110,7 @@ button{
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease; 
+    position: relative;
 }
 
 .boton2{
@@ -123,21 +124,45 @@ button{
     padding-left: 10px;
 }
 
+.botonedit{
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 15x;
+  margin: 10px;
+  margin-left: 10px;
+  align-items: center;
+  border-radius: 15px;
+  
+}
 
+.agregado{
+  color: white;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 7px 15x;
+  margin: 10px;
+  margin-left: 10px;
+  border-radius: 15px;
+  background-color: var(--Strong-Purple);
+  
+}
 
 .fondo2{
-    width: 1050px;       /* Ancho del fondo */
-    height: 190px;      /* Alto del fondo */
+    width: 1050px;       
+    height: 190px;     
     padding-left: 20px;
     border-radius: 20px;
-    margin-left: 16px;
+    margin-left: 106px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+
 }
 
 .pie{
     display: flex;
+    align-items: flex-end;
     justify-content: center;
 }
 
