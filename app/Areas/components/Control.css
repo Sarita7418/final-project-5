@@ -1,7 +1,83 @@
+/* Control.css */
+
 .floor-control {
-    background-color: #f7f3ff;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: transparent;
+}
+.options button:nth-child(2) {
+    margin-left: 130px; /* Espacio adicional a la izquierda del segundo botón */
   }
+
+.options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background-color: var(--White);
+  border: 1px solid var(--Light-Purple);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.options h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--Strong-Purple);
+  margin: 0;
+}
+
+.add-area-btn,
+.all-areas-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 15px;
+  background-color: var(--Strong-Purple);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-area-btn:hover,
+.all-areas-btn:hover {
+  background-color: var(--Strong-Purple);
+}
+
+.add-area-btn img,
+.all-areas-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.floor-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 20px;
+  background-color: var(--White);
+  border: 1px solid var(--Light-Purple);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.floor-selector label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+#floor-select {
+  padding: 8px;
+  font-size: 0.9rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  color: #333;
+}
