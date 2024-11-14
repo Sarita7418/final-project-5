@@ -19,3 +19,8 @@
 .content{
   display: flex;
 }
+
+.page_content{
+  margin-top: 89px;
+  margin-left: 260px;
+}

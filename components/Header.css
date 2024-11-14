@@ -10,10 +10,14 @@ header{
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
-    width: auto;
     align-items: center;
     padding: 8px 40px;
     border-bottom: 1px solid var(--Strong-Purple);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+    background-color: white;
 }
 
 .buttons{
