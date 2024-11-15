@@ -4,14 +4,11 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
-  ResponsiveContainer,
   XAxis,
 } from "recharts";
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardHeader,
 } from "@/components/ui/card";
 import {
   ChartConfig,
@@ -50,11 +47,11 @@ export function ComparativeG() {
       <CardContent>
         <ChartContainer config={chartConfig}>
           <div className="chart-wrapper">
-            <ResponsiveContainer width={720} height={260}>
               <BarChart
                 accessibilityLayer
                 data={chartData}
                 className="comparative-g"
+                width={720} height={260}
               >
                 <CartesianGrid vertical={false} />
                 <XAxis
@@ -82,7 +79,6 @@ export function ComparativeG() {
                   barSize={20}
                 />
               </BarChart>
-            </ResponsiveContainer>
           </div>
         </ChartContainer>
       </CardContent>
