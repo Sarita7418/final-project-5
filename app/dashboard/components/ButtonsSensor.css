@@ -16,6 +16,10 @@
     border-radius: 8px;
 }
 
+.bs_element:hover{
+  background-color: var(--Strong-Purple);
+  opacity: 0.5;
+}
 .bs_element img{
     margin-left: 10px;
 }
