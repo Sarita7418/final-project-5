@@ -1,0 +1,27 @@
+.comparative-container {
+  background-color: var(--Light-Purple);
+  width: 790px;
+  height: 340px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-wrapper {
+  width: 100%; /* Asegúrate de que ocupe el ancho del contenedor */
+  height: 280px; /* Ajusta la altura a tus necesidades */
+  background-color: #f5f3ff;
+  border-radius: 12px;
+  padding: 16px;
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
+}
+
+.etiquetas-x {
+  color: var(--Color-basic-Black, #000);
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
