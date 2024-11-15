@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Menu from "./components/Menu";
 import Formulario from "./components/Formulario";
 
-const sensor = () => {
+const sensorf = () => {
   return (
     <div>
       <Header />
@@ -17,4 +17,4 @@ const sensor = () => {
   );
 };
 
-export default sensor;
+export default sensorf;

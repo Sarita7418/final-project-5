@@ -98,11 +98,11 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
-                  <Button variant="outline" className="form-buttonG">
-                    <Link href="">Guardar</Link>
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Editar</Link>
                   </Button>{" "}
-                  <Button variant="outline" className="form-buttonG">
-                    <Link href="">Guardar</Link>
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Eliminar</Link>
                   </Button>
                 </TableRow>
               ))}
@@ -138,6 +138,12 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Editar</Link>
+                  </Button>{" "}
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Eliminar</Link>
+                  </Button>
                 </TableRow>
               ))}
             </TableBody>
@@ -172,6 +178,12 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Editar</Link>
+                  </Button>{" "}
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Eliminar</Link>
+                  </Button>
                 </TableRow>
               ))}
             </TableBody>
@@ -183,6 +195,9 @@ const Listasensor = () => {
             </TableFooter>
           </Table>
         </TabsContent>
+        <Button variant="outline" className="form-button">
+        <Link href="/SensoresF">Añadir</Link>
+        </Button>
       </Tabs>
     </div>
   );
