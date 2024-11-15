@@ -78,7 +78,7 @@ export function PieG() {
   const months = React.useMemo(() => desktopData.map((item) => item.month), [])
 
   return (
-    <Card data-chart={id} className="flex flex-col">
+    <Card data-chart={id} className="flex flex-col pie_card">
       <ChartStyle id={id} config={chartConfig} />
       <CardHeader className="flex-row items-start space-y-0 pb-0">
         <div className="grid gap-1">
