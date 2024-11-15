@@ -1,5 +1,3 @@
-/* Control.css */
-
 .floor-control {
   display: flex;
   flex-direction: column;
@@ -48,6 +46,7 @@
 .add-area-btn:hover,
 .all-areas-btn:hover {
   background-color: var(--Strong-Purple);
+  opacity: 0.5;
 }
 
 .add-area-btn img,
