@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-import Listasensor from "./components/Listasensor";
+import Listasensor from "../../components/Listasensor";
 
 const sensor = () => {
   return (

@@ -57,3 +57,14 @@
     border-radius: 25px;
     flex-shrink: 0;
 }
+.form-button{
+    background-color: var(--Strong-Purple);
+    color: #fff;
+    border-radius: 30px;
+    font-size: 16px;
+    width: 98px;
+    height: 60px;
+    text-align: center;
+    position: relative;
+    left: 170px;
+}

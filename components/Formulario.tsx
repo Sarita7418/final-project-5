@@ -1,5 +1,5 @@
 import React from "react";
-import "@/app/SensoresP/components/Formulario.css";
+import "@/components/Formulario.css";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
