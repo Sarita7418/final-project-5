@@ -1,0 +1,27 @@
+.circle_ant{
+    width: 16;
+    height: 16;
+    background-color: var(--Strong-Purple);
+    border-radius: 25px;
+    margin-right: 12px;
+}
+
+.circle_act{
+    width: 16;
+    height: 16;
+    background-color: var(--Table-Purple);
+    border-radius: 25px;
+    margin-right: 12px;
+}
+
+.legend_container{
+    display: flex;
+    width: 400px;
+    justify-content: space-around;
+    padding: 16px;
+}
+
+.legend_container div{
+    display: flex;
+    align-items: center;
+}
