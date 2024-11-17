@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "./components/Header";
-import Menu from "./components/Menu";
-import Formulario from "./components/Formulario";
+import Header from "../SensoresP/components/Header";
+import Menu from "../SensoresP/components/Menu";
+import Formulario from "../../components/Formulario";
 
 const sensor = () => {
   return (

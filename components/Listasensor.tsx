@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import "@/app/SensoresP/components/Listasensor.css";
+import "@/components/Listasensor.css";
 import {
   Table,
   TableBody,
@@ -98,15 +98,12 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
-                  <TableCell>
-                    {/* Agrega un <TableCell> para los botones */}
-                    <Button variant="outline" className="form-buttonG">
-                      <Link href="">Guardar</Link>
-                    </Button>
-                    <Button variant="outline" className="form-buttonG">
-                      <Link href="">Guardar</Link>
-                    </Button>
-                  </TableCell>
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Editar</Link>
+                  </Button>{" "}
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Eliminar</Link>
+                  </Button>
                 </TableRow>
               ))}
             </TableBody>
@@ -141,6 +138,12 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Editar</Link>
+                  </Button>{" "}
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Eliminar</Link>
+                  </Button>
                 </TableRow>
               ))}
             </TableBody>
@@ -175,6 +178,12 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Editar</Link>
+                  </Button>{" "}
+                  <Button variant="outline" className="form-button">
+                    <Link href="">Eliminar</Link>
+                  </Button>
                 </TableRow>
               ))}
             </TableBody>
@@ -186,6 +195,9 @@ const Listasensor = () => {
             </TableFooter>
           </Table>
         </TabsContent>
+        <Button variant="outline" className="form-button">
+        <Link href="/sensoresf">Añadir</Link>
+        </Button>
       </Tabs>
     </div>
   );
