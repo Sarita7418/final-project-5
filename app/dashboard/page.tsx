@@ -1,13 +1,13 @@
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import React from "react";
-import SensorCard from "./components/SensorCard";
-import AlertCard from "./components/AlertCard";
-import ConsumoCard from "./components/ConsumoCard";
+import SensorCard from "../../components/SensorCard";
+import AlertCard from "../../components/AlertCard";
+import ConsumoCard from "../../components/ConsumoCard";
 import Link from "next/link";
 import report_b from "@/public/carbon_report_white.svg"
-import ButtonsSensor from "./components/ButtonsSensor";
-import ConsumoGC from "./components/ConsumoGC";
+import ButtonsSensor from "../../components/ButtonsSensor";
+import ConsumoGC from "../../components/ConsumoGC";
 
 const dashboard = () => {
   return (
