@@ -44,7 +44,7 @@ export function ComparativeG() {
   return (
     <Card className="comparative-container">
       <LegendG />
-      <CardContent>
+      <CardContent style={{ height: 280, width:790}}>
         <ChartContainer config={chartConfig}>
           <div className="chart-wrapper">
               <BarChart
