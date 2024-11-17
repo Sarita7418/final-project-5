@@ -48,6 +48,7 @@
 .add-area-btn:hover,
 .all-areas-btn:hover {
   background-color: var(--Strong-Purple);
+  opacity: 0.5;
 }
 
 .add-area-btn img,
