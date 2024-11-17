@@ -83,7 +83,7 @@ export function PieG() {
 
       <CardContent
         className="flex flex-1 justify-center pb-0"
-        style={{ height: 280, width: 280 }}
+        style={{ height: 220, width: 280 }}
       >
         <ChartContainer
           id={id}
@@ -149,9 +149,9 @@ export function PieG() {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <Select value={activeMonth} onValueChange={setActiveMonth}>
+      <Select value={activeMonth} onValueChange={setActiveMonth} >
         <SelectTrigger
-          className="h-7 w-[130px] rounded-lg pl-2.5"
+          className="h-7 w-[130px] rounded-lg pl-2.5 select-trigger"
           aria-label="Select a value"
         >
           <SelectValue placeholder="Select month" />
@@ -170,7 +170,7 @@ export function PieG() {
                 value={key}
                 className="rounded-lg [&_span]:flex"
               >
-                <div className="flex items-center gap-2 text-xs">
+                <div className="flex items-center gap-2">
                   <span
                     className="flex h-3 w-3 shrink-0 rounded-sm"
                     style={{
