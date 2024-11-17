@@ -1,0 +1,18 @@
+.graficos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+.span-title {
+  text-align: left;
+  width: 1030px;
+  font-family: Manrope;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--Strong-Purple);
+}

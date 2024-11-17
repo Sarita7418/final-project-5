@@ -1,0 +1,21 @@
+import React from "react";
+import { ComparativeG } from "./ComparativeG";
+import { PieG } from "./PieG";
+import "./ConsumoGC.css"
+
+const ConsumoGC = () => {
+  return (
+    <section className="container_consumo">
+     <span className="span-title">
+        Consumo Semanal
+     </span>
+     <div className="graficos">
+      <ComparativeG />
+      <PieG />  
+     </div>
+      
+    </section>
+  );
+};
+
+export default ConsumoGC;

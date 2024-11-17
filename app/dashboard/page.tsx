@@ -7,8 +7,7 @@ import ConsumoCard from "./components/ConsumoCard";
 import Link from "next/link";
 import report_b from "@/public/carbon_report_white.svg"
 import ButtonsSensor from "./components/ButtonsSensor";
-import { ComparativeG } from "./components/ComparativeG";
-import { PieG } from "./components/PieG";
+import ConsumoGC from "./components/ConsumoGC";
 
 const dashboard = () => {
   return (
@@ -17,10 +16,7 @@ const dashboard = () => {
       <section className="content">
         <Menu />
         <section className="dashboard_content page_content">
-          <section className="container_consumo">
-            <ComparativeG/>
-            <PieG/>
-          </section>
+          <ConsumoGC/>
           <section className="container_dash">
             <h2>Sensores</h2>
             <section>

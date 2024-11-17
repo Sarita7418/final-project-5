@@ -26,11 +26,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 const desktopData = [
-  { month: "january", desktop: 186, fill: "var(--color-january)" },
-  { month: "february", desktop: 305, fill: "var(--color-february)" },
-  { month: "march", desktop: 237, fill: "var(--color-march)" },
-  { month: "april", desktop: 173, fill: "var(--color-april)" },
-  { month: "may", desktop: 209, fill: "var(--color-may)" },
+  { area: "Piso 1", desktop: 186, fill: "var(--color-january)" },
+  { area: "Piso 2", desktop: 305, fill: "var(--color-february)" },
+  { area: "Piso 3", desktop: 237, fill: "var(--color-march)" },
+  { area: "Piso 4", desktop: 173, fill: "var(--color-april)" },
+  { area: "Planta Baja", desktop: 209, fill: "var(--color-may)" },
 ];
 
 const chartConfig = {
@@ -69,13 +69,14 @@ import "./PieG.css";
 
 export function PieG() {
   const id = "pie-interactive";
-  const [activeMonth, setActiveMonth] = React.useState(desktopData[0].month);
+  const [activeArea, setActiveArea] = React.useState(desktopData[0].area);
 
   const activeIndex = React.useMemo(
-    () => desktopData.findIndex((item) => item.month === activeMonth),
-    [activeMonth]
+    () => desktopData.findIndex((item) => item.area === activeArea),
+    [activeArea]
   );
-  const months = React.useMemo(() => desktopData.map((item) => item.month), []);
+
+  const areas = React.useMemo(() => desktopData.map((item) => item.area), []);
 
   return (
     <Card data-chart={id} className="flex flex-col" id="pie_card">
@@ -98,7 +99,7 @@ export function PieG() {
             <Pie
               data={desktopData}
               dataKey="desktop"
-              nameKey="month"
+              nameKey="area"
               innerRadius={60}
               strokeWidth={5}
               activeIndex={activeIndex}
@@ -149,16 +150,16 @@ export function PieG() {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <Select value={activeMonth} onValueChange={setActiveMonth} >
+      <Select value={activeArea} onValueChange={setActiveArea}>
         <SelectTrigger
           className="h-7 w-[130px] rounded-lg pl-2.5 select-trigger"
-          aria-label="Select a value"
+          aria-label="Select an area"
         >
-          <SelectValue placeholder="Select month" />
+          <SelectValue placeholder="Select area" />
         </SelectTrigger>
         <SelectContent align="end" className="rounded-xl">
-          {months.map((key) => {
-            const config = chartConfig[key as keyof typeof chartConfig];
+          {areas.map((key) => {
+            const config = desktopData.find((item) => item.area === key);
 
             if (!config) {
               return null;
@@ -174,10 +175,10 @@ export function PieG() {
                   <span
                     className="flex h-3 w-3 shrink-0 rounded-sm"
                     style={{
-                      backgroundColor: `var(--color-${key})`,
+                      backgroundColor: config.fill,
                     }}
                   />
-                  {config?.label}
+                  {config.area}
                 </div>
               </SelectItem>
             );
