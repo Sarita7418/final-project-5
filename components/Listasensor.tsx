@@ -98,12 +98,14 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
-                  <Button variant="outline" className="form-button">
-                    <Link href="">Editar</Link>
-                  </Button>{" "}
-                  <Button variant="outline" className="form-button">
-                    <Link href="">Eliminar</Link>
-                  </Button>
+                  <TableCell>
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Editar</Link>
+                    </Button>{" "}
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Eliminar</Link>
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -138,12 +140,14 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
-                  <Button variant="outline" className="form-button">
-                    <Link href="">Editar</Link>
-                  </Button>{" "}
-                  <Button variant="outline" className="form-button">
-                    <Link href="">Eliminar</Link>
-                  </Button>
+                  <TableCell>
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Editar</Link>
+                    </Button>{" "}
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Eliminar</Link>
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -178,12 +182,14 @@ const Listasensor = () => {
                   <TableCell className="text-right">
                     {invoice.totalAmount}
                   </TableCell>
-                  <Button variant="outline" className="form-button">
-                    <Link href="">Editar</Link>
-                  </Button>{" "}
-                  <Button variant="outline" className="form-button">
-                    <Link href="">Eliminar</Link>
-                  </Button>
+                  <TableCell>
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Editar</Link>
+                    </Button>{" "}
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Eliminar</Link>
+                    </Button>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -196,7 +202,7 @@ const Listasensor = () => {
           </Table>
         </TabsContent>
         <Button variant="outline" className="form-button">
-        <Link href="/sensoresf">Añadir</Link>
+          <Link href="/sensoresf">Añadir</Link>
         </Button>
       </Tabs>
     </div>
