@@ -1,0 +1,56 @@
+h4{
+    color: blueviolet;
+    padding-inline: 20px;
+}
+
+.pestana{
+    display: flex;
+    padding-top: 30px;
+    padding-left: 90px;
+    padding-bottom: 20px;
+
+}
+
+.boton1{
+    color: white;
+    background-color: var(--Strong-Purple);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+.botonA{
+    color: white;
+    background-color: var(--Strong-Purple);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    position: relative;
+}
+
+.boton2{
+    color: white;
+    background-color: var(--Strong-Purple);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    padding-left: 10px;
+}
+
+.fondo2{
+    width: 1050px;       
+    height: 190px;     
+    padding-left: 20px;
+    border-radius: 20px;
+    margin-left: 106px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
