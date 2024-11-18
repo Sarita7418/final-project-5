@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
-import Menu from './components/Menu'
+import Menu from '@/components/Menu'
 import Alert from './components/Alert'
 
 
