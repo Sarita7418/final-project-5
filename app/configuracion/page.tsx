@@ -18,7 +18,12 @@ const configuracion = () => {
               </div>
                 <Lista/>
                 <BotonAgr/>
-             
+                <div className="pestana">                
+                <h4>Usuarios</h4>
+                <h4>Ajustes del Sistema</h4>
+              </div>
+                <Lista/>
+                <BotonAgr/>
         </section>
       </section>
 </div>
