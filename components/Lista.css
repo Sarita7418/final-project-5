@@ -79,8 +79,6 @@ h4{
     height: 20px; /* Alto del contenido */
   }
 
-
-
 .button-voto:hover {
     background-color: white;          /* Fondo rojo al pasar el cursor */
     border-color: var(--Strong-Purple);              /* Borde más oscuro al pasar el cursor */
