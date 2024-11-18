@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // Reemplaza useRouter con usePathname
+import { usePathname } from "next/navigation"; // Hook para obtener la ruta activa
 import "./Menu.css";
 import dashboard from "@/public/home 2.svg";
 import lectura from "@/public/carbon_report.svg";
@@ -11,7 +11,7 @@ import config from "@/public/settings solid 1.svg";
 import area from "@/public/mdi_report-line.svg";
 
 const Menu = () => {
-  const pathname = usePathname(); // Obtén la ruta actual
+  const pathname = usePathname(); // Obtener la ruta actual
 
   const menuItems = [
     { label: "Dashboard", href: "/dashboard", icon: dashboard },
@@ -32,6 +32,11 @@ const Menu = () => {
               pathname === item.href ? "selected_menu" : ""
             }`}
           >
+            <div
+              className={`${
+                pathname === item.href ? "rectangle_menu" : ""
+              }`}
+            ></div>
             <img src={item.icon.src} alt={`${item.label} icon`} />
             <Link href={item.href}>{item.label}</Link>
           </li>
