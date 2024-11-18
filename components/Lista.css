@@ -1,0 +1,161 @@
+h4{
+    color: blueviolet;
+    padding-inline: 20px;
+}
+
+.pestana{
+    display: flex;
+    padding-top: 30px;
+    padding-left: 90px;
+    padding-bottom: 20px;
+
+}
+
+.fondo{
+    color: var(--Strong-Purple);
+    width: 1050px;       
+    height: 350px;      
+    background-color: rgb(238, 197, 248);
+    padding-left: 20px;
+    border-radius: 20px;
+    margin-left: 16px;
+}
+
+.encabezados{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+    border-style: 3px;
+    padding-right: 350px;
+    font-weight: bold;
+    font-size: 19px;
+}
+
+.linea {
+    height: 1px;             /* Grosor de la línea */
+    background-color: black; /* Color de la línea */
+    width: 97%;              /* Ancho de la línea (80% del ancho de la página) */
+    margin: 20px auto;       /* Espaciado alrededor y centrado */
+  }
+
+  .lineados{
+    height: 0.7px;             /* Grosor de la línea */
+    background-color: var(--Strong-Purple); /* Color de la línea */
+    width: 97%;              /* Ancho de la línea (80% del ancho de la página) */
+    margin: 20px auto;  
+  }
+
+  .perfil{
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+  }
+  .foto{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    
+  }
+
+  .datosT{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    content: normal;
+    width: 900px;  /* Ancho del contenido */
+    height: 20px; /* Alto del contenido */
+  }
+
+  .datosdos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    content: normal;
+    width: 920px;  /* Ancho del contenido */
+    height: 20px; /* Alto del contenido */
+  }
+
+
+
+.button-voto:hover {
+    background-color: white;          /* Fondo rojo al pasar el cursor */
+    border-color: var(--Strong-Purple);              /* Borde más oscuro al pasar el cursor */
+  }
+
+.boton1{
+    color: white;
+    background-color: var(--Strong-Purple);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+.botonA{
+    color: white;
+    background-color: var(--Strong-Purple);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    position: relative;
+}
+
+.boton2{
+    color: white;
+    background-color: var(--Strong-Purple);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    padding-left: 10px;
+}
+
+.botonedit{
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 15x;
+  margin: 10px;
+  margin-left: 10px;
+  align-items: center;
+  border-radius: 15px;
+  
+}
+
+.agregado{
+  color: white;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 7px 15x;
+  margin: 10px;
+  margin-left: 10px;
+  border-radius: 15px;
+  background-color: var(--Strong-Purple);
+  
+}
+
+.fondo2{
+    width: 1050px;       
+    height: 190px;     
+    padding-left: 20px;
+    border-radius: 20px;
+    margin-left: 106px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+.pie{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
