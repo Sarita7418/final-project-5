@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../SensoresP/components/Header";
+import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import Formulario from "../../components/Formulario";
 
