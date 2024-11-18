@@ -1,8 +1,8 @@
 import React from 'react'
 import { ComparativeG } from "./ComparativeG";
-import { PieG } from "./PieG";
 import "./ConsumoGC.css"
 import "./AreaElectricidad.css"
+import { PieArea } from './PieArea';
 
 const   AreaAgua = () => {
   return (
@@ -12,7 +12,7 @@ const   AreaAgua = () => {
      </span>
      <div className="graficos">
       <ComparativeG />
-      <PieG />  
+      <PieArea />  
      </div>
       
     </section>
