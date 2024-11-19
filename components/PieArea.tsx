@@ -25,11 +25,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 const desktopData = [
-  { area: "Piso 1", desktop: 186, fill: "var(--color-january)" },
-  { area: "Piso 2", desktop: 305, fill: "var(--color-february)" },
-  { area: "Piso 3", desktop: 237, fill: "var(--color-march)" },
-  { area: "Piso 4", desktop: 173, fill: "var(--color-april)" },
-  { area: "Planta Baja", desktop: 209, fill: "var(--color-may)" },
+  { area: "Sabado", desktop: 186, fill: "var(--color-Sabado)" },
+  { area: "Domingo", desktop: 305, fill: "var(--color-Domingo)" },
+  { area: "Lunes", desktop: 237, fill: "var(--color-Lunes)" },
+  { area: "Martes", desktop: 173, fill: "var(--color-Martes)" },
+  { area: "Miercoles", desktop: 209, fill: "var(--color-Miercoles)" },
+  { area: "Jueves", desktop: 215, fill: "var(--color-Jueves)" },
+  { area: "Viernes", desktop: 195, fill: "var(--color-Viernes)" },
+
 ];
 
 const chartConfig = {
@@ -42,25 +45,33 @@ const chartConfig = {
   mobile: {
     label: "Mobile",
   },
-  january: {
-    label: "January",
+  Sabado: {
+    label: "Sabado",
     color: "hsl(var(--chart-1))",
   },
-  february: {
-    label: "February",
+  Domingo: {
+    label: "Domingo",
     color: "hsl(var(--chart-2))",
   },
-  march: {
-    label: "March",
+  Lunes: {
+    label: "Lunes",
     color: "hsl(var(--chart-3))",
   },
-  april: {
-    label: "April",
+  Martes: {
+    label: "Martes",
     color: "hsl(var(--chart-4))",
   },
-  may: {
-    label: "May",
+  Miercoles: {
+    label: "Miercoles",
     color: "hsl(var(--chart-5))",
+  },
+  Jueves: {
+    label: "Jueves",
+    color: "hsl(var(--chart-6))",
+  },
+  Viernes: {
+    label: "Viernes",
+    color: "hsl(var(--chart-7))",
   },
 } satisfies ChartConfig;
 
