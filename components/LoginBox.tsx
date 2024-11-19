@@ -5,8 +5,10 @@ import InputField from "./InputField";
 import SocialLogin from "./SocialLogin";
 import LoginButton from "./LoginButton";
 import "./LoginBox.css";
+import { getData } from "@/lib/getData";
 
 const LoginBox = () => {
+  
   return (
     <div className="login-box">
       <h2>Bienvenido</h2>
