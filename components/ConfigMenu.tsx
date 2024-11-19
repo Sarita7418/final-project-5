@@ -4,6 +4,7 @@ import "./ConsumoGC.css";
 import Lista from "./Lista";
 import BotonAgr from "./BotonAgr";
 import "./ConfigMenu.css";
+import GUsuarios from "./GUsuarios";
 
 const ConsumoGC = () => {
   const [selectedTab, setSelectedTab] = useState<string>("ajustesGenerales");
@@ -40,9 +41,9 @@ const ConsumoGC = () => {
           </>
         )}
         {selectedTab === "gestionUsuariosRoles" && (
-          <div>
-            <p>Contenido de Gestión de Usuarios y Roles</p>
-          </div>
+          <>
+            <GUsuarios />
+          </>
         )}
       </div>
     </section>

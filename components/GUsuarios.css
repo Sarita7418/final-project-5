@@ -1,0 +1,120 @@
+.gestion_container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 20px 60px;
+  background-color: var(--Light-Purple);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.gestion_imagen {
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--Strong-Purple);
+  align-self: center;
+}
+
+.gestion_datos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.gestion_datos div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gestion_datos span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4a4a4a;
+}
+
+.gestion_datos input {
+  padding: 10px;
+  border: 1px solid var(--Strong-Purple);
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: rgba(222, 141, 249, 0.32);
+  color: #4a4a4a;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.gestion_datos input:focus {
+  outline: none;
+  border-color: #a391d8;
+  background-color: #ffffff;
+}
+
+.gestion_boton {
+  font-size: 16px;
+  padding: 8px 16px;
+  border: 1px solid var(--Strong-Purple);
+  background-color: var(--Strong-Purple);
+  color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  width: 120px;
+}
+
+.gestion_boton:hover {
+  background-color: rgb(117, 72, 181);
+}
+
+.rellenables {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  border-bottom: 1px dashed var(--Strong-Purple);
+  padding-bottom: 30px;
+}
+
+#letra_peque {
+  font-size: 10px;
+}
+
+.Email {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gestion_datos select {
+  padding: 10px 20px 10px 10px;
+  border: 1px solid var(--Strong-Purple);
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: rgba(222, 141, 249, 0.32);
+  color: #4a4a4a;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  appearance: none
+}
+
+.gestion_datos select:focus {
+  outline: none;
+  border-color: #a391d8;
+  background-color: #ffffff;
+}
+
+.pencil{
+    width: 26px;
+    height: 26px;
+    background-color: var(--Strong-Purple);
+    border-radius: 50%;
+    padding: 4px;
+    position: absolute;
+    top: 70px;
+    right: 2px;
+}
+
+.new_image{
+    position: relative;
+}
