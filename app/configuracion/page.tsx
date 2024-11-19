@@ -3,6 +3,7 @@ import Header from '@/components/Header'
 import Menu from '@/components/Menu'
 import Lista from '@/components/Lista'
 import BotonAgr from '@/components/BotonAgr'
+import ConfigMenu from '@/components/ConfigMenu'
 
 
 const configuracion = () => {
@@ -11,13 +12,8 @@ const configuracion = () => {
       <Header />
       <section className="content">
         <Menu />
-        <section className="config_conten page_content">
-              <div className="pestana">                
-                <h4>Usuarios</h4>
-                <h4>Ajustes del Sistema</h4>
-              </div>
-                <Lista/>
-                <BotonAgr/>
+        <section className="page_content">
+              <ConfigMenu/>
         </section>
       </section>
 </div>
