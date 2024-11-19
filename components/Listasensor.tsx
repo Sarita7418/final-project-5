@@ -1,7 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import "@/components/Listasensor.css";
 import {
   Table,
@@ -59,153 +59,172 @@ const invoices = [
 ];
 
 const Listasensor = () => {
+  const [selectedTab, setSelectedTab] = useState<string>("agua");
+
+  const handleTabChange = (tab: string) => {
+    setSelectedTab(tab);
+  };
   return (
-    <div>
-      <h2 className="titleGS">Gestión de Sensores</h2>
-      <Tabs defaultValue="account" className="w-[200px] listas">
-        <TabsList className="grid w-full grid-cols-3 Listarec">
-          <TabsTrigger className="SelecRec" value="luz">
-            Luz
-          </TabsTrigger>
-          <TabsTrigger className="SelecRec" value="agua">
-            Agua
-          </TabsTrigger>
-          <TabsTrigger className="SelecRec" value="gas">
-            Gas
-          </TabsTrigger>
-        </TabsList>
-        <TabsContent className="contelist" value="luz">
-          {" "}
-          <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px]">Sensor</TableHead>
-                <TableHead>Tipo</TableHead>
-                <TableHead>Ubicacion</TableHead>
-                <TableHead>Estado</TableHead>
-                <TableHead className="text-right">Opciones de Sensor</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {invoices.map((invoice) => (
-                <TableRow key={invoice.invoice}>
-                  <TableCell className="font-medium">
-                    {invoice.invoice}
-                  </TableCell>
-                  <TableCell>{invoice.paymentStatus}</TableCell>
-                  <TableCell>{invoice.paymentMethod}</TableCell>
-                  <TableCell className="text-right">
-                    {invoice.totalAmount}
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="outline" className="form-button">
-                      <Link href="">Editar</Link>
-                    </Button>{" "}
-                    <Button variant="outline" className="form-button">
-                      <Link href="">Eliminar</Link>
-                    </Button>
-                  </TableCell>
+    <section className="container_consumo">
+      <span className="span-title">Consumo Semanal</span>
+
+      {/* Menú de pestañas */}
+      <div className="tabs">
+        <button
+          className={`tab ${selectedTab === "agua" ? "active_tab" : ""}`}
+          onClick={() => handleTabChange("agua")}
+        >
+          Agua
+        </button>
+        <button
+          className={`tab ${
+            selectedTab === "electricidad" ? "active_tab" : ""
+          }`}
+          onClick={() => handleTabChange("electricidad")}
+        >
+          Electricidad
+        </button>
+        <button
+          className={`tab ${selectedTab === "gas" ? "active_tab" : ""}`}
+          onClick={() => handleTabChange("gas")}
+        >
+          Gas
+        </button>
+      </div>
+
+      {/* Contenido dinámico basado en la pestaña seleccionada */}
+      <div className="listas">
+        {selectedTab === "agua" && (
+          <>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[100px]">Sensor</TableHead>
+                  <TableHead>Tipo</TableHead>
+                  <TableHead>Ubicación</TableHead>
+                  <TableHead>Estado</TableHead>
+                  <TableHead className="w-[400px]">
+                    Opciones de Sensor
+                  </TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TableCell colSpan={3}>Total</TableCell>
-                <TableCell className="text-right">$2,500.00</TableCell>
-              </TableRow>
-            </TableFooter>
-          </Table>
-        </TabsContent>
-        <TabsContent className="contelist" value="agua">
-          {" "}
-          <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px]">Invoice</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {invoices.map((invoice) => (
-                <TableRow key={invoice.invoice}>
-                  <TableCell className="font-medium">
-                    {invoice.invoice}
-                  </TableCell>
-                  <TableCell>{invoice.paymentStatus}</TableCell>
-                  <TableCell>{invoice.paymentMethod}</TableCell>
-                  <TableCell className="text-right">
-                    {invoice.totalAmount}
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="outline" className="form-button">
-                      <Link href="">Editar</Link>
-                    </Button>{" "}
-                    <Button variant="outline" className="form-button">
-                      <Link href="">Eliminar</Link>
-                    </Button>
-                  </TableCell>
+              </TableHeader>
+              <TableBody>
+                {invoices.map((invoice) => (
+                  <TableRow key={invoice.invoice}>
+                    <TableCell className="font-medium">
+                      {invoice.invoice}
+                    </TableCell>
+                    <TableCell>{invoice.paymentStatus}</TableCell>
+                    <TableCell>{invoice.paymentMethod}</TableCell>
+                    <TableCell className="text-right">
+                      {invoice.totalAmount}
+                    </TableCell>
+                    <TableCell>
+                      <Button variant="outline" className="form-button">
+                        <Link href="">Editar</Link>
+                      </Button>{" "}
+                      <Button variant="outline" className="form-button">
+                        <Link href="">Eliminar</Link>
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+              <TableFooter>
+                <Button variant="outline" className="bañadir">
+                  <Link href="/sensoresf">Añadir</Link>
+                </Button>
+              </TableFooter>
+            </Table>
+          </>
+        )}
+        {selectedTab === "electricidad" && (
+          <>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[100px]">Sensor</TableHead>
+                  <TableHead>Tipo</TableHead>
+                  <TableHead>Ubicacion</TableHead>
+                  <TableHead>Estado</TableHead>
+                  <TableHead className="text-right">
+                    Opciones de Sensor
+                  </TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TableCell colSpan={3}>Total</TableCell>
-                <TableCell className="text-right">$2,500.00</TableCell>
-              </TableRow>
-            </TableFooter>
-          </Table>
-        </TabsContent>
-        <TabsContent className="contelist" value="gas">
-          {" "}
-          <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px]">Invoice</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {invoices.map((invoice) => (
-                <TableRow key={invoice.invoice}>
-                  <TableCell className="font-medium">
-                    {invoice.invoice}
-                  </TableCell>
-                  <TableCell>{invoice.paymentStatus}</TableCell>
-                  <TableCell>{invoice.paymentMethod}</TableCell>
-                  <TableCell className="text-right">
-                    {invoice.totalAmount}
-                  </TableCell>
-                  <TableCell>
-                    <Button variant="outline" className="form-button">
-                      <Link href="">Editar</Link>
-                    </Button>{" "}
-                    <Button variant="outline" className="form-button">
-                      <Link href="">Eliminar</Link>
-                    </Button>
-                  </TableCell>
+              </TableHeader>
+              <TableBody>
+                {invoices.map((invoice) => (
+                  <TableRow key={invoice.invoice}>
+                    <TableCell className="font-medium">
+                      {invoice.invoice}
+                    </TableCell>
+                    <TableCell>{invoice.paymentStatus}</TableCell>
+                    <TableCell>{invoice.paymentMethod}</TableCell>
+                    <TableCell className="text-right">
+                      {invoice.totalAmount}
+                    </TableCell>
+                    <TableCell>
+                      <Button variant="outline" className="form-button">
+                        <Link href="">Editar</Link>
+                      </Button>{" "}
+                      <Button variant="outline" className="form-button">
+                        <Link href="">Eliminar</Link>
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+              <TableFooter>
+                <TableRow>
+                  <Button variant="outline" className="form-button">
+                    <Link href="/sensoresf">Añadir</Link>
+                  </Button>
                 </TableRow>
-              ))}
-            </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TableCell colSpan={3}>Total</TableCell>
-                <TableCell className="text-right">$2,500.00</TableCell>
-              </TableRow>
-            </TableFooter>
-          </Table>
-        </TabsContent>
-        <Button variant="outline" className="form-button">
-          <Link href="/sensoresf">Añadir</Link>
-        </Button>
-      </Tabs>
-    </div>
+              </TableFooter>
+            </Table>
+          </>
+        )}
+        {selectedTab === "gas" && (
+          <>
+            <Table>
+              <TableCaption>A list of your recent invoices.</TableCaption>
+              <TableHeader className="opciones">
+                <TableRow>
+                  <TableHead>Invoice</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead>Method</TableHead>
+                  <TableHead>Amount</TableHead>
+                  <TableHead className="opciones">Opciones de Sensor</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {invoices.map((invoice) => (
+                  <TableRow key={invoice.invoice}>
+                    <TableCell>{invoice.invoice}</TableCell>
+                    <TableCell>{invoice.paymentStatus}</TableCell>
+                    <TableCell>{invoice.paymentMethod}</TableCell>
+                    <TableCell >{invoice.totalAmount}</TableCell>
+                    <TableCell>
+                      <Button variant="outline" className="form-button">
+                        <Link href="">Editar</Link>
+                      </Button>
+                      <Button variant="outline" className="form-button">
+                        <Link href="">Eliminar</Link>
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+              <TableFooter>
+                <Button variant="outline" className="form-button bañadir">
+                  <Link href="/sensoresf">Añadir</Link>
+                </Button>
+              </TableFooter>
+            </Table>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 

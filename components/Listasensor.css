@@ -1,70 +1,129 @@
-.listas {
-    position: relative;
-    top: 10px;
-    color: #AC39D4;
-    font-family: Manrope;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-}
-
-.SelecRec {
-    position: relative;
-    top: 50px;
-    left: 40px;
-    color: #AC39D4;
-    font-family: Manrope;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-}
-
-.titleGS {
-    font-family: Manrope;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: capitalize;
-    position: relative;
-    top: 28px;
-    left: 46px;
-    color: black;
-}
-
-.Listarec {
-    display: flex;
-    width: 369px;
-    height: 54px;
+    .listas {
+        position: relative;
+        top: 10px;
+        color: #AC39D4;
+        font-family: Manrope;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: capitalize;
+    }
     
+    .SelecRec {
+        position: relative;
+        top: 50px;
+        left: 40px;
+        color: #AC39D4;
+        font-family: Manrope;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: capitalize;
+    }
     
-    flex-shrink: 0;
-    flex-wrap: wrap;
-}
-
-.contelist {
-    width: 1107px;
-    height: 620px;
-    flex-shrink: 0;
-    position: relative;
-    top: 82px;
-    left: 53px;
-    background-color: #CC25D81F;
-    border-radius: 25px;
-    flex-shrink: 0;
-}
-.form-button{
-    background-color: var(--Strong-Purple);
-    color: #fff;
-    border-radius: 30px;
-    font-size: 16px;
-    width: 98px;
-    height: 60px;
-    text-align: center;
-    position: relative;
-    left: 170px;
-}
+    .titleGS {
+        font-family: Manrope;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: capitalize;
+        position: relative;
+        top: 28px;
+        left: 46px;
+        color: black;
+    }
+    
+    .Listarec {
+        display: flex;
+        width: 369px;
+        height: 67px;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+    }
+    
+    .contelist {
+        width: 1107px;
+        height: 620px;
+        flex-shrink: 0;
+        position: relative;
+        top: 82px;
+        left: 53px;
+        background-color: #CC25D81F;
+        border-radius: 25px;
+        flex-shrink: 0;
+    }
+    
+    .form-button {
+        background-color: var(--Strong-Purple);
+        color: #fff;
+        border-radius: 30px;
+        font-size: 16px;
+        width: 98px;
+        height: 60px;
+        text-align: center;
+        position: relative;
+        left: 100px;
+    }
+    
+    .tabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .headtable {}
+    
+    .container_consumo {
+        width: 1115px;
+        border-radius: 20px;
+        padding: 16px 0 0px 0;
+        border: 1px dashed var(--Strong-Purple);
+        margin-bottom: 32px;
+    }
+    
+    .listas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1000px;
+        height: 700px;
+        flex-shrink: 0;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        background-color: #CC25D81F;
+        border-radius: 25px;
+        flex-shrink: 0;
+        padding: 30px 30px 30px 0px;
+    }
+    
+    .bañadir {
+        background-color: var(--Strong-Purple);
+        color: #ffffff;
+        border-radius: 30px;
+        font-size: 16px;
+        width: 98px;
+        height: 60px;
+        text-align: center;
+        position: relative;
+        top: 10px;
+        left: 50%;
+        bottom: 500px;
+    }
+    
+    Table {
+        position: relative;
+        top: 0px;
+        left: 53px;
+    }
+    
+    .opciones {
+        position: relative;
+        top: 0px;
+        left: 130px;
+    }
