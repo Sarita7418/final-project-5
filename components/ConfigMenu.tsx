@@ -29,15 +29,7 @@ const ConsumoGC = () => {
           }`}
           onClick={() => handleTabChange("gestionUsuariosRoles")}
         >
-          Gestión de usuarios y roles
-        </button>
-        <button
-          className={`tab ${
-            selectedTab === "ajustesSistema" ? "active_tab" : ""
-          }`}
-          onClick={() => handleTabChange("ajustesSistema")}
-        >
-          Ajustes del sistema
+          Gestión de usuarios
         </button>
       </div>
 
@@ -50,11 +42,6 @@ const ConsumoGC = () => {
         {selectedTab === "gestionUsuariosRoles" && (
           <div>
             <p>Contenido de Gestión de Usuarios y Roles</p>
-          </div>
-        )}
-        {selectedTab === "ajustesSistema" && (
-          <div>
-            <p>Contenido de Ajustes del Sistema</p>
           </div>
         )}
       </div>

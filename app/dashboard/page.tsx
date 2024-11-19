@@ -35,8 +35,8 @@ const dashboard = () => {
             </section>
             <ButtonsSensor/>
           </section>
-          <section className="container_consumo">
-            <div>
+          <section className="container_consumo_gen">
+            <div className="aux_consum">
               <h3 className="sensor_title purple_db">Consumo total mensual</h3>
               <ConsumoCard />
             </div>

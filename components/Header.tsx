@@ -16,7 +16,7 @@ const Header = () => {
     "/Areas": "Áreas",
     "/Lecturas": "Lecturas",
     "/Alerts": "Alertas",
-    "/configuracion": "Configuración",
+    "/configuracion": "Usuarios",
   };
 
   const title = pageTitles[pathname] || "Página no encontrada";

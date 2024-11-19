@@ -28,13 +28,11 @@
 .tab {
   padding: 10px 20px;
   color: var(--Strong-Purple);
-  /* H3 subtitle */
   font-family: Manrope;
   font-size: 28px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  text-transform: capitalize;
   border-radius: 5px;
   cursor: pointer;
   overflow: visible;

@@ -11,8 +11,8 @@ import sensorPlomo from "@/public/material-symbols_sensors-krx-outline-rounded.s
 import sensorMorado from "@/public/sensormorado.svg";
 import alertaPlomo from "@/public/service 1.svg";
 import alertaMorado from "@/public/servicem.svg";
-import configPlomo from "@/public/settings solid 1.svg";
-import configMorado from "@/public/cofigmorado.svg";
+import configPlomo from "@/public/userplomo.svg";
+import configMorado from "@/public/usermorado.svg";
 import areaPlomo from "@/public/mdi_report-line.svg";
 import areaMorado from "@/public/mdi_report-line-morado.svg";
 
@@ -51,7 +51,7 @@ const Menu = () => {
       iconMorado: alertaMorado,
     },
     {
-      label: "Configuración",
+      label: "Usuarios",
       href: "/configuracion",
       iconPlomo: configPlomo,
       iconMorado: configMorado,
