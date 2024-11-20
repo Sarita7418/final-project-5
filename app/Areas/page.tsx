@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import Control from "@/components/Control";
 import Electricidad from "@/components/AreaElectricidad";
-
+import Agua from "@/components/AreaAgua";
 const Areas = () => {
   return (
     <div>
@@ -14,6 +14,9 @@ const Areas = () => {
           <Control />
           <div>
             <Electricidad />
+          </div>
+          <div>
+            <Agua />
           </div>
         </section>
       </section>
