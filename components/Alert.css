@@ -1,63 +1,71 @@
-.alerts { 
-    display: flex; 
-    flex-direction: column; 
+.alerts {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     position: relative;
     top: 20px;
     left: 30px;
 }
-.alert-container { 
-    display: flex; 
-    align-items:flex-start;
-    background-color: #f4e7ff; 
+
+.alert-container {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f4e7ff;
     border-radius: 12px;
-    padding: 20px; 
-    gap: 20px; 
+    padding: 20px;
+    gap: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width:500px;
-} 
-alert-content{
+    width: 500px;
+}
+
+alert-content {
     display: flex;
     flex-direction: column;
 }
-.alert-text { 
-    font-weight: bold; 
-    color: #000; 
+
+.alert-text {
+    font-weight: bold;
+    color: #000;
     margin-bottom: 10px;
-} 
-.button { 
-    background-color: #c9a2f2; 
-    color: rgba(22, 21, 21, 0.877); 
-    border: none; 
-    border-radius: 8px; 
-    padding: 8px 16px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.button {
+    background-color: #c9a2f2;
+    color: rgba(22, 21, 21, 0.877);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     margin-right: 10px;
-} 
-.buttondisabled { 
-    background-color: var(--Light-Purple); 
+}
+
+.buttondisabled {
+    background-color: var(--Light-Purple);
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
     margin-right: 10px;
-} 
-.icon-container { 
-    background-color:#c9a2f2;  
-    border-radius: 8px; 
-    padding: 5px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.459); 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-} 
-.icon { 
-    width: 24px; 
+}
+
+.icon-container {
+    background-color: #c9a2f2;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.459);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 24px;
     height: 24px;
 }
-.alert-buttons{
+
+.alert-buttons {
     display: flex;
     align-items: center;
     justify-content: flex-end;

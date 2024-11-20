@@ -13,48 +13,114 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-const invoices = [
+const sensores = [
   {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
+    sensor: "Sensor-PB",
+    tipo: "luz",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
   },
   {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
+    sensor: "Sensor-PB",
+    tipo: "luz",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
   },
   {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
+    sensor: "Sensor-PB",
+    tipo: "luz",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
   },
   {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
+    sensor: "Sensor-PB",
+    tipo: "luz",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
   },
   {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
+    sensor: "Sensor-PB",
+    tipo: "luz",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
   },
   {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
+    sensor: "Sensor-PB",
+    tipo: "luz",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
   },
   {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
+    sensor: "Sensor-PB",
+    tipo: "luz",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
+  },
+  {
+    sensor: "Sensor-PB",
+    tipo: "agua",
+    ubicacion: "Plata baja resepcion",
+    estado: "Activo",
   },
 ];
 
@@ -66,8 +132,7 @@ const Listasensor = () => {
   };
   return (
     <section className="container_consumo">
-      <span className="span-title">Consumo Semanal</span>
-
+      <h2 className="titleGS">Gestión de Sensores</h2>
       {/* Menú de pestañas */}
       <div className="tabs">
         <button
@@ -97,32 +162,32 @@ const Listasensor = () => {
         {selectedTab === "agua" && (
           <>
             <Table>
-              <TableHeader>
+              <TableHeader className="head-text">
                 <TableRow>
-                  <TableHead className="w-[100px]">Sensor</TableHead>
-                  <TableHead>Tipo</TableHead>
-                  <TableHead>Ubicación</TableHead>
-                  <TableHead>Estado</TableHead>
-                  <TableHead className="w-[400px]">
-                    Opciones de Sensor
-                  </TableHead>
+                  <TableHead className="sensorh">Sensor</TableHead>
+                  <TableHead className="tipoh">Tipo</TableHead>
+                  <TableHead className="ubih">Ubicación</TableHead>
+                  <TableHead className="esth">Estado</TableHead>
+                  <TableHead className="opciones">Opciones de Sensor</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {invoices.map((invoice) => (
-                  <TableRow key={invoice.invoice}>
-                    <TableCell className="font-medium">
-                      {invoice.invoice}
+                {sensores.map((sensor) => (
+                  <TableRow key={sensor.sensor}>
+                    <TableCell className="sensort">{sensor.sensor}</TableCell>
+                    <TableCell className="tipot">
+                      {sensor.tipo}
                     </TableCell>
-                    <TableCell>{invoice.paymentStatus}</TableCell>
-                    <TableCell>{invoice.paymentMethod}</TableCell>
-                    <TableCell className="text-right">
-                      {invoice.totalAmount}
+                    <TableCell className="ubit">
+                      {sensor.ubicacion}
+                    </TableCell>
+                    <TableCell className="estt">
+                      {sensor.estado}
                     </TableCell>
                     <TableCell>
                       <Button variant="outline" className="form-button">
                         <Link href="">Editar</Link>
-                      </Button>{" "}
+                      </Button>
                       <Button variant="outline" className="form-button">
                         <Link href="">Eliminar</Link>
                       </Button>
@@ -132,41 +197,40 @@ const Listasensor = () => {
               </TableBody>
               <TableFooter>
                 <Button variant="outline" className="bañadir">
-                  <Link href="/sensoresf">Añadir</Link>
+                  <Link href="/sensoresf">Añadir ++</Link>
                 </Button>
               </TableFooter>
             </Table>
           </>
         )}
         {selectedTab === "electricidad" && (
-          <>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className="w-[100px]">Sensor</TableHead>
-                  <TableHead>Tipo</TableHead>
-                  <TableHead>Ubicacion</TableHead>
-                  <TableHead>Estado</TableHead>
-                  <TableHead className="text-right">
-                    Opciones de Sensor
-                  </TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {invoices.map((invoice) => (
-                  <TableRow key={invoice.invoice}>
-                    <TableCell className="font-medium">
-                      {invoice.invoice}
+          <Table>
+            <TableHeader className="head-text">
+              <TableRow>
+                <TableHead className="sensorh">Sensor</TableHead>
+                <TableHead className="tipoh">Tipo</TableHead>
+                <TableHead className="ubih">Ubicación</TableHead>
+                <TableHead className="esth">Estado</TableHead>
+                <TableHead className="opciones">Opciones de Sensor</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+                {sensores.map((sensor) => (
+                  <TableRow key={sensor.sensor}>
+                    <TableCell className="sensort">{sensor.sensor}</TableCell>
+                    <TableCell className="tipot">
+                      {sensor.tipo}
                     </TableCell>
-                    <TableCell>{invoice.paymentStatus}</TableCell>
-                    <TableCell>{invoice.paymentMethod}</TableCell>
-                    <TableCell className="text-right">
-                      {invoice.totalAmount}
+                    <TableCell className="ubit">
+                      {sensor.ubicacion}
+                    </TableCell>
+                    <TableCell className="estt">
+                      {sensor.estado}
                     </TableCell>
                     <TableCell>
                       <Button variant="outline" className="form-button">
                         <Link href="">Editar</Link>
-                      </Button>{" "}
+                      </Button>
                       <Button variant="outline" className="form-button">
                         <Link href="">Eliminar</Link>
                       </Button>
@@ -174,36 +238,38 @@ const Listasensor = () => {
                   </TableRow>
                 ))}
               </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <Button variant="outline" className="form-button">
-                    <Link href="/sensoresf">Añadir</Link>
-                  </Button>
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </>
+            <TableFooter>
+              <Button variant="outline" className="bañadir">
+                <Link href="/sensoresf">Añadir ++</Link>
+              </Button>
+            </TableFooter>
+          </Table>
         )}
         {selectedTab === "gas" && (
           <>
             <Table>
-              <TableCaption>A list of your recent invoices.</TableCaption>
-              <TableHeader className="opciones">
+              <TableHeader className="head-text">
                 <TableRow>
-                  <TableHead>Invoice</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Method</TableHead>
-                  <TableHead>Amount</TableHead>
+                  <TableHead className="sensorh">Sensor</TableHead>
+                  <TableHead className="tipoh">Tipo</TableHead>
+                  <TableHead className="ubih">Ubicación</TableHead>
+                  <TableHead className="esth">Estado</TableHead>
                   <TableHead className="opciones">Opciones de Sensor</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {invoices.map((invoice) => (
-                  <TableRow key={invoice.invoice}>
-                    <TableCell>{invoice.invoice}</TableCell>
-                    <TableCell>{invoice.paymentStatus}</TableCell>
-                    <TableCell>{invoice.paymentMethod}</TableCell>
-                    <TableCell >{invoice.totalAmount}</TableCell>
+                {sensores.map((sensor) => (
+                  <TableRow key={sensor.sensor}>
+                    <TableCell className="sensort">{sensor.sensor}</TableCell>
+                    <TableCell className="tipot">
+                      {sensor.tipo}
+                    </TableCell>
+                    <TableCell className="ubit">
+                      {sensor.ubicacion}
+                    </TableCell>
+                    <TableCell className="estt">
+                      {sensor.estado}
+                    </TableCell>
                     <TableCell>
                       <Button variant="outline" className="form-button">
                         <Link href="">Editar</Link>
@@ -216,8 +282,8 @@ const Listasensor = () => {
                 ))}
               </TableBody>
               <TableFooter>
-                <Button variant="outline" className="form-button bañadir">
-                  <Link href="/sensoresf">Añadir</Link>
+                <Button variant="outline" className="bañadir">
+                  <Link href="/sensoresf">Añadir ++</Link>
                 </Button>
               </TableFooter>
             </Table>

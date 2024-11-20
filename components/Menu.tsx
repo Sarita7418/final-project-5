@@ -33,12 +33,6 @@ const Menu = () => {
       iconMorado: sensorMorado,
     },
     {
-      label: "Sensores",
-      href: "/sensoresf",
-      iconPlomo: sensorPlomo,
-      iconMorado: sensorMorado,
-    },
-    {
       label: "Áreas",
       href: "/Areas",
       iconPlomo: areaPlomo,
