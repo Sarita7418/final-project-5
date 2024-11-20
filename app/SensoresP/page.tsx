@@ -2,6 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import Listasensor from "../../components/Listasensor";
+import MenuRS from "@/components/MenuRS";
 
 const sensor = () => {
   return (
@@ -10,7 +11,7 @@ const sensor = () => {
       <section className="content">
         <Menu />
         <section className="page_content">
-          <Listasensor />
+          <MenuRS />
         </section>
       </section>
     </div>

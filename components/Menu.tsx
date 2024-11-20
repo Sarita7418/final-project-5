@@ -28,7 +28,7 @@ const Menu = () => {
     },
     {
       label: "Sensores",
-      href: "/SensoresP",
+      href:["/SensoresP", "/sensoresf"],
       iconPlomo: sensorPlomo,
       iconMorado: sensorMorado,
     },
@@ -61,27 +61,28 @@ const Menu = () => {
   return (
     <nav className="sidebar">
       <ul className="menu">
-        {menuItems.map((item) => (
-          <li
-            key={item.href}
-            className={`menu_element ${
-              pathname === item.href ? "selected_menu" : ""
-            }`}
-          >
-            <div
-              className={`${
-                pathname === item.href ? "rectangle_menu" : ""
-              }`}
-            ></div>
-            <img
-              src={
-                pathname === item.href ? item.iconMorado.src : item.iconPlomo.src
-              }
-              alt={`${item.label} icon`}
-            />
-            <Link href={item.href}>{item.label}</Link>
-          </li>
-        ))}
+        {menuItems.map((item) => {
+          const isActive =
+            Array.isArray(item.href)
+              ? item.href.includes(pathname) // Verifica si `pathname` está en la lista
+              : pathname === item.href;
+
+          return (
+            <li
+              key={Array.isArray(item.href) ? item.href.join(",") : item.href}
+              className={`menu_element ${isActive ? "selected_menu" : ""}`}
+            >
+              <div className={`${isActive ? "rectangle_menu" : ""}`}></div>
+              <img
+                src={isActive ? item.iconMorado.src : item.iconPlomo.src}
+                alt={`${item.label} icon`}
+              />
+              <Link href={Array.isArray(item.href) ? item.href[0] : item.href}>
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

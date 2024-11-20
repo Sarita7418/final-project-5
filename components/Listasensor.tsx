@@ -81,15 +81,9 @@ const Listasensor = () => {
                 {sensores.map((sensor) => (
                   <TableRow key={sensor.id}>
                     <TableCell className="sensort">{sensor.sensor}</TableCell>
-                    <TableCell className="tipot">
-                      {sensor.tipo}
-                    </TableCell>
-                    <TableCell className="ubit">
-                      {sensor.ubicacion}
-                    </TableCell>
-                    <TableCell className="estt">
-                      {sensor.estado}
-                    </TableCell>
+                    <TableCell className="tipot">{sensor.tipo}</TableCell>
+                    <TableCell className="ubit">{sensor.ubicacion}</TableCell>
+                    <TableCell className="estt">{sensor.estado}</TableCell>
                     <TableCell>
                       <Button variant="outline" className="form-button">
                         <Link href="">Editar</Link>
@@ -102,9 +96,11 @@ const Listasensor = () => {
                 ))}
               </TableBody>
               <TableFooter>
-                <Button variant="outline" className="bañadir">
-                  <Link href="/sensoresf">Añadir ++</Link>
-                </Button>
+                <TableCell colSpan={5} className="text-center">
+                  <Button variant="outline" className="bañadir">
+                    <Link href="/sensoresf">Añadir ++</Link>
+                  </Button>
+                </TableCell>
               </TableFooter>
             </Table>
           </>
@@ -121,33 +117,29 @@ const Listasensor = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-                {sensores.map((sensor) => (
-                  <TableRow key={sensor.id}>
-                    <TableCell className="sensort">{sensor.sensor}</TableCell>
-                    <TableCell className="tipot">
-                      {sensor.tipo}
-                    </TableCell>
-                    <TableCell className="ubit">
-                      {sensor.ubicacion}
-                    </TableCell>
-                    <TableCell className="estt">
-                      {sensor.estado}
-                    </TableCell>
-                    <TableCell>
-                      <Button variant="outline" className="form-button">
-                        <Link href="">Editar</Link>
-                      </Button>
-                      <Button variant="outline" className="form-button">
-                        <Link href="">Eliminar</Link>
-                      </Button>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
+              {sensores.map((sensor) => (
+                <TableRow key={sensor.id}>
+                  <TableCell className="sensort">{sensor.sensor}</TableCell>
+                  <TableCell className="tipot">{sensor.tipo}</TableCell>
+                  <TableCell className="ubit">{sensor.ubicacion}</TableCell>
+                  <TableCell className="estt">{sensor.estado}</TableCell>
+                  <TableCell>
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Editar</Link>
+                    </Button>
+                    <Button variant="outline" className="form-button">
+                      <Link href="">Eliminar</Link>
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
             <TableFooter>
-              <Button variant="outline" className="bañadir">
-                <Link href="/sensoresf">Añadir ++</Link>
-              </Button>
+              <TableCell colSpan={5} className="text-center">
+                <Button variant="outline" className="bañadir">
+                  <Link href="/sensoresf">Añadir ++</Link>
+                </Button>
+              </TableCell>
             </TableFooter>
           </Table>
         )}
@@ -167,15 +159,9 @@ const Listasensor = () => {
                 {sensores.map((sensor) => (
                   <TableRow key={sensor.id}>
                     <TableCell className="sensort">{sensor.sensor}</TableCell>
-                    <TableCell className="tipot">
-                      {sensor.tipo}
-                    </TableCell>
-                    <TableCell className="ubit">
-                      {sensor.ubicacion}
-                    </TableCell>
-                    <TableCell className="estt">
-                      {sensor.estado}
-                    </TableCell>
+                    <TableCell className="tipot">{sensor.tipo}</TableCell>
+                    <TableCell className="ubit">{sensor.ubicacion}</TableCell>
+                    <TableCell className="estt">{sensor.estado}</TableCell>
                     <TableCell>
                       <Button variant="outline" className="form-button">
                         <Link href="">Editar</Link>
@@ -188,9 +174,11 @@ const Listasensor = () => {
                 ))}
               </TableBody>
               <TableFooter>
-                <Button variant="outline" className="bañadir">
-                  <Link href="/sensoresf">Añadir ++</Link>
-                </Button>
+                <TableCell colSpan={5} className="text-center">
+                  <Button variant="outline" className="bañadir">
+                    <Link href="/sensoresf">Añadir ++</Link>
+                  </Button>
+                </TableCell>
               </TableFooter>
             </Table>
           </>
