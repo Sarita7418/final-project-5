@@ -1,0 +1,40 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 50px;
+  margin-bottom: 20px;
+}
+
+.combo-box-lecturas {
+  padding: 10px;
+  background-color: var(--Light-Purple);
+  border: 1px solid var(--Strong-Purple);
+  border-radius: 20px;
+  font-size: 16px;
+  width: 200px;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%237B2CBF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.controls button img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--Strong-Purple);
+  border-radius: 50%;
+}
+
+.exportar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.exportar span {
+  font-size: 16px;
+  color: var(--Strong-Purple);
+}

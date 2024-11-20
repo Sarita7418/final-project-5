@@ -7,13 +7,13 @@ import sensor from "@/public/white_sensor.svg"
 const ButtonsSensor = () => {
   return (
     <div className="buttons_sensor">
-      <Link href="">
+      <Link href="/SensoresP">
         <button className="bs_element">
           <span>Detalles</span>
           <img src={sensor.src} alt="" />
         </button>
       </Link>
-      <Link href="">
+      <Link href="/Alerts">
         <button className="bs_element">
           <span>Alertas</span>
           <img src={alert.src} alt="" />

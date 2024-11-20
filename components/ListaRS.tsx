@@ -26,10 +26,10 @@ const ListaRS = () => {
           <span className="estt inactive">Inactivo</span>
           <div className="buttons-perfil">
             <Button variant="outline" className="form-button">
-              <Link href="/editar">Editar</Link>
+              <Link href="/sensoresf">Editar</Link>
             </Button>
             <Button variant="outline" className="form-button">
-              <Link href="/eliminar">Eliminar</Link>
+              Eliminar
             </Button>
           </div>
         </div>

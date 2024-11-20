@@ -37,9 +37,6 @@ const AlertCard = () => {
           <Button variant="outline">
             <Link href="/configuracion">Agregar</Link>
           </Button>
-          <Button variant="outline">
-            <Link href="/configuracion">Mostrar mas</Link>
-          </Button>
         </div>
       </div>
     </>
