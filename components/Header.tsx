@@ -13,6 +13,7 @@ const Header = () => {
   const pageTitles: { [key: string]: string } = {
     "/dashboard": "Dashboard",
     "/SensoresP": "Sensores",
+    "/sensoresf": "Sensores",
     "/Areas": "Áreas",
     "/Lecturas": "Lecturas",
     "/Alerts": "Alertas",
