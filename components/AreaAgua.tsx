@@ -10,6 +10,9 @@ const AreaAgua = () => {
      <span className="span-title">
         Consumo Semanal
      </span>
+     <span className="title text-center w-[1030px] font-manrope text-[28px] font-semibold leading-normal text-[--Strong-Purple]">
+        Agua
+      </span>
      <div className="graficos">
       <ComparativeG />
       <PieArea />  
