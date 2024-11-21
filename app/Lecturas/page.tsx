@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
+import ListaLecturas from "@/components/ListaLecturas";
 
 const sensor = () => {
   return (
@@ -8,11 +9,13 @@ const sensor = () => {
       <Header />
       <section className="content">
         <Menu />
-        <section className="dashboard_content">
-          
+        <section className="page_content">
+          <section>
+            <ListaLecturas />
+          </section>
         </section>
       </section>
-</div>
+    </div>
   );
 };
 
