@@ -28,12 +28,10 @@ const Header = () => {
       <div className="auxiliar">
         <h2>{title}</h2> 
         <div className="buttons">
-          <Link href="">
+          <Link href="/Alerts">
             <img src={configLogo.src} alt="Configuración" className="headerButton" />
           </Link>
-          <Link href="">
-            <img src={alertLogo.src} alt="Alertas" className="headerButton" />
-          </Link>
+          
           <Link href="">
             <Avatar className="avatarHeader">
               <AvatarImage src="https://i.pinimg.com/736x/72/f2/5d/72f25dbaf2f232d4a44850395453b64f.jpg" />

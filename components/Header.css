@@ -23,7 +23,7 @@ header{
 .buttons{
     display: flex;
     align-items: center;
-    width: 220px;
+    width: 150px;
     justify-content: space-between;
 }
 
