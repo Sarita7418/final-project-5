@@ -25,7 +25,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 const desktopData = [
-  { area: "Sabado", desktop: 186, fill: "var(--color-Sabado)" },
+  { area: "Sabado", desktop: 200, fill: "var(--color-Sabado)" },
   { area: "Domingo", desktop: 305, fill: "var(--color-Domingo)" },
   { area: "Lunes", desktop: 237, fill: "var(--color-Lunes)" },
   { area: "Martes", desktop: 173, fill: "var(--color-Martes)" },

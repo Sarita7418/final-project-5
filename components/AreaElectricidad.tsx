@@ -1,16 +1,13 @@
 import React from "react";
 import { ComparativeG } from "./ComparativeG";
 import { PieArea } from "./PieArea";
-import "./ConsumoGC.css";
 import "./AreaElectricidad.css";
 
 const AreaElectricidad = () => {
   return (
-    <section className="container_consumo">
+    <section className="container_area">
       <span className="span-title">Consumo Semanal</span>
-      <span className="title text-center w-[1030px] font-manrope text-[28px] font-semibold leading-normal text-[--Strong-Purple]">
-        Electicidad
-      </span>
+      <h1 className="title"> Electricidad</h1>
       <div className="graficos">
         <ComparativeG />
         <PieArea />
