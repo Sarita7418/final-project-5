@@ -12,7 +12,7 @@ const FloorControl = () => {
         <h3>Control De Pisos</h3>
         <button className="add-area-btn">
           <img src={Plus.src} alt="" />
-          <Link href="">Añadir Áreas</Link>
+          <Link href="/AgregarArea">Añadir Áreas</Link>
         </button>
         <button className="all-areas-btn">
           <img src={Calendar.src} alt="" />

@@ -28,13 +28,13 @@ const Menu = () => {
     },
     {
       label: "Sensores",
-      href:["/SensoresP", "/sensoresf"],
+      href: ["/SensoresP", "/sensoresf"],
       iconPlomo: sensorPlomo,
       iconMorado: sensorMorado,
     },
     {
       label: "Áreas",
-      href: "/Areas",
+      href: ["/Areas", "/AgregarArea"],
       iconPlomo: areaPlomo,
       iconMorado: areaMorado,
     },
@@ -62,10 +62,9 @@ const Menu = () => {
     <nav className="sidebar">
       <ul className="menu">
         {menuItems.map((item) => {
-          const isActive =
-            Array.isArray(item.href)
-              ? item.href.includes(pathname) // Verifica si `pathname` está en la lista
-              : pathname === item.href;
+          const isActive = Array.isArray(item.href)
+            ? item.href.includes(pathname) // Verifica si `pathname` está en la lista
+            : pathname === item.href;
 
           return (
             <li

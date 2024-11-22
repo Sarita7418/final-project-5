@@ -8,7 +8,7 @@ import configLogo from "../public/002-notification-1.svg";
 import alertLogo from "../public/settings 1.svg";
 
 const Header = () => {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
 
   const pageTitles: { [key: string]: string } = {
     "/dashboard": "Dashboard",
@@ -18,6 +18,7 @@ const Header = () => {
     "/Lecturas": "Lecturas",
     "/Alerts": "Alertas",
     "/configuracion": "Usuarios",
+    "/AgregarArea": "Áreas",
   };
 
   const title = pageTitles[pathname] || "Página no encontrada";
@@ -26,10 +27,14 @@ const Header = () => {
     <header>
       <h1>MANTENIMIENTO</h1>
       <div className="auxiliar">
-        <h2>{title}</h2> 
+        <h2>{title}</h2>
         <div className="buttons">
           <Link href="">
-            <img src={configLogo.src} alt="Configuración" className="headerButton" />
+            <img
+              src={configLogo.src}
+              alt="Configuración"
+              className="headerButton"
+            />
           </Link>
           <Link href="">
             <img src={alertLogo.src} alt="Alertas" className="headerButton" />
@@ -47,4 +52,3 @@ const Header = () => {
 };
 
 export default Header;
-
