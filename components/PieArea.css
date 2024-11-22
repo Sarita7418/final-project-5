@@ -1,0 +1,40 @@
+#pie_card {
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */ /* Distribuye los elementos */
+    width: 250px;
+    height: 350px; /* Aumenté el alto para tener espacio para todos los elementos */
+    padding: 10px;
+  }
+  
+  .select-trigger {
+    background-color: var(
+      --Light-Purple
+    ); /* Color suave similar al de la imagen */
+    color: var(--Strong-Purple); /* Color de texto púrpura para resaltar */
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 17px 22px; /* Espaciado interno para que se vea más grande */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    width: 212px; /* Ajustar el ancho si es necesario */
+    text-align: center; /* Alinear el texto al centro */
+    height: 50px;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .b_report_db{
+    background-color: var(--Strong-Purple);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 32px;
+}

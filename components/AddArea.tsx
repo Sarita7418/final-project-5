@@ -10,25 +10,13 @@ const Formulario = () => {
       <div className="form-container">
         <div className="form-group">
           <label htmlFor="sensor-name" className="form-label">
-            Nombre del Sensor
+            Nombre del Area
           </label>
           <input
             type="text"
             id="sensor-name"
             className="form-input"
-            placeholder="Ej. Sensor de Humedad - Planta Alta"
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="sensor-type" className="form-label">
-            Tipo del sensor
-          </label>
-          <input
-            type="text"
-            id="sensor-type"
-            className="form-input"
-            placeholder="Ej. Movimiento"
+            placeholder="Ej. Cocina"
           />
         </div>
 
@@ -40,7 +28,7 @@ const Formulario = () => {
             type="text"
             id="sensor-location"
             className="form-input"
-            placeholder="Ej. Planta Alta - Sala de Reuniones"
+            placeholder="Ej. Planta Alta"
           />
         </div>
 
@@ -57,10 +45,10 @@ const Formulario = () => {
 
         <div>
           <Button variant="outline" className="form-buttonG">
-            <Link href="">Guardar</Link>
+            <Link href="">Agregar</Link>
           </Button>
           <Button variant="outline" className="form-buttonC">
-            <Link href="/SensoresP">Cancelar</Link>
+            <Link href="/Areas">Cancelar</Link>
           </Button>
         </div>
       </div>
