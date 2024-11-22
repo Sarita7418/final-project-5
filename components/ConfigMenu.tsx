@@ -37,7 +37,7 @@ const ConsumoGC = () => {
       <div className="contenido_config">
         {selectedTab === "ajustesGenerales" && (
           <>
-            <Lista />
+            <Lista handleTabChange={handleTabChange} />
           </>
         )}
         {selectedTab === "gestionUsuariosRoles" && (
