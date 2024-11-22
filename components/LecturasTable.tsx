@@ -1,23 +1,35 @@
-import React from "react";
-import { Button } from "./ui/button";
+"use client";
+
+import React, { useState } from "react";
 import pdf from "@/public/pdf.svg";
 import "./LecturasTable.css";
+import { generatePDF } from "@/lib/generatePDF";
 
 const LecturasTable = () => {
+  const [tipoLectura, setTipoLectura] = useState("agua");
+
+  const handleGeneratePDF = () => {
+    generatePDF(tipoLectura);
+  };
+
   return (
     <>
       <div className="allconfig">
         <div className="controls">
-          <select className="combo-box-lecturas">
+          <select
+            className="combo-box-lecturas"
+            value={tipoLectura}
+            onChange={(e) => setTipoLectura(e.target.value)}
+          >
             <option value="agua">Agua</option>
             <option value="electricidad">Electricidad</option>
             <option value="gas">Gas</option>
-            <option value="todos">Todos</option>
+            <option value="general">General</option>
           </select>
           <div className="exportar">
             <span>Exportar</span>
-            <button>
-              <img src={pdf.src} alt="" />
+            <button onClick={handleGeneratePDF}>
+              <img src={pdf.src} alt="Exportar PDF" />
             </button>
           </div>
         </div>
