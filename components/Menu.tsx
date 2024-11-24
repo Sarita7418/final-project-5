@@ -15,9 +15,11 @@ import configPlomo from "@/public/userplomo.svg";
 import configMorado from "@/public/usermorado.svg";
 import areaPlomo from "@/public/mdi_report-line.svg";
 import areaMorado from "@/public/mdi_report-line-morado.svg";
+import { useAuthStore } from "@/app/store";
 
 const Menu = () => {
   const pathname = usePathname(); // Obtener la ruta actual
+  const { rolselected } = useAuthStore();
 
   const menuItems = [
     {
@@ -62,6 +64,9 @@ const Menu = () => {
     <nav className="sidebar">
       <ul className="menu">
         {menuItems.map((item) => {
+          if (item.label === 'Usuarios' && rolselected === 'Mantenimiento') {
+            return null;
+          }
           const isActive =
             Array.isArray(item.href)
               ? item.href.includes(pathname) // Verifica si `pathname` está en la lista

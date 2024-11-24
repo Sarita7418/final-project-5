@@ -13,6 +13,7 @@ const LoginBox = () => {
   const { usuarios, fetchUsuarios } = useAuthStore();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const { guardarRol } = useAuthStore();
   const router = useRouter();
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const LoginBox = () => {
     const usuarioEncontrado = usuarios.find((usuario) => usuario.userName === username);
 
     if (usuarioEncontrado && usuarioEncontrado.password === password) {
+      guardarRol(usuarioEncontrado.rol);
       router.push('/dashboard');
     } else {
       alert('Usuario o contraseña incorrectos');
@@ -68,3 +70,7 @@ const LoginBox = () => {
 };
 
 export default LoginBox;
+
+function guardarRol(rol: string) {
+  throw new Error('Function not implemented.');
+}

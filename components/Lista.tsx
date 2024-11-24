@@ -24,8 +24,6 @@ const Lista: React.FC<ListaProps> = ({ handleTabChange }) => {
     fetchUsuarios();
   }, [fetchUsuarios]);
 
-  console.log(usuarios);
-
   return (
     <>
       <div className="table_users">

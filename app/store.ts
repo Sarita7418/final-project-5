@@ -81,6 +81,8 @@ type AuthStore = {
     piedashboard: Piedashboard[];
     cmensual: Cmensual[];
     lecturas: Lectura[];
+    rolselected: string;
+    guardarRol: (rol: string) => void;
     fetchUsuarios: () => Promise<void>;
     fetchAlertas: () => Promise<void>;
     fetchAreas: () => Promise<void>;
@@ -98,6 +100,10 @@ export const useAuthStore = create<AuthStore>((set) => ({
     piedashboard: [],
     cmensual: [],
     lecturas: [],
+    rolselected: "",
+    guardarRol: (rol: string) => {
+        set({ rolselected: rol });
+    },
     fetchUsuarios: async () => {
         const data = await getData("https://673778bcaafa2ef22233f00b.mockapi.io/usuarios");
         set({ usuarios: data });
