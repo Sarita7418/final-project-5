@@ -4,10 +4,12 @@ import "./InputField.css";
 interface InputFieldProps {
   type: string;
   placeholder: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
-const InputField: React.FC<InputFieldProps>= ({ type, placeholder }) => {
+const InputField: React.FC<InputFieldProps>= ({ type }) => {
   return (
-    <input className="input-field" type={type} placeholder={placeholder} />
+    <input className="input-field" type={type} />
   );
 };
 

@@ -1,28 +1,68 @@
-// components/LoginBox.js
-import React from "react";
-import Link from "next/link";
-import InputField from "./InputField";
-import SocialLogin from "./SocialLogin";
-import LoginButton from "./LoginButton";
-import "./LoginBox.css";
-import { getData } from "@/lib/getData";
+import { useAuthStore } from '@/app/store';
+import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+import SocialLogin from './SocialLogin';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './LoginBox.css';
+import "./LoginButton.css";
+import { useRouter } from 'next/navigation';
+
 
 const LoginBox = () => {
-  
+  const { usuarios, fetchUsuarios } = useAuthStore();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const router = useRouter();
+
+  useEffect(() => {
+    fetchUsuarios();
+  }, [fetchUsuarios]);
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const logear = () => {
+    const usuarioEncontrado = usuarios.find((usuario) => usuario.userName === username);
+
+    if (usuarioEncontrado && usuarioEncontrado.password === password) {
+      router.push('/dashboard');
+    } else {
+      alert('Usuario o contraseña incorrectos');
+    }
+  };
+
   return (
     <div className="login-box">
       <h2>Bienvenido</h2>
-      <p>Elige una de las opciones</p>
-      <InputField type="email" placeholder="getutorial@gmail.com" />
-      <InputField type="password" placeholder="Contraseña" />
+      <input
+        type="text"
+        placeholder="Nombre de usuario"
+        value={username}
+        onChange={handleUsernameChange}
+      />
+      <input
+        type="password"
+        placeholder="Contraseña"
+        value={password}
+        onChange={handlePasswordChange}
+      />
       <Link href="" className="forgot-password">
-        Olvido su contraseña?
+        ¿Olvidó su contraseña?
       </Link>
       <div className="Red-Social">
-        <p>O continue con</p>
+        <p>O continúe con:</p>
         <SocialLogin />
-        <LoginButton />
+        <button className="login-button" onClick={logear}>
+          INGRESAR
+        </button>
       </div>
+      <ToastContainer/>
     </div>
   );
 };
