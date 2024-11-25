@@ -20,14 +20,14 @@ const LecturasTable = () => {
   const [lecturas, setLecturas] = useState<Lectura[]>([]);
   const [lecturasFiltradas, setLecturasFiltradas] = useState<Lectura[]>([]);
 
-  // Cargar datos desde MockAPI
+  //Cargar datos MockAPI
   useEffect(() => {
     const fetchLecturas = async () => {
       try {
         const res = await fetch("https://673778bcaafa2ef22233f00b.mockapi.io/lecturas");
         const data: Lectura[] = await res.json();
         setLecturas(data);
-        setLecturasFiltradas(data); // Inicialmente mostrar todas las lecturas
+        setLecturasFiltradas(data);
       } catch (error) {
         console.error("Error al cargar las lecturas:", error);
       }
@@ -36,10 +36,9 @@ const LecturasTable = () => {
     fetchLecturas();
   }, []);
 
-  // Filtrar lecturas según el tipo seleccionado
   useEffect(() => {
     if (tipoLectura === "general") {
-      setLecturasFiltradas(lecturas); // Mostrar todas las lecturas
+      setLecturasFiltradas(lecturas); 
     } else {
       const filtradas = lecturas.filter(
         (lectura) => lectura.recurso.toLowerCase() === tipoLectura
