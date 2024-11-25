@@ -21,8 +21,8 @@ type Alerta = {
     hora: string;
     limiteConsumo: string;
     consumoActual: string;
-    estadoAlerta: string;
     accionRecomendada: string;
+    estadoAlerta: string;
 };
 
 type Area = {
