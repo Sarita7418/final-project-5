@@ -1,67 +1,46 @@
-import React from "react";
-import "./Alert.css";
+"use client";
+import React, { useEffect } from "react";
+import { useAuthStore } from "@/app/store";
 import Icon from "./Icon";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Alert = () => {
+  const { alertas, fetchAlertas } = useAuthStore();
+
+  useEffect(() => {
+    fetchAlertas();
+  }, [fetchAlertas]);
+
   return (
     <div className="alerts">
-      <section className="alert-container">
-        <Icon type="alert" />
-        <div className="alert-content">
-          <span id="alert-text">Alerta Detectada</span>
-          <span>Fecha y Hora:</span>
-          <span>Límite de Consumo:</span>
-          <span>Consumo Actual:</span>
-          <span>Estado de Alerta:</span>
-          <span>Acciones Recomendadas:</span>
-      
-        </div>
-        <div className="alert-buttons">
-          <Button variant="outline" className="buttondisabled">
-            <Link href="">Eliminar</Link>
-          </Button>
-          <Button variant="outline" className="button">
-            <Link href="/dashboard">Verificar</Link>
-          </Button>
-        </div>
-      </section>
-      <section className="alert-container">
-        <Icon type="anomaly" />
-        <div className="alert-content">
-        <span id="alert-text">Anomalia Detectada</span>
-        <span>Fecha y Hora:</span>
-          <span>Detalle:</span>
-          <span>Estado de Alerta:</span>
-        </div>
-        <div className="alert-buttons">
-          <Button variant="outline" className="buttondisabled">
-            <Link href="">Eliminar</Link>
-          </Button>
-          <Button variant="outline" className="button">
-            <Link href="/dashboard">Verificar</Link>
-          </Button>
-        </div>
-      </section>
-      <section className="alert-container">
-        <Icon type="consumption" />
-        <div className="alert-content">
-        <span id="alert-text">Consumo Estabilizado</span>
-          <span>Fecha y Hora:</span>
-          <span>Detalle:</span>
-          <span>Estado de Alerta:</span>
-        </div>
-        <div className="alert-buttons">
-          <Button variant="outline" className="buttondisabled">
-            <Link href="">Eliminar</Link>
-          </Button>
-          <Button variant="outline" className="button">
-            <Link href="/dashboard">Verificar</Link>
-          </Button>
-        </div>
-      </section>
+      {alertas.map(alerta => (
+        <section className="alert-container" key={alerta.id}>
+          <Icon type={
+            alerta.tipoAlerta === "Alerta Detectada" ? "alert" 
+            : alerta.tipoAlerta === "Anomalía Detectada" ? "anomaly" 
+            : "consumption"
+          } />
+          <div className="alert-content">
+            <span id="alert-text">{alerta.tipoAlerta}</span>
+            <span>Fecha y Hora: {alerta.fecha} {alerta.hora}</span>
+            {alerta.limiteConsumo && <span>Límite de Consumo: {alerta.limiteConsumo}</span>}
+            {alerta.consumoActual && <span>Consumo Actual: {alerta.consumoActual}</span>}
+            <span>Estado de Alerta: {alerta.estadoAlerta}</span>
+            <span>Acciones Recomendadas: {alerta.accionRecomendada}</span>
+          </div>
+          <div className="alert-buttons">
+            <Button variant="outline" className="buttondisabled">
+              <Link href="">Eliminar</Link>
+            </Button>
+            <Button variant="outline" className="button">
+              <Link href="/dashboard">Verificar</Link>
+            </Button>
+          </div>
+        </section>
+      ))}
     </div>
   );
 };
+
 export default Alert;
