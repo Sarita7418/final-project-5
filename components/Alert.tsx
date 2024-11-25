@@ -11,12 +11,12 @@ const Alert = () => {
         <Icon type="alert" />
         <div className="alert-content">
           <span id="alert-text">Alerta Detectada</span>
-          <span>Fecha y Hora: 24/09/2024 21:44</span>
-          <span>Límite de Consumo: 5000 Lt</span>
-          <span>Consumo Actual: 5500 Lt</span>
-          <span>Estado de Alerta: Pendiente</span>
+          <span>Fecha y Hora:</span>
+          <span>Límite de Consumo:</span>
+          <span>Consumo Actual:</span>
+          <span>Estado de Alerta:</span>
           <span>Acciones Recomendadas:</span>
-          <li>Verifica posibles fugas en las tuberías.</li>
+      
         </div>
         <div className="alert-buttons">
           <Button variant="outline" className="buttondisabled">
@@ -30,7 +30,10 @@ const Alert = () => {
       <section className="alert-container">
         <Icon type="anomaly" />
         <div className="alert-content">
-          <span className="alert-text">Anomalía Detectada</span>
+        <span id="alert-text">Anomalia Detectada</span>
+        <span>Fecha y Hora:</span>
+          <span>Detalle:</span>
+          <span>Estado de Alerta:</span>
         </div>
         <div className="alert-buttons">
           <Button variant="outline" className="buttondisabled">
@@ -44,7 +47,10 @@ const Alert = () => {
       <section className="alert-container">
         <Icon type="consumption" />
         <div className="alert-content">
-          <span className="alert-text">Consumo Estabilizado</span>
+        <span id="alert-text">Consumo Estabilizado</span>
+          <span>Fecha y Hora:</span>
+          <span>Detalle:</span>
+          <span>Estado de Alerta:</span>
         </div>
         <div className="alert-buttons">
           <Button variant="outline" className="buttondisabled">
