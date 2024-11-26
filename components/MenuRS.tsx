@@ -1,7 +1,8 @@
 "use client";
+
+import React, { useState } from "react";
 import ListaRS from "./ListaRS";
 import "./MenuRS.css";
-import React, { useState } from "react";
 
 const MenuRS = () => {
   const [selectedTab, setSelectedTab] = useState<string>("electricidad");
@@ -13,11 +14,8 @@ const MenuRS = () => {
   return (
     <section className="allconfig">
       <div className="tabs">
-        {/* Opciones del menú */}
         <button
-          className={`tab ${
-            selectedTab === "electricidad" ? "active_tab" : ""
-          }`}
+          className={`tab ${selectedTab === "electricidad" ? "active_tab" : ""}`}
           onClick={() => handleTabChange("electricidad")}
         >
           Electricidad
@@ -36,23 +34,9 @@ const MenuRS = () => {
         </button>
       </div>
 
-      {/* Contenido basado en la pestaña seleccionada */}
       <div className="contenido_config">
-        {selectedTab === "electricidad" && (
-          <>
-            <ListaRS />
-          </>
-        )}
-        {selectedTab === "agua" && (
-          <>
-            <ListaRS />
-          </>
-        )}
-        {selectedTab === "gas" && (
-          <>
-            <ListaRS />
-          </>
-        )}
+        {/* Pasa la pestaña seleccionada como prop */}
+        <ListaRS recurso={selectedTab} />
       </div>
     </section>
   );
