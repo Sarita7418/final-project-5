@@ -1,39 +1,87 @@
+"use client";
+
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
-import React from "react";
+import React, { useEffect } from "react";
 import SensorCard from "../../components/SensorCard";
 import AlertCard from "../../components/AlertCard";
 import ConsumoCard from "../../components/ConsumoCard";
 import Link from "next/link";
-import report_b from "@/public/carbon_report_white.svg"
+import report_b from "@/public/carbon_report_white.svg";
 import ButtonsSensor from "../../components/ButtonsSensor";
 import ConsumoGC from "../../components/ConsumoGC";
+import { useAuthStore } from "../store";
 
 const dashboard = () => {
+  const { sensores, fetchSensores } = useAuthStore();
+
+  useEffect(() => {
+    fetchSensores();
+  }, [fetchSensores]);
+
+  let numA = [
+    sensores.filter(
+      (sensor) => sensor.recurso === "agua" && sensor.estado === "Activo"
+    ).length,
+    sensores.filter(
+      (sensor) => sensor.recurso === "gas" && sensor.estado === "Activo"
+    ).length,
+    sensores.filter(
+      (sensor) =>
+        sensor.recurso === "electricidad" && sensor.estado === "Activo"
+    ).length,
+  ];
+
+  let numI = [
+    sensores.filter(
+      (sensor) => sensor.recurso === "agua" && sensor.estado === "Inactivo"
+    ).length,
+    sensores.filter(
+      (sensor) => sensor.recurso === "gas" && sensor.estado === "Inactivo"
+    ).length,
+    sensores.filter(
+      (sensor) =>
+        sensor.recurso === "electricidad" && sensor.estado === "Inactivo"
+    ).length,
+  ];
+
+  let numAL = [
+    sensores.filter(
+      (sensor) => sensor.recurso === "agua" && sensor.estado === "alerta"
+    ).length,
+    sensores.filter(
+      (sensor) => sensor.recurso === "gas" && sensor.estado === "alerta"
+    ).length,
+    sensores.filter(
+      (sensor) =>
+        sensor.recurso === "electricidad" && sensor.estado === "alerta"
+    ).length,
+  ];
+
   return (
     <div>
       <Header />
       <section className="content">
         <Menu />
         <section className="dashboard_content page_content">
-          <ConsumoGC/>
+          <ConsumoGC />
           <section className="container_dash">
             <h2>Sensores</h2>
             <section>
               <div className="sensor_aux">
                 <h3 className="sensor_title green_s">Activos</h3>
-                <SensorCard />
+                <SensorCard data={numA} />
               </div>
               <div className="sensor_aux">
                 <h3 className="sensor_title gray_s">Inactivos</h3>
-                <SensorCard />
+                <SensorCard data={numI} />
               </div>
               <div className="sensor_aux">
                 <h3 className="sensor_title red_s">Alertas</h3>
-                <AlertCard />
+                <AlertCard data={numAL} />
               </div>
             </section>
-            <ButtonsSensor/>
+            <ButtonsSensor />
           </section>
           <section className="container_consumo_gen">
             <div className="aux_consum">

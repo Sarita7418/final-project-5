@@ -4,21 +4,25 @@ import elect from "@/public/Group (1).svg";
 import gas from "@/public/Group.svg";
 import "./SensorCard.css";
 
-const SensorCard = () => {
+interface SensorCardProps {
+  data: any;
+}
+
+const SensorCard: React.FC<SensorCardProps> = ({ data }) => {
   return (
     <>
       <div className="sensor_card">
         <div className="element_sensor">
           <img src={agua.src} alt="" />
-          <span>Agua: 2 sensores</span>
+          <span>Agua: {data[0]} sensores</span>
         </div>
         <div className="element_sensor">
           <img src={gas.src} alt="" />
-          <span>Gas: 7 sensores</span>
+          <span>Gas: {data[1]} sensores</span>
         </div>
         <div className="element_sensor">
           <img src={elect.src} alt="" />
-          <span>Electricidad: 4 sensores</span>
+          <span>Electricidad: {data[2]} sensores</span>
         </div>
       </div>
     </>

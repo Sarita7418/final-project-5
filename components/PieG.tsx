@@ -25,13 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-const desktopData = [
-  { area: "Piso 1", desktop: 186, fill: "var(--color-january)" },
-  { area: "Piso 2", desktop: 305, fill: "var(--color-february)" },
-  { area: "Piso 3", desktop: 237, fill: "var(--color-march)" },
-  { area: "Piso 4", desktop: 173, fill: "var(--color-april)" },
-  { area: "Planta Baja", desktop: 209, fill: "var(--color-may)" },
-];
 
 const chartConfig = {
   visitors: {
@@ -67,7 +60,25 @@ const chartConfig = {
 
 import "./PieG.css";
 
-export function PieG() {
+interface PieGProps {
+  data: any; // Replace 'any' with the appropriate type if known
+}
+
+export function PieG({ data }: PieGProps) {
+
+  if (!data || data.length < 1) {
+    return <div>Loading...</div>;
+  }
+
+  const desktopData = [
+    { area: "Piso 1", desktop: Number(data[0].piso1), fill: "var(--color-january)" },
+    { area: "Piso 2", desktop: Number(data[0].piso2), fill: "var(--color-february)" },
+    { area: "Piso 3", desktop: Number(data[0].piso3), fill: "var(--color-march)" },
+    { area: "Piso 4", desktop: Number(data[0].piso4), fill: "var(--color-april)" },
+    { area: "Planta Baja", desktop: Number(data[0].plantaBaja), fill: "var(--color-may)" },
+  ];
+
+
   const id = "pie-interactive";
   const [activeArea, setActiveArea] = React.useState(desktopData[0].area);
 
@@ -139,7 +150,7 @@ export function PieG() {
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          {data[0].recurso}
                         </tspan>
                       </text>
                     );
