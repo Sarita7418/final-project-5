@@ -90,6 +90,9 @@ type AuthStore = {
     fetchPiedashboard: () => Promise<void>;
     fetchCmensual: () => Promise<void>;
     fetchLecturas: () => Promise<void>;
+    eliminarUsuario: (id: string) => void;
+
+    
 };
 
 export const useAuthStore = create<AuthStore>((set) => ({
