@@ -1,21 +1,25 @@
 import React from 'react'
 import alerta from "@/public/fluent_warning-16-filled.svg"
 
-const AlertCard = () => {
+interface AlertCardProps {
+  data: any;
+}
+
+const AlertCard: React.FC<AlertCardProps> = ({ data }) => {
   return (
     <>
       <div className="sensor_card">
         <div className="element_sensor">
           <img src={alerta.src} alt="" />
-          <span>Agua: 2 sensores</span>
+          <span>Agua: {data[0]} sensores</span>
         </div>
         <div className="element_sensor">
           <img src={alerta.src} alt="" />
-          <span>Gas: 7 sensores</span>
+          <span>Gas: {data[1]} sensores</span>
         </div>
         <div className="element_sensor">
           <img src={alerta.src} alt="" />
-          <span>Electricidad: 4 sensores</span>
+          <span>Electricidad: {data[2]} sensores</span>
         </div>
       </div>
     </>

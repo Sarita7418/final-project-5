@@ -1,16 +1,49 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ComparativeG } from "./ComparativeG";
 import { PieG } from "./PieG";
 import "./ConsumoGC.css";
+import { useAuthStore } from "@/app/store";
 
 const ConsumoGC = () => {
+  const { areas, fetchAreas } = useAuthStore();
+
+  useEffect(() => {
+    fetchAreas();
+  }, [fetchAreas]);
+
+  const { piedashboard, fetchPiedashboard } = useAuthStore();
+
+  useEffect(() => {
+    fetchPiedashboard();
+  }, [fetchPiedashboard]);
+
   const [selectedTab, setSelectedTab] = useState<string>("agua");
 
   const handleTabChange = (tab: string) => {
     setSelectedTab(tab);
   };
+
+  const dataA = areas.filter(
+    (area) => area.uMedida === "L" && area.area === "general"
+  );
+  const dataE = areas.filter(
+    (area) => area.uMedida === "kWh" && area.area === "general"
+  );
+  const dataG = areas.filter(
+    (area) => area.uMedida === "m^3" && area.area === "general"
+  );
+
+  const dataAP = piedashboard.filter(
+    (pie) => pie.recurso === "(Litros/día)"
+  );
+  const dataEP = piedashboard.filter(
+    (pie) => pie.recurso === "(kWh/día)"
+  );
+  const dataGP = piedashboard.filter(
+    (pie) => pie.recurso === "(m³/día)"
+  );
 
   return (
     <section className="container_consumo">
@@ -25,7 +58,9 @@ const ConsumoGC = () => {
           Agua
         </button>
         <button
-          className={`tab ${selectedTab === "electricidad" ? "active_tab" : ""}`}
+          className={`tab ${
+            selectedTab === "electricidad" ? "active_tab" : ""
+          }`}
           onClick={() => handleTabChange("electricidad")}
         >
           Electricidad
@@ -42,20 +77,20 @@ const ConsumoGC = () => {
       <div className="graficos">
         {selectedTab === "agua" && (
           <>
-            <ComparativeG />
-            <PieG />
+            <ComparativeG data={dataA}/>
+            <PieG data={dataAP}/>
           </>
         )}
         {selectedTab === "electricidad" && (
           <>
-            <ComparativeG />
-            <PieG />
+            <ComparativeG data={dataE}/>
+            <PieG data={dataEP}/>
           </>
         )}
         {selectedTab === "gas" && (
           <>
-            <ComparativeG />
-            <PieG />
+            <ComparativeG data={dataG}/>
+            <PieG data={dataGP}/>
           </>
         )}
       </div>
@@ -64,4 +99,3 @@ const ConsumoGC = () => {
 };
 
 export default ConsumoGC;
-

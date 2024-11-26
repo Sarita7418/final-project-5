@@ -19,16 +19,6 @@ import {
 import "./ComparativeG.css";
 import LegendG from "@/components/LegendG";
 
-const chartData = [
-  { day: "Sab", S_anterior: 186, S_actual: 80 },
-  { day: "Dom", S_anterior: 186, S_actual: 80 },
-  { day: "Lun", S_anterior: 305, S_actual: 200 },
-  { day: "Mar", S_anterior: 237, S_actual: 120 },
-  { day: "Mie", S_anterior: 73, S_actual: 190 },
-  { day: "Jue", S_anterior: 209, S_actual: 130 },
-  { day: "Vie", S_anterior: 214, S_actual: 140 },
-];
-
 const chartConfig = {
   desktop: {
     label: "Desktop",
@@ -40,7 +30,26 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function ComparativeG() {
+interface ComparativeGProps {
+  data: any;
+}
+
+export function ComparativeG({ data }: ComparativeGProps) {
+
+  if (!data || data.length < 2) {
+    return <div>Loading...</div>;
+  }
+
+  const chartData = [
+    { day: "Sab", S_anterior: data[0].sabado, S_actual: data[1].sabado },
+    { day: "Dom", S_anterior: data[0].domingo, S_actual: data[1].domingo },
+    { day: "Lun", S_anterior: data[0].lunes, S_actual: data[1].lunes },
+    { day: "Mar", S_anterior: data[0].martes, S_actual: data[1].martes },
+    { day: "Mie", S_anterior: data[0].miercoles, S_actual: data[1].miercoles },
+    { day: "Jue", S_anterior: data[0].jueves, S_actual: data[1].jueves },
+    { day: "Vie", S_anterior: data[0].viernes, S_actual: data[1].viernes },
+  ];
+
   return (
     <Card className="comparative-container">
       <LegendG />
