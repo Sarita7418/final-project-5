@@ -9,6 +9,7 @@ interface Sensor {
   tipo: string;
   ubicacion: string;
   estado: string;
+  oculto?: boolean; // Nueva propiedad para determinar si está oculto
 }
 
 const ListaRS = ({ recurso }: { recurso: string }) => {
@@ -17,12 +18,16 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
   useEffect(() => {
     const fetchSensores = async () => {
       try {
-        const response = await fetch(`https://673778bcaafa2ef22233f00b.mockapi.io/Sensores?recurso=${recurso}`);
+        const response = await fetch(
+          `https://673778bcaafa2ef22233f00b.mockapi.io/Sensores?recurso=${recurso}`
+        );
         if (!response.ok) {
           throw new Error("Error al obtener los datos del MockAPI");
         }
-        const data = await response.json();
-        setSensores(data);
+        const data: Sensor[] = await response.json();
+        // Filtrar los sensores ocultos
+        const sensoresVisibles = data.filter((sensor) => !sensor.oculto);
+        setSensores(sensoresVisibles);
       } catch (error) {
         console.error("Error al cargar sensores:", error);
         setSensores([]); // En caso de error, muestra una lista vacía.
@@ -31,6 +36,26 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
 
     fetchSensores();
   }, [recurso]);
+
+  const ocultarSensor = async (id: string) => {
+    try {
+      // Actualizar el sensor en el servidor para marcarlo como oculto
+      await fetch(`https://673778bcaafa2ef22233f00b.mockapi.io/Sensores/${id}`, {
+        method: "PUT", // Usar PUT o PATCH para actualizar
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ oculto: true }),
+      });
+
+      // Actualizar el estado local para reflejar el cambio
+      setSensores((prevSensores) =>
+        prevSensores.filter((sensor) => sensor.id !== id)
+      );
+    } catch (error) {
+      console.error("Error al ocultar el sensor:", error);
+    }
+  };
 
   return (
     <div className="table_users">
@@ -59,7 +84,11 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
               <Button variant="outline" className="form-button">
                 <Link href={`/sensoresf/${sensor.id}`}>Editar</Link>
               </Button>
-              <Button variant="outline" className="form-button">
+              <Button
+                variant="outline"
+                className="form-button"
+                onClick={() => ocultarSensor(sensor.id)}
+              >
                 Eliminar
               </Button>
             </div>
