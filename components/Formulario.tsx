@@ -56,11 +56,11 @@ const Formulario = () => {
         </div>
 
         <div>
-          <Button variant="outline" className="form-buttonG">
-            <Link href="">Guardar</Link>
-          </Button>
           <Button variant="outline" className="form-buttonC">
             <Link href="/SensoresP">Cancelar</Link>
+          </Button>
+          <Button variant="outline" className="form-buttonG">
+            <Link href="">Guardar</Link>
           </Button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 "use client";
-
+import "./PieArea.css";
 import * as React from "react";
 import { Label, Pie, PieChart, Sector } from "recharts";
 import { PieSectorDataItem } from "recharts/types/polar/Pie";
@@ -102,7 +102,42 @@ export function PieArea({ data }: PieGProps) {
   const areas = React.useMemo(() => desktopData.map((item) => item.area), []);
 
   return (
-    <Card data-chart={id} className="flex flex-col" id="pie_card">
+    <Card data-chart={id} className="flex flex-col items-center" id="pie_card">
+      <Select value={activeArea} onValueChange={setActiveArea}>
+        <SelectTrigger
+          className="h-7 w-[130px] rounded-lg pl-2.5 select-trigger"
+          aria-label="Select an area"
+        >
+          <SelectValue placeholder="Select area" />
+        </SelectTrigger>
+        <SelectContent align="end" className="rounded-xl">
+          {areas.map((key) => {
+            const config = desktopData.find((item) => item.area === key);
+
+            if (!config) {
+              return null;
+            }
+
+            return (
+              <SelectItem
+                key={key}
+                value={key}
+                className="rounded-lg [&_span]:flex"
+              >
+                <div className="flex items-center gap-2">
+                  <span
+                    className="flex h-3 w-3 shrink-0 rounded-sm"
+                    style={{
+                      backgroundColor: config.fill,
+                    }}
+                  />
+                  {config.area}
+                </div>
+              </SelectItem>
+            );
+          })}
+        </SelectContent>
+      </Select>
       <ChartStyle id={id} config={chartConfig} />
 
       <CardContent
@@ -174,7 +209,7 @@ export function PieArea({ data }: PieGProps) {
         </ChartContainer>
       </CardContent>
       <Link href="">
-        <button className="b_report_db hover:bg-purple-400" >
+        <button className="b_report_area hover:bg-purple-400" >
           <img src={report_b.src} alt="" />
           <span>Generar reporte</span>
         </button>
