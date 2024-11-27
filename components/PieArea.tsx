@@ -65,7 +65,6 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-import "./PieG.css";
 import report_b from "@/public/carbon_report_white.svg";
 import Link from "next/link";
 
