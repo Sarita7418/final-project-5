@@ -5,41 +5,18 @@ import "./AreaElectricidad.css";
 import { PieArea } from "./PieArea";
 import { useAuthStore } from "@/app/store";
 
-const AreaAgua = () => {
-  const { areas, fetchAreas } = useAuthStore();
+const AreaGas = ({ floor }: { floor: string }) => {
+  const { areas, fetchAreas, piedashboard, fetchPiedashboard } = useAuthStore();
 
   useEffect(() => {
     fetchAreas();
-  }, [fetchAreas]);
-
-  const { piedashboard, fetchPiedashboard } = useAuthStore();
-
-  useEffect(() => {
     fetchPiedashboard();
-  }, [fetchPiedashboard]);
+  }, [fetchAreas, fetchPiedashboard]);
 
-  const [selectedTab, setSelectedTab] = useState<string>("agua");
-
-  const handleTabChange = (tab: string) => {
-    setSelectedTab(tab);
-  };
-
-  const dataA = areas.filter(
-    (area) => area.uMedida === "L" && area.area === "P1"
-  );
-  const dataE = areas.filter(
-    (area) => area.uMedida === "kWh" && area.area === "P2"
-  );
   const dataG = areas.filter(
-    (area) => area.uMedida === "m^3" && area.area === "P3"
+    (area) => area.uMedida === "m^3" && area.area === floor
   );
 
-  const dataAP = piedashboard.filter(
-    (pie) => pie.recurso === "(Litros/día)"
-  );
-  const dataEP = piedashboard.filter(
-    (pie) => pie.recurso === "(kWh/día)"
-  );
   const dataGP = piedashboard.filter(
     (pie) => pie.recurso === "(m³/día)"
   );
@@ -52,8 +29,8 @@ const AreaAgua = () => {
       <div className="graficos">
         {
           <>
-            <ComparativeG data={dataA} />
-            <PieArea data={dataAP} />
+            <ComparativeG data={dataG} />
+            <PieArea data={dataGP} />
           </>
         }
       </div>
@@ -61,4 +38,4 @@ const AreaAgua = () => {
   );
 };
 
-export default AreaAgua;
+export default AreaGas;

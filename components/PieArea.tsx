@@ -90,6 +90,7 @@ export function PieArea({ data }: PieGProps) {
   
   ];
 
+
   const id = "pie-interactive";
   const [activeArea, setActiveArea] = React.useState(desktopData[0].area);
 

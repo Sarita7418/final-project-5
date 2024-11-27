@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import Control from "@/components/Control";
@@ -9,26 +9,32 @@ import Agua from "@/components/AreaAgua";
 import Gas from "@/components/AreaGas";
 import { useAuthStore } from "../store";
 const Areas = () => {
-  const { sensores, fetchAreas } = useAuthStore();
+  const { fetchAreas } = useAuthStore();
+  const [selectedFloor, setSelectedFloor] = useState<string>("P1");
 
   useEffect(() => {
-    fetchAreas();
+    fetchAreas(); // Cargar áreas al iniciar
   }, [fetchAreas]);
+
+  // Función para actualizar el piso seleccionado
+  const handleFloorChange = (floor: string) => {
+    setSelectedFloor(floor);
+  };
   return (
     <div>
       <Header />
       <section className="content">
         <Menu />
         <section className="page_content">
-          <Control />
+          <Control onFloorChange={handleFloorChange}/>
           <div>
-            <Electricidad />
+            <Electricidad floor={selectedFloor} />
           </div>
           <div>
-            <Agua />
+            <Agua floor={selectedFloor} />
           </div>
           <div>
-            <Gas />
+            <Gas floor={selectedFloor} />
           </div>
         </section>
       </section>
