@@ -8,6 +8,7 @@ import './LoginBox.css';
 import "./LoginButton.css";
 import { useRouter } from 'next/navigation';
 
+const clickSound = new Audio('/click.mp3'); // Ruta relativa al archivo en public
 
 const LoginBox = () => {
   const { usuarios, fetchUsuarios } = useAuthStore();
@@ -28,7 +29,13 @@ const LoginBox = () => {
     setPassword(e.target.value);
   };
 
-  const logear = () => {
+  const logear = async () => {
+    try {
+      await clickSound.play();
+    } catch (error) {
+      console.error('Error al reproducir el audio:', error);
+    }
+
     const usuarioEncontrado = usuarios.find((usuario) => usuario.userName === username);
 
     if (usuarioEncontrado && usuarioEncontrado.password === password) {
