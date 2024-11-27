@@ -18,7 +18,7 @@ const Lista: React.FC<ListaProps> = ({ handleTabChange }) => {
     handleTabChange("gestionUsuariosRoles");
   };
 
-  const { usuarios, fetchUsuarios } = useAuthStore();
+  const { usuarios, fetchUsuarios, eliminarUsuario } = useAuthStore();
 
   useEffect(() => {
     fetchUsuarios();
@@ -46,9 +46,10 @@ const Lista: React.FC<ListaProps> = ({ handleTabChange }) => {
             <Button variant="outline" onClick={() => handleEditClick()}>
               Editar
             </Button>
-            <Button variant="outline">
-              <Link href="/configuracion">Archivar</Link>
+            <Button variant="outline" onClick={() => eliminarUsuario(usuario.id)}>
+               Archivar
             </Button>
+
           </div>
         </div>
       ))}

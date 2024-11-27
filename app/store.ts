@@ -86,6 +86,9 @@ type AuthStore = {
     fetchPiedashboard: () => Promise<void>;
     fetchCmensual: () => Promise<void>;
     fetchLecturas: () => Promise<void>;
+    eliminarUsuario: (id: string) => void;
+
+    
 };
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -104,6 +107,13 @@ export const useAuthStore = create<AuthStore>((set) => ({
         const data = await getData("https://673778bcaafa2ef22233f00b.mockapi.io/usuarios");
         set({ usuarios: data });
     },
+
+    eliminarUsuario: (id: string) => {
+        set((state) => ({
+          usuarios: state.usuarios.filter((usuario) => usuario.id !== id),
+        }));
+    },
+
     fetchAlertas: async () => {
         const data = await getData("https://673778bcaafa2ef22233f00b.mockapi.io/alertas");
         set({ alertas: data });
@@ -128,4 +138,8 @@ export const useAuthStore = create<AuthStore>((set) => ({
         const data = await getData("https://673778bcaafa2ef22233f00b.mockapi.io/lecturas");
         set({ lecturas: data });
     }
+    
 }));
+
+
+  
