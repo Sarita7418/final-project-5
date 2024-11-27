@@ -6,18 +6,23 @@ import Google from "@/public/Google.svg"
 import Meta from "@/public/Meta.svg"
 import Apple from "@/public/Apple.svg"
 
+const playSound = () => {
+  const sound = new Audio("/click.mp3"); 
+  sound.play();
+};
+
 const SocialLogin = () => {
   return (
     <div className="social-login">
-      <button >
-        <img src={Google.src} alt="" />
+      <button onClick={playSound}>
+      <img src={Google.src} alt="" />
         <Link href=""></Link>
       </button>
-      <button >
+      <button onClick={playSound}>
         <img src={Meta.src} alt="" />
         <Link href=""></Link>
       </button>
-      <button >
+      <button onClick={playSound}>
         <img src={Apple.src} alt="" />
         <Link href=""></Link>
       </button>

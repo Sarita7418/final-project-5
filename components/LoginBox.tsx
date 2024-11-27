@@ -38,7 +38,6 @@ const LoginBox = () => {
 
   const logear = async () => {
     try {
-      // Solo reproducir el sonido si el objeto Audio ha sido creado correctamente
       if (clickSoundRef.current) {
         await clickSoundRef.current.play();
       }
