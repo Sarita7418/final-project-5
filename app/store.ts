@@ -16,13 +16,9 @@ type Usuario = {
 
 type Alerta = {
     id: string;
-    tipoAlerta: string;
-    fecha: string;
-    hora: string;
     limiteConsumo: string;
     consumoActual: string;
-    accionRecomendada: string;
-    estadoAlerta: string;
+    uMedida: string;
 };
 
 type Area = {
