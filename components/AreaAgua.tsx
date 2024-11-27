@@ -17,8 +17,8 @@ const AreaAgua = ({ floor }: { floor: string }) => {
     (area) => area.uMedida === "L" && area.area === floor
   );
 
-  const dataAP = piedashboard.filter(
-    (pie) => pie.recurso === "(Litros/día)"
+  const dataAP = areas.filter(
+    (pie) => pie.uMedida === "L"
   );
   return (
     <section className="container_consumo">

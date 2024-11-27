@@ -80,13 +80,13 @@ export function PieArea({ data }: PieGProps) {
   }
 
   const desktopData = [
-    { area: "Sabado", desktop: Number(data[0].sabado), fill:  "var(--color-Sabado)" },
-    { area: "Domingo", desktop: Number(data[0].domingo), fill:  "var(--color-Domingo)" },
-    { area: "Lunes", desktop: Number(data[0].lunes), fill:  "var(--color-Lunes)" },
-    { area: "Martes", desktop: Number(data[0].martes), fill:  "var(--color-Martes)" },
-    { area: "Miercoles", desktop: Number(data[0].miercoles), fill:  "var(--color-Miercoles)" },
-    { area: "Jueves", desktop: Number(data[0].jueves), fill:  "var(--color-Jueves)" },
-    { area: "Viernes", desktop: Number(data[0].viernes), fill:  "var(--color-Viernes)" },
+    { area: "Sabado", desktop: Number(data[1].sabado), fill:  "var(--color-Sabado)" },
+    { area: "Domingo", desktop: Number(data[1].domingo), fill:  "var(--color-Domingo)" },
+    { area: "Lunes", desktop: Number(data[1].lunes), fill:  "var(--color-Lunes)" },
+    { area: "Martes", desktop: Number(data[1].martes), fill:  "var(--color-Martes)" },
+    { area: "Miercoles", desktop: Number(data[1].miercoles), fill:  "var(--color-Miercoles)" },
+    { area: "Jueves", desktop: Number(data[1].jueves), fill:  "var(--color-Jueves)" },
+    { area: "Viernes", desktop: Number(data[1].viernes), fill:  "var(--color-Viernes)" },
   
   ];
 
@@ -162,7 +162,7 @@ export function PieArea({ data }: PieGProps) {
                           y={(viewBox.cy || 0) + 24}
                           className="fill-muted-foreground"
                         >
-                          Visitors
+                          {data[0].uMedida}
                         </tspan>
                       </text>
                     );
