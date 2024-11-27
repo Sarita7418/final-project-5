@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ComparativeG } from "./ComparativeG";
 import { PieArea } from "./PieArea";
 import "./ConsumoGC.css";
 import "./AreaElectricidad.css";
+import { useAuthStore } from "@/app/store";
 
-const AreaElectricidad = () => {
+const AreaElectricidad = ({ floor }: { floor: string }) => {
+  const { areas, fetchAreas, piedashboard, fetchPiedashboard } = useAuthStore();
+
+  useEffect(() => {
+    fetchAreas();
+    fetchPiedashboard();
+  }, [fetchAreas, fetchPiedashboard]);
+
+  const dataE = areas.filter(
+    (area) => area.uMedida === "kWh" && area.area === floor
+  );
+
+  const dataEP = piedashboard.filter(
+    (pie) => pie.recurso === "(kWh/día)"
+  );
+
   return (
     <section className="container_consumo">
       <span className="span-title">Consumo Semanal</span>
@@ -12,8 +28,12 @@ const AreaElectricidad = () => {
         Electicidad
       </span>
       <div className="graficos">
-        <ComparativeG />
-        <PieArea />
+        {
+          <>
+            <ComparativeG data={dataE} />
+            <PieArea data={dataEP} />
+          </>
+        }
       </div>
     </section>
   );

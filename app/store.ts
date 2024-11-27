@@ -102,7 +102,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     rolselected: "",
     guardarRol: (rol: string) => {
         set({ rolselected: rol });
-    },
+    },  
     fetchUsuarios: async () => {
         const data = await getData("https://673778bcaafa2ef22233f00b.mockapi.io/usuarios");
         set({ usuarios: data });

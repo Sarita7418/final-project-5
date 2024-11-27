@@ -89,4 +89,5 @@ const Alert: React.FC<AlertaProps> = ({ handleTabChange }) => {
   );
 };
 
+
 export default Alert;

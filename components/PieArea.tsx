@@ -24,16 +24,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-const desktopData = [
-  { area: "Sabado", desktop: 186, fill: "var(--color-Sabado)" },
-  { area: "Domingo", desktop: 305, fill: "var(--color-Domingo)" },
-  { area: "Lunes", desktop: 237, fill: "var(--color-Lunes)" },
-  { area: "Martes", desktop: 173, fill: "var(--color-Martes)" },
-  { area: "Miercoles", desktop: 209, fill: "var(--color-Miercoles)" },
-  { area: "Jueves", desktop: 215, fill: "var(--color-Jueves)" },
-  { area: "Viernes", desktop: 195, fill: "var(--color-Viernes)" },
-
-];
 
 const chartConfig = {
   visitors: {
@@ -79,7 +69,28 @@ import "./PieG.css";
 import report_b from "@/public/carbon_report_white.svg";
 import Link from "next/link";
 
-export function PieArea() {
+interface PieGProps {
+  data: any; // Replace 'any' with the appropriate type if known
+}
+
+export function PieArea({ data }: PieGProps) {
+
+  if (!data || data.length < 1) {
+    return <div>Loading...</div>;
+  }
+
+  const desktopData = [
+    { area: "Sabado", desktop: Number(data[0].sabado), fill:  "var(--color-Sabado)" },
+    { area: "Domingo", desktop: Number(data[0].domingo), fill:  "var(--color-Domingo)" },
+    { area: "Lunes", desktop: Number(data[0].lunes), fill:  "var(--color-Lunes)" },
+    { area: "Martes", desktop: Number(data[0].martes), fill:  "var(--color-Martes)" },
+    { area: "Miercoles", desktop: Number(data[0].miercoles), fill:  "var(--color-Miercoles)" },
+    { area: "Jueves", desktop: Number(data[0].jueves), fill:  "var(--color-Jueves)" },
+    { area: "Viernes", desktop: Number(data[0].viernes), fill:  "var(--color-Viernes)" },
+  
+  ];
+
+
   const id = "pie-interactive";
   const [activeArea, setActiveArea] = React.useState(desktopData[0].area);
 

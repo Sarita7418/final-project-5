@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ComparativeG } from "./ComparativeG";
 import "./ConsumoGC.css";
 import "./AreaElectricidad.css";
 import { PieArea } from "./PieArea";
+import { useAuthStore } from "@/app/store";
 
-const AreaAgua = () => {
+const AreaGas = ({ floor }: { floor: string }) => {
+  const { areas, fetchAreas, piedashboard, fetchPiedashboard } = useAuthStore();
+
+  useEffect(() => {
+    fetchAreas();
+    fetchPiedashboard();
+  }, [fetchAreas, fetchPiedashboard]);
+
+  const dataG = areas.filter(
+    (area) => area.uMedida === "m^3" && area.area === floor
+  );
+
+  const dataGP = piedashboard.filter(
+    (pie) => pie.recurso === "(m³/día)"
+  );
   return (
     <section className="container_consumo">
       <span className="span-title">Consumo Semanal</span>
@@ -12,11 +27,15 @@ const AreaAgua = () => {
         Gas
       </span>
       <div className="graficos">
-        <ComparativeG />
-        <PieArea />
+        {
+          <>
+            <ComparativeG data={dataG} />
+            <PieArea data={dataGP} />
+          </>
+        }
       </div>
     </section>
   );
 };
 
-export default AreaAgua;
+export default AreaGas;
