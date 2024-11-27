@@ -26,7 +26,7 @@ import {
 } from "@/components/ui/select";
 
 const playSound = () => {
-  const sound = new Audio("/click.mp3"); // Ruta del archivo en public/
+  const sound = new Audio("/click.mp3");
   sound.play();
 };
 
