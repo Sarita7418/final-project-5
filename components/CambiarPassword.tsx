@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useAuthStore } from "@/app/store";
-import "@/components/CambiarPassword.css";
+import "./CambiarPassword.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
