@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import './MenuDesplegable.css';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from '@/components/ui/button';
 import Link from "next/link";
-import Login from "@/components/Login";
+import cerrarsesionLogo from '../public/cerrarsesion.svg';  // Importa la imagen
 
 const MenuDesplegable = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +21,10 @@ const MenuDesplegable = () => {
         <div className="dropdown-menu">
           <ul>
             <li className="logout">
-              <Button variant="outline">
-                <Link href="/">Cerrar sesión</Link>
-              </Button>
+              <Link href="/" className="logout-link">
+                Cerrar sesión
+                <img src={cerrarsesionLogo.src} alt="Cerrar sesión" className="logout-icon" />
+              </Link>
             </li>
           </ul>
         </div>
