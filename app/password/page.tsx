@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Header from "@/components/Header";
-import Menu from "@/components/Menu";
 import Password from "@/components/CambiarPassword";
 import { useAuthStore } from "../store";
 
@@ -13,7 +11,8 @@ const password = () => {
   const isAuthenticated = !!user;
 
   return (
-    <div className="password-container">
+    <div>
+        <section className="page_content">
           {isAuthenticated ? (
             <div>
               <p>Ya estás autenticado, puedes cambiar tu contraseña.</p>
@@ -22,6 +21,7 @@ const password = () => {
             <Password />
           )}
           {message && <p>{message}</p>}
+        </section>
     </div>
   );
 };

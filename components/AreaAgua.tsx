@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { ComparativeG } from "./ComparativeG";
 import { PieArea } from "./PieArea";
-import "./ConsumoGC.css"
-import "./AreaElectricidad.css"
-import { useAuthStore } from '@/app/store';
+import "./ConsumoGC.css";
+import "./AreaElectricidad.css";
+import { useAuthStore } from "@/app/store";
 
 const AreaAgua = ({ floor }: { floor: string }) => {
   const { areas, fetchAreas, piedashboard, fetchPiedashboard } = useAuthStore();
@@ -18,9 +18,7 @@ const AreaAgua = ({ floor }: { floor: string }) => {
     (area) => area.uMedida === "L" && area.area === floor
   );
 
-  const dataAP = areas.filter(
-    (pie) => pie.uMedida === "L"
-  );
+  const dataAP = areas.filter((pie) => pie.uMedida === "L");
   return (
     <section className="container_consumo">
       <span className="span-title">Consumo Semanal</span>
@@ -39,5 +37,4 @@ const AreaAgua = ({ floor }: { floor: string }) => {
   );
 };
 
-
-export default AreaAgua
+export default AreaAgua;
