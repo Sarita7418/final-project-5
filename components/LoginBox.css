@@ -44,3 +44,17 @@
   border-radius: 5px;
   border: 1px solid var(--White);
 }
+
+.toggle-password-btn {
+  position: absolute;
+  right: 625px; /* Ajusta esto según necesites */
+  top: 52%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.password-container {
+  position: relative;
+}

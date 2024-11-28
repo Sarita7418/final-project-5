@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './LoginBox.css';
 import "./LoginButton.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Iconos para mostrar/ocultar la contraseña
 import { useRouter } from 'next/navigation';
 
 
@@ -13,6 +14,7 @@ const LoginBox = () => {
   const { usuarios, fetchUsuarios } = useAuthStore();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // Estado para controlar la visibilidad de la contraseña
   const { guardarRol } = useAuthStore();
   const router = useRouter();
 
@@ -49,17 +51,22 @@ const LoginBox = () => {
         onChange={handleUsernameChange}
       />
       <input
-        type="password"
+        type={showPassword ? "text" : "password"} // Alternar tipo entre 'text' y 'password'
         placeholder="Contraseña"
         value={password}
         onChange={handlePasswordChange}
       />
+      <button
+              type="button"
+              className="toggle-password-btn"
+              onClick={() => setShowPassword(!showPassword)} // Alternar visibilidad
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
       <Link href="/password" className="forgot-password">
         ¿Olvidó su contraseña?
       </Link>
       <div className="Red-Social">
-        <p>O continúe con:</p>
-        <SocialLogin />
         <button className="login-button" onClick={logear}>
           INGRESAR
         </button>
