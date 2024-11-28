@@ -5,16 +5,10 @@ import Link from "next/link";
 import cerrarsesionLogo from '../public/cerrarsesion.svg';
 
 type Usuario = {
-  id: string;
   email: string;
   name: string;
   avatar: string;
   userName: string;
-  password: string;
-  nacimiento: string;
-  direccion: string;
-  rol: string;
-  gestion: string;
 };
 
 const MenuDesplegable = () => {
