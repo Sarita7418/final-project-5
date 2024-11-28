@@ -14,7 +14,6 @@ const LoginBox = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false); // Estado para controlar la visibilidad de la contraseña
-  const { guardarRol } = useAuthStore();
   const router = useRouter();
 
   const clickSoundRef = useRef<HTMLAudioElement | null>(null);

@@ -41,7 +41,7 @@ const Lista: React.FC<ListaProps> = ({ handleTabChange }) => {
       <div className="table_users">
         <div className="encabezados">
           <span>Nombre</span>
-          <span>Departamento</span>
+          <span>Dirección</span>
           <span>Rol</span>
           <span>Correo</span>
         </div>
