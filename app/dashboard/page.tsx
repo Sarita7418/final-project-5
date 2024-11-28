@@ -12,6 +12,11 @@ import ButtonsSensor from "../../components/ButtonsSensor";
 import ConsumoGC from "../../components/ConsumoGC";
 import { useAuthStore } from "../store";
 
+const playSound = () =>{
+  const sound = new Audio("/click.mp3");
+  sound.play();
+}
+
 const dashboard = () => {
   const { sensores, fetchSensores } = useAuthStore();
   const { guardarReportID } = useAuthStore();
@@ -90,7 +95,7 @@ const dashboard = () => {
               <ConsumoCard />
             </div>
             <Link href="/Lecturas">
-              <button className="b_report_db" onClick={() => guardarReportID("general")}>
+              <button className="b_report_db" onClick={() => {guardarReportID("general"); playSound();}}>
                 <img src={report_b.src} alt="" />
                 <span>Generar reporte</span>
               </button>

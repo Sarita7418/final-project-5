@@ -4,9 +4,9 @@ import Link from "next/link";
 import "./ListaRS.css";
 
 const playSound = () => {
-  const sound =new Audio("/click.mp3");
+  const sound = new Audio("/click.mp3");
   sound.play();
-}
+};
 
 interface Sensor {
   id: string;
@@ -45,13 +45,16 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
   const ocultarSensor = async (id: string) => {
     try {
       // Actualizar el sensor en el servidor para marcarlo como oculto
-      await fetch(`https://673778bcaafa2ef22233f00b.mockapi.io/Sensores/${id}`, {
-        method: "PUT", // Usar PUT o PATCH para actualizar
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ oculto: true }),
-      });
+      await fetch(
+        `https://673778bcaafa2ef22233f00b.mockapi.io/Sensores/${id}`,
+        {
+          method: "PUT", // Usar PUT o PATCH para actualizar
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ oculto: true }),
+        }
+      );
 
       // Actualizar el estado local para reflejar el cambio
       setSensores((prevSensores) =>
@@ -86,20 +89,27 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
               {sensor.estado}
             </span>
             <div className="buttons-perfil">
-              <Button variant="outline" className="form-button" onClick={(e) => {
-                e.preventDefault();
-                playSound();
+              <Button
+                variant="outline"
+                className="form-button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  playSound();
 
-                setTimeout(() => {
-                  window.location.href = `/sensoresf/${sensor.id}`;
-                }, 200);
-              }} >
+                  setTimeout(() => {
+                    window.location.href = `/sensoresf/${sensor.id}`;
+                  }, 200);
+                }}
+              >
                 <Link href={`/sensoresf/${sensor.id}`}>Editar</Link>
               </Button>
               <Button
                 variant="outline"
                 className="form-button"
-                onClick={() => {ocultarSensor(sensor.id); playSound();}}
+                onClick={() => {
+                  ocultarSensor(sensor.id);
+                  playSound();
+                }}
               >
                 Eliminar
               </Button>
@@ -112,7 +122,7 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
 
       {/* Pie de la tabla */}
       <div className="pie">
-        <Button variant="outline" className="bañadir">
+        <Button variant="outline" className="bañadir" onClick={playSound}>
           <Link href="/sensoresf">Añadir</Link>
         </Button>
       </div>
