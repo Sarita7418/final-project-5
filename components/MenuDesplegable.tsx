@@ -23,7 +23,7 @@ const MenuDesplegable = () => {
           <ul>
             <li className="logout">
               <Button variant="outline">
-                <Link href="/page">Cerrar sesión</Link>
+                <Link href="/">Cerrar sesión</Link>
               </Button>
             </li>
           </ul>
