@@ -24,12 +24,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-const playSound = () => {
-  const sound = new Audio("/click.mp3");
-  sound.play();
-};
-
 const desktopData = [
   { area: "Sabado", desktop: 186, fill: "var(--color-Sabado)" },
   { area: "Domingo", desktop: 305, fill: "var(--color-Domingo)" },
@@ -169,7 +163,7 @@ export function PieArea() {
         </ChartContainer>
       </CardContent>
       <Link href="">
-        <button className="b_report_db hover:bg-purple-400" onClick={playSound}>
+        <button className="b_report_db hover:bg-purple-400" >
           <img src={report_b.src} alt="" />
           <span>Generar reporte</span>
         </button>
