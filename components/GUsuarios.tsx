@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./GUsuarios.css";
 import pencil from "@/public/pencil.svg";
 import fdefault from "@/public/perfil-default.jpg";
@@ -19,6 +19,12 @@ const GUsuarios = () => {
   const [rol, setRol] = useState<string>("");
   const [gestion, setGestion] = useState<string>("");
   const { editUserID } = useAuthStore();
+  
+  const { usuarios, fetchUsuarios } = useAuthStore();
+
+  useEffect(() => {
+    fetchUsuarios();
+  }, [fetchUsuarios]);
 
   const agregarUsuarioA = useAuthStore((state) => state.agregarUsuarioA);
   const editarUsuarioA = useAuthStore((state) => state.editarUsuarioA);
@@ -34,6 +40,23 @@ const GUsuarios = () => {
       reader.readAsDataURL(file);
     }
   };
+
+  useEffect(() => {
+    if (editUserID !== "") {
+      const usuario = usuarios.find((u) => u.id === editUserID);
+      if (usuario) {
+        setNombre(usuario.name);
+        setNombreUsuario(usuario.userName);
+        setEmail(usuario.email);
+        setPassword(usuario.password);
+        setFechaNacimiento(usuario.nacimiento);
+        setDireccion(usuario.direccion);
+        setRol(usuario.rol);
+        setGestion(usuario.gestion);
+        setSelectedImage(usuario.avatar);
+      }
+    }
+  }, [editUserID, usuarios]);
 
   function agregarUsuario() {
     const usuario = {
@@ -66,15 +89,11 @@ const GUsuarios = () => {
       avatar:
         "https://i.pinimg.com/736x/72/f2/5d/72f25dbaf2f232d4a44850395453b64f.jpg",
     };
-    console.log("Usuario agregado:", usuario);
     editarUsuarioA(editUserID, usuario);
     guardarIDEdit("");
   }
 
-  let validate = editUserID === "" ? true : false;
-
-  console.log("ID:", editUserID);
-  console.log(validate)
+  let validate = editUserID === "";
 
   return (
     <section className="gestion_container">
