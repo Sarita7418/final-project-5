@@ -5,6 +5,11 @@ import Laura from "@/public/Laura.svg";
 import "./Lista.css";
 import { useAuthStore } from "@/app/store";
 
+const playSound = () =>{
+  const sound = new Audio("/click.mp3");
+  sound.play();
+}
+
 interface ListaProps {
   handleTabChange: (tab: string) => void;
 }
@@ -50,10 +55,10 @@ const Lista: React.FC<ListaProps> = ({ handleTabChange }) => {
           <span>{usuario.rol}</span>
           <span>{usuario.email}</span>
           <div className="buttons-perfil">
-            <Button variant="outline" onClick={() => editClick(usuario.id)}>
+            <Button variant="outline" onClick={() => {editClick(usuario.id); playSound();}}>
               Editar
             </Button>
-            <Button variant="outline" onClick={() => eliminarUsuario(usuario.id)}>
+            <Button variant="outline" onClick={() => {eliminarUsuario(usuario.id); playSound();}}>
                Archivar
             </Button>
           </div>

@@ -17,11 +17,11 @@ const LoginBox = () => {
   const clickSoundRef = useRef<HTMLAudioElement | null>(null);
 
 
- /* useEffect(() => {
+ useEffect(() => {
     if (typeof window !== 'undefined') {
       clickSoundRef.current = new Audio('/click.mp3');
     }
-  }, []);*/
+  }, []);
 
   useEffect(() => {
     fetchUsuarios();

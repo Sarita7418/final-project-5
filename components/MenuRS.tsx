@@ -4,6 +4,11 @@ import React, { useState } from "react";
 import ListaRS from "./ListaRS";
 import "./MenuRS.css";
 
+const playSound =() => {
+  const sound = new Audio("/click.mp3");
+  sound.play();
+}
+
 const MenuRS = () => {
   const [selectedTab, setSelectedTab] = useState<string>("electricidad");
 
@@ -16,19 +21,25 @@ const MenuRS = () => {
       <div className="tabs">
         <button
           className={`tab ${selectedTab === "electricidad" ? "active_tab" : ""}`}
-          onClick={() => handleTabChange("electricidad")}
+          onClick={() => {handleTabChange("electricidad");
+            playSound();
+          }}
         >
           Electricidad
         </button>
         <button
           className={`tab ${selectedTab === "agua" ? "active_tab" : ""}`}
-          onClick={() => handleTabChange("agua")}
+          onClick={() => {handleTabChange("agua")
+            playSound();
+          }}
         >
           Agua
         </button>
         <button
           className={`tab ${selectedTab === "gas" ? "active_tab" : ""}`}
-          onClick={() => handleTabChange("gas")}
+          onClick={() => {handleTabChange("gas")
+            playSound()
+          }}
         >
           Gas
         </button>

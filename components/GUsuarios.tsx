@@ -6,6 +6,11 @@ import pencil from "@/public/pencil.svg";
 import fdefault from "@/public/perfil-default.jpg";
 import { useAuthStore } from "@/app/store";
 
+const playSound = () => {
+  const sound = new Audio("/click.mp3"); 
+  sound.play();
+};
+
 const GUsuarios = () => {
   const [selectedImage, setSelectedImage] = useState<
     string | ArrayBuffer | null

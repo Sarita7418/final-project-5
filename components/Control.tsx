@@ -1,9 +1,15 @@
+"use client";
 // components/FloorControl.js
 import React, {useState} from "react";
 import Link from "next/link";
 import Plus from "@/public/plus.svg";
 import Calendar from "@/public/calendar.svg";
 import "./Control.css";
+
+const playSound = () =>{
+  const sound = new Audio("/click.mp3");
+  sound.play();
+} 
 
 const FloorControl = ({ onFloorChange }: { onFloorChange: (value: string) => void }) => {
   const handleFloorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -13,11 +19,11 @@ const FloorControl = ({ onFloorChange }: { onFloorChange: (value: string) => voi
     <section className="floor-control">
       <div className="options">
         <h3>Control De Pisos</h3>
-        <button className="add-area-btn">
+        <button className="add-area-btn" onClick={playSound}>
           <img src={Plus.src} alt="" />
           <Link href="">Añadir Áreas</Link>
         </button>
-        <button className="all-areas-btn">
+        <button className="all-areas-btn" onClick={playSound}>
           <img src={Calendar.src} alt="" />
           <Link href="">Todas Las Áreas</Link>
         </button>

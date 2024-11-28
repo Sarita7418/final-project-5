@@ -18,7 +18,6 @@ const AreaElectricidad = ({ floor }: { floor: string }) => {
   );
 
   const dataEP = areas.filter((pie) => pie.uMedida === "kWh");
-  console.log(dataEP);
 
   return (
     <section className="container_consumo">
