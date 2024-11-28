@@ -78,6 +78,8 @@ type AuthStore = {
     cmensual: Cmensual[];
     lecturas: Lectura[];
     rolselected: string;
+    editUserID: string;
+    guardarIDEdit: (id: string) => void;
     guardarRol: (rol: string) => void;
     fetchUsuarios: () => Promise<void>;
     fetchAlertas: () => Promise<void>;
@@ -87,8 +89,8 @@ type AuthStore = {
     fetchCmensual: () => Promise<void>;
     fetchLecturas: () => Promise<void>;
     eliminarUsuario: (id: string) => void;
-
-    
+    agregarUsuarioA: (usuario: Usuario) => Promise<void>;
+    editarUsuarioA: (id: string, usuario: Usuario) => Promise<void>;
 };
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -100,14 +102,17 @@ export const useAuthStore = create<AuthStore>((set) => ({
     cmensual: [],
     lecturas: [],
     rolselected: "",
+    editUserID: "",
     guardarRol: (rol: string) => {
         set({ rolselected: rol });
     },  
+    guardarIDEdit: (id: string) => {
+        set({ editUserID: id });
+    },
     fetchUsuarios: async () => {
         const data = await getData("https://673778bcaafa2ef22233f00b.mockapi.io/usuarios");
         set({ usuarios: data });
     },
-
     eliminarUsuario: (id: string) => {
         set((state) => ({
           usuarios: state.usuarios.filter((usuario) => usuario.id !== id),
@@ -137,8 +142,48 @@ export const useAuthStore = create<AuthStore>((set) => ({
     fetchLecturas: async () => {
         const data = await getData("https://673778bcaafa2ef22233f00b.mockapi.io/lecturas");
         set({ lecturas: data });
-    }
+    },
     
+    agregarUsuarioA: async (usuario) => {
+        try {
+          const response = await fetch("https://673778bcaafa2ef22233f00b.mockapi.io/usuarios", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(usuario),
+          });
+          if (!response.ok) {
+            throw new Error('Error al agregar usuario');
+          }
+          const nuevoUsuario = await response.json();
+          set((state) => ({
+            usuarios: [...state.usuarios, nuevoUsuario],
+          }));
+        } catch (error) {
+          console.error('Error al agregar usuario:', error);
+        }
+      },
+      editarUsuarioA: async (id, usuario) => {
+        try {
+          const response = await fetch(`https://673778bcaafa2ef22233f00b.mockapi.io/usuarios/${id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(usuario),
+          });
+          if (!response.ok) {
+            throw new Error('Error al editar usuario');
+          }
+          const usuarioActualizado = await response.json();
+          set((state) => ({
+            usuarios: state.usuarios.map((u) => (u.id === id ? usuarioActualizado : u)),
+          }));
+        } catch (error) {
+          console.error('Error al editar usuario:', error);
+        }
+      }
 }));
 
 

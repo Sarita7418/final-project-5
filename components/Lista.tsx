@@ -20,9 +20,16 @@ const Lista: React.FC<ListaProps> = ({ handleTabChange }) => {
 
   const { usuarios, fetchUsuarios, eliminarUsuario } = useAuthStore();
 
+  const guardarIDEdit = useAuthStore((state) => state.guardarIDEdit);
+
   useEffect(() => {
     fetchUsuarios();
   }, [fetchUsuarios]);
+
+  function editClick( id: string) {
+    handleEditClick(); 
+    guardarIDEdit(id);
+  }
 
   return (
     <>
@@ -43,13 +50,12 @@ const Lista: React.FC<ListaProps> = ({ handleTabChange }) => {
           <span>{usuario.rol}</span>
           <span>{usuario.email}</span>
           <div className="buttons-perfil">
-            <Button variant="outline" onClick={() => handleEditClick()}>
+            <Button variant="outline" onClick={() => editClick(usuario.id)}>
               Editar
             </Button>
             <Button variant="outline" onClick={() => eliminarUsuario(usuario.id)}>
                Archivar
             </Button>
-
           </div>
         </div>
       ))}
