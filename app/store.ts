@@ -95,7 +95,7 @@ type AuthStore = {
   cambiarPassword: (id: string, newPassword: string) => Promise<boolean>;
 };
 
-export const useAuthStore = create<AuthStore>((set) => ({
+export const useAuthStore = create<AuthStore>((set, get) => ({
   usuarios: [],
   alertas: [],
   areas: [],
@@ -162,11 +162,28 @@ export const useAuthStore = create<AuthStore>((set) => ({
     set({ lecturas: data });
   },
 
-  cambiarPassword: async (id: string, newPassword: string) => {
-    set({ isLoading: true, errorMessage: null }); // Mostrar que la operación está en progreso
+  cambiarPassword: async (email: string, newPassword: string) => {
+    const { usuarios } = get(); // Obtén el estado actual del store
+
+    set({ isLoading: true, errorMessage: null }); // Indicador de carga
+
     try {
+      // Buscar el usuario por su correo
+      const usuarioExistente = usuarios.find(
+        (usuario) => usuario.email === email
+      );
+
+      if (!usuarioExistente) {
+        set({
+          isLoading: false,
+          errorMessage: "El correo electrónico no está registrado.",
+        });
+        return false; // Retorna false si no existe el usuario
+      }
+
+      // Realizar petición para actualizar contraseña
       const response = await fetch(
-        `https://673778bcaafa2ef22233f00b.mockapi.io/usuarios/${id}`,
+        `https://673778bcaafa2ef22233f00b.mockapi.io/usuarios/${usuarioExistente.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -177,18 +194,20 @@ export const useAuthStore = create<AuthStore>((set) => ({
       if (response.ok) {
         set((state) => ({
           usuarios: state.usuarios.map((usuario) =>
-            usuario.id === id ? { ...usuario, password: newPassword } : usuario
+            usuario.id === usuarioExistente.id
+              ? { ...usuario, password: newPassword }
+              : usuario
           ),
           isLoading: false,
           errorMessage: null,
         }));
-        return true;
+        return true; // Contraseña actualizada exitosamente
       } else {
         set({
           isLoading: false,
           errorMessage: "Error al cambiar la contraseña",
         });
-        return false;
+        return false; // Error en la respuesta
       }
     } catch (error) {
       console.error("Error en la petición de cambio de contraseña", error);
@@ -200,3 +219,6 @@ export const useAuthStore = create<AuthStore>((set) => ({
     }
   },
 }));
+function get(): { usuarios: any } {
+  throw new Error("Function not implemented.");
+}
