@@ -79,10 +79,12 @@ type AuthStore = {
   lecturas: Lectura[];
   rolselected: string;
   editUserID: string;
-  guardarIDEdit: (id: string) => void;
+  reportID: string;
   user: Usuario | null; // Añadir la propiedad 'user'
   isLoading: boolean; // Agregar isLoading
   errorMessage: string | null; // Agregar errorMessage
+  guardarIDEdit: (id: string) => void;
+  guardarReportID: (id: string) => void;  
   guardarRol: (rol: string) => void;
   fetchUsuarios: () => Promise<void>;
   fetchAlertas: () => Promise<void>;
@@ -110,6 +112,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
   user: null, // Inicializar 'user' como null
   isLoading: false, // Estado inicial para isLoading
   errorMessage: null, // Estado inicial para errorMessage
+  reportID: "",
   guardarRol: (rol: string) => {
     set({ rolselected: rol });
   },
@@ -127,7 +130,9 @@ export const useAuthStore = create<AuthStore>((set) => ({
       usuarios: state.usuarios.filter((usuario) => usuario.id !== id),
     }));
   },
-
+  guardarReportID: (id: string) => {
+    set({ reportID: id });
+  },
   fetchAlertas: async () => {
     const data = await getData(
       "https://673778bcaafa2ef22233f00b.mockapi.io/alertas"

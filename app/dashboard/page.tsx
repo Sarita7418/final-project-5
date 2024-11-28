@@ -14,6 +14,7 @@ import { useAuthStore } from "../store";
 
 const dashboard = () => {
   const { sensores, fetchSensores } = useAuthStore();
+  const { guardarReportID } = useAuthStore();
 
   useEffect(() => {
     fetchSensores();
@@ -88,8 +89,8 @@ const dashboard = () => {
               <h3 className="sensor_title purple_db">Consumo total mensual</h3>
               <ConsumoCard />
             </div>
-            <Link href="">
-              <button className="b_report_db">
+            <Link href="/Lecturas">
+              <button className="b_report_db" onClick={() => guardarReportID("general")}>
                 <img src={report_b.src} alt="" />
                 <span>Generar reporte</span>
               </button>

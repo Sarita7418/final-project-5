@@ -67,28 +67,66 @@ const chartConfig = {
 
 import report_b from "@/public/carbon_report_white.svg";
 import Link from "next/link";
+import { useAuthStore } from "@/app/store";
 
 interface PieGProps {
   data: any; // Replace 'any' with the appropriate type if known
 }
 
 export function PieArea({ data }: PieGProps) {
-
   if (!data || data.length < 1) {
     return <div>Loading...</div>;
   }
 
   const desktopData = [
-    { area: "Sabado", desktop: Number(data[1].sabado), fill:  "var(--color-Sabado)" },
-    { area: "Domingo", desktop: Number(data[1].domingo), fill:  "var(--color-Domingo)" },
-    { area: "Lunes", desktop: Number(data[1].lunes), fill:  "var(--color-Lunes)" },
-    { area: "Martes", desktop: Number(data[1].martes), fill:  "var(--color-Martes)" },
-    { area: "Miercoles", desktop: Number(data[1].miercoles), fill:  "var(--color-Miercoles)" },
-    { area: "Jueves", desktop: Number(data[1].jueves), fill:  "var(--color-Jueves)" },
-    { area: "Viernes", desktop: Number(data[1].viernes), fill:  "var(--color-Viernes)" },
-  
+    {
+      area: "Sabado",
+      desktop: Number(data[1].sabado),
+      fill: "var(--color-Sabado)",
+    },
+    {
+      area: "Domingo",
+      desktop: Number(data[1].domingo),
+      fill: "var(--color-Domingo)",
+    },
+    {
+      area: "Lunes",
+      desktop: Number(data[1].lunes),
+      fill: "var(--color-Lunes)",
+    },
+    {
+      area: "Martes",
+      desktop: Number(data[1].martes),
+      fill: "var(--color-Martes)",
+    },
+    {
+      area: "Miercoles",
+      desktop: Number(data[1].miercoles),
+      fill: "var(--color-Miercoles)",
+    },
+    {
+      area: "Jueves",
+      desktop: Number(data[1].jueves),
+      fill: "var(--color-Jueves)",
+    },
+    {
+      area: "Viernes",
+      desktop: Number(data[1].viernes),
+      fill: "var(--color-Viernes)",
+    },
   ];
 
+  const { guardarReportID } = useAuthStore();
+
+  function report() {
+    if (data[0].uMedida === "L") {
+      guardarReportID("agua");
+    } else if (data[0].uMedida === "m^3") {
+      guardarReportID("gas");
+    } else if (data[0].uMedida === "kWh") {
+      guardarReportID("electricidad");
+    }
+  }
 
   const id = "pie-interactive";
   const [activeArea, setActiveArea] = React.useState(desktopData[0].area);
@@ -207,8 +245,8 @@ export function PieArea({ data }: PieGProps) {
           </PieChart>
         </ChartContainer>
       </CardContent>
-      <Link href="">
-        <button className="b_report_area hover:bg-purple-400" >
+      <Link href="/Lecturas">
+        <button className="b_report_area hover:bg-purple-400" onClick={report}>
           <img src={report_b.src} alt="" />
           <span>Generar reporte</span>
         </button>

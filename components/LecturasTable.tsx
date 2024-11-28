@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import pdf from "@/public/pdf.svg";
 import "./LecturasTable.css";
 import { generatePDF } from "@/lib/generatePDF";
+import { useAuthStore } from "@/app/store";
 
 const playSound = () => {
   const sound = new Audio("/click.mp3");
@@ -23,6 +24,13 @@ const LecturasTable = () => {
   const [tipoLectura, setTipoLectura] = useState("general");
   const [lecturas, setLecturas] = useState<Lectura[]>([]);
   const [lecturasFiltradas, setLecturasFiltradas] = useState<Lectura[]>([]);
+  const { reportID } = useAuthStore();
+
+  useEffect(() => {
+    if (reportID) {
+      setTipoLectura(reportID.toLowerCase());
+    }
+  }, [reportID]);
 
   //Cargar datos MockAPI
   useEffect(() => {

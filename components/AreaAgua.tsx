@@ -7,6 +7,7 @@ import { useAuthStore } from '@/app/store';
 
 const AreaAgua = ({ floor }: { floor: string }) => {
   const { areas, fetchAreas, piedashboard, fetchPiedashboard } = useAuthStore();
+  
 
   useEffect(() => {
     fetchAreas();
