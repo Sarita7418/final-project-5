@@ -62,7 +62,10 @@ const Alert: React.FC<AlertaProps> = ({ handleTabChange }) => {
         const currentDateTime = new Date();
         const formattedDate = currentDateTime.toLocaleDateString();
         const formattedTime = currentDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
+        const playSound = () =>{
+          const sound = new Audio("/click.mp3");
+          sound.play();
+        }
         return (
           <section className="alert-container" key={alerta.id}>
             <Icon type={imagen} />
@@ -75,10 +78,10 @@ const Alert: React.FC<AlertaProps> = ({ handleTabChange }) => {
               <span>{label}</span>
             </div>
             <div className="alert-buttons">
-            <Button variant="outline" className="buttondisabled">
+            <Button variant="outline" className="buttondisabled" onClick={playSound}>
               <Link href="">Eliminar</Link>
             </Button>
-            <Button variant="outline" className="button">
+            <Button variant="outline" className="button" onClick={playSound}>
               <Link href="/dashboard">Verificar</Link>
             </Button>
           </div>

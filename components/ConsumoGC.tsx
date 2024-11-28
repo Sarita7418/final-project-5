@@ -6,6 +6,11 @@ import { PieG } from "./PieG";
 import "./ConsumoGC.css";
 import { useAuthStore } from "@/app/store";
 
+const playSound = () => {
+  const sound = new Audio("/click.mp3");
+  sound.play();
+}
+
 const ConsumoGC = () => {
   const { areas, fetchAreas } = useAuthStore();
 
@@ -53,7 +58,7 @@ const ConsumoGC = () => {
       <div className="tabs">
         <button
           className={`tab ${selectedTab === "agua" ? "active_tab" : ""}`}
-          onClick={() => handleTabChange("agua")}
+          onClick={() => {handleTabChange("agua"); playSound();}}
         >
           Agua
         </button>
@@ -61,13 +66,13 @@ const ConsumoGC = () => {
           className={`tab ${
             selectedTab === "electricidad" ? "active_tab" : ""
           }`}
-          onClick={() => handleTabChange("electricidad")}
+          onClick={() => {handleTabChange("electricidad"); playSound();}}
         >
           Electricidad
         </button>
         <button
           className={`tab ${selectedTab === "gas" ? "active_tab" : ""}`}
-          onClick={() => handleTabChange("gas")}
+          onClick={() => {handleTabChange("gas"); playSound();}}
         >
           Gas
         </button>

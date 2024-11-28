@@ -5,6 +5,11 @@ import Lista from "./Lista";
 import BotonAgr from "./BotonAgr";
 import "./ConfigMenu.css";
 import GUsuarios from "./GUsuarios";
+ 
+const playSound = () => {
+  const sound = new Audio("/click.mp3");
+  sound.play();
+}
 
 const ConsumoGC = () => {
   const [selectedTab, setSelectedTab] = useState<string>("ajustesGenerales");
@@ -20,7 +25,7 @@ const ConsumoGC = () => {
           className={`tab ${
             selectedTab === "ajustesGenerales" ? "active_tab" : ""
           }`}
-          onClick={() => handleTabChange("ajustesGenerales")}
+          onClick={() => {handleTabChange("ajustesGenerales"); playSound();}}
         >
           Usuarios
         </button>
@@ -28,7 +33,7 @@ const ConsumoGC = () => {
           className={`tab ${
             selectedTab === "gestionUsuariosRoles" ? "active_tab" : ""
           }`}
-          onClick={() => handleTabChange("gestionUsuariosRoles")}
+          onClick={() => {handleTabChange("gestionUsuariosRoles"); playSound();}}
         >
           Gestión de usuarios
         </button>

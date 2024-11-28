@@ -3,6 +3,11 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import "./ListaRS.css";
 
+const playSound = () => {
+  const sound =new Audio("/click.mp3");
+  sound.play();
+}
+
 interface Sensor {
   id: string;
   sensor: string;
@@ -81,13 +86,20 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
               {sensor.estado}
             </span>
             <div className="buttons-perfil">
-              <Button variant="outline" className="form-button">
+              <Button variant="outline" className="form-button" onClick={(e) => {
+                e.preventDefault();
+                playSound();
+
+                setTimeout(() => {
+                  window.location.href = `/sensoresf/${sensor.id}`;
+                }, 200);
+              }} >
                 <Link href={`/sensoresf/${sensor.id}`}>Editar</Link>
               </Button>
               <Button
                 variant="outline"
                 className="form-button"
-                onClick={() => ocultarSensor(sensor.id)}
+                onClick={() => {ocultarSensor(sensor.id); playSound();}}
               >
                 Eliminar
               </Button>
