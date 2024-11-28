@@ -5,7 +5,8 @@ import { useAuthStore } from "@/app/store";
 import "@/components/CambiarPassword.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Iconos para mostrar/ocultar la contraseña
 
 const CambiarPassword = () => {
   const { usuarios, fetchUsuarios, cambiarPassword, isLoading, errorMessage } =
@@ -14,6 +15,8 @@ const CambiarPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // Estado para controlar la visibilidad de la contraseña
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // Estado para la confirmación de la contraseña
   const router = useRouter();
 
   // Cargar los usuarios si no están disponibles
@@ -22,6 +25,12 @@ const CambiarPassword = () => {
       fetchUsuarios(); // Llamamos a la acción de cargar usuarios
     }
   }, [usuarios, fetchUsuarios]);
+
+  // Validar que la contraseña cumpla con los requisitos
+  const validatePassword = (password: string): boolean => {
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{6,}$/;
+    return regex.test(password);
+  };
 
   const handlePasswordChange = async () => {
     // Validar si el correo está registrado en el mockAPI
@@ -35,8 +44,10 @@ const CambiarPassword = () => {
       return;
     }
 
-    if (newPassword.length < 6) {
-      toast.warn("La contraseña debe tener al menos 6 caracteres.");
+    if (!validatePassword(newPassword)) {
+      toast.warn(
+        "La contraseña debe tener al menos 6 caracteres, incluir una letra mayúscula, una letra minúscula, un número y un carácter especial."
+      );
       return;
     }
 
@@ -50,16 +61,14 @@ const CambiarPassword = () => {
     }
   };
 
-
   return (
     <div className="form">
       <h2 className="titlef">Restablezca su contraseña</h2>
       <div className="form-container">
         <div className="form-group">
           <label htmlFor="sensor-name" className="form-label">
-            Ingrese su coreo electronico
+            Ingrese su correo electrónico
           </label>
-          {/* Paso 1: Ingresar el correo electrónico */}
           <input
             className="form-input"
             type="email"
@@ -68,32 +77,51 @@ const CambiarPassword = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="sensor-name" className="form-label">
+          <label htmlFor="new-password" className="form-label">
             Ingrese la nueva contraseña
           </label>
-          {/* Paso 2: Ingresar la nueva contraseña */}
-          <input
-            className="form-input"
-            type="password"
-            placeholder="Ejm. AbapiC128E"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
+          <div className="password-container">
+            <input
+              className="form-input"
+              type={showPassword ? "text" : "password"} // Alternar tipo entre 'text' y 'password'
+              placeholder="Ejm. AbapiC128E"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className="toggle-password-btn"
+              onClick={() => setShowPassword(!showPassword)} // Alternar visibilidad
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
         </div>
+
         <div className="form-group">
-          <label htmlFor="sensor-name" className="form-label">
+          <label htmlFor="confirm-password" className="form-label">
             Confirme la nueva contraseña
           </label>
-          {/* Paso 3: Confirmar la nueva contraseña */}
-          <input
-            className="form-input"
-            type="password"
-            placeholder="Confirmar nueva contraseña"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
+          <div className="password-container">
+            <input
+              className="form-input"
+              type={showConfirmPassword ? "text" : "password"} // Alternar tipo entre 'text' y 'password'
+              placeholder="Confirmar nueva contraseña"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className="toggle-password-btn"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)} // Alternar visibilidad
+            >
+              {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
         </div>
+
         <div>
           <button
             className="form-buttonG"
