@@ -5,6 +5,7 @@ import { useAuthStore } from "@/app/store";
 import "@/components/CambiarPassword.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from 'next/navigation';
 
 const CambiarPassword = () => {
   const { usuarios, fetchUsuarios, cambiarPassword, isLoading, errorMessage } =
@@ -13,6 +14,7 @@ const CambiarPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
+  const router = useRouter();
 
   // Cargar los usuarios si no están disponibles
   useEffect(() => {
@@ -42,10 +44,13 @@ const CambiarPassword = () => {
 
     if (success) {
       toast.success("Contraseña actualizada exitosamente.");
+      setTimeout(() => router.push("/"), 3000);
     } else {
       toast.error(errorMessage || "Hubo un error al cambiar la contraseña.");
     }
   };
+
+
   return (
     <div className="form">
       <h2 className="titlef">Restablezca su contraseña</h2>
@@ -95,7 +100,7 @@ const CambiarPassword = () => {
             onClick={handlePasswordChange}
             disabled={isLoading}
           >
-            {isLoading ? "Cargando..." : "Restablecer Contraseña"}
+            {isLoading ? "Cargando..." : "RESTABLECER"}
           </button>
         </div>
         {message && <p>{message}</p>}

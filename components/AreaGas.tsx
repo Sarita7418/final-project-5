@@ -17,9 +17,7 @@ const AreaGas = ({ floor }: { floor: string }) => {
     (area) => area.uMedida === "m^3" && area.area === floor
   );
 
-  const dataGP = areas.filter(
-    (pie) => pie.uMedida === "m^3"
-  );
+  const dataGP = areas.filter((pie) => pie.uMedida === "m^3");
   return (
     <section className="container_consumo">
       <span className="span-title">Consumo Semanal</span>
