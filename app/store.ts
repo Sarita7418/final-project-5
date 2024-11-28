@@ -125,10 +125,23 @@ export const useAuthStore = create<AuthStore>((set, get) => ({
     );
     set({ usuarios: data });
   },
-  eliminarUsuario: (id: string) => {
-    set((state) => ({
-      usuarios: state.usuarios.filter((usuario) => usuario.id !== id),
-    }));
+  eliminarUsuario: async (usuario) => {
+    try{
+      const response = await fetch(
+        `https://673778bcaafa2ef22233f00b.mockapi.io/usuarios/${usuario}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (!response.ok){
+        throw new Error("Error al eliminar usuario");
+      }
+      set((state) => ({
+        usuarios: state.usuarios.filter((item) => item.id !== usuario),
+      }));
+    } catch (error) {
+      console.error("Error al eliminar usuario:", error);
+    }
   },
   guardarReportID: (id: string) => {
     set({ reportID: id });
