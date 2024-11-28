@@ -7,6 +7,7 @@ import "@/components/Header.css";
 import configLogo from "../public/002-notification-1.svg";
 import alertLogo from "../public/settings 1.svg";
 import { useAuthStore } from "@/app/store";
+import DropdownMenu from './MenuDesplegable'; // Importamos el componente
 
 const Header = () => {
   const pathname = usePathname(); 
@@ -42,12 +43,7 @@ const Header = () => {
             <img src={configLogo.src} alt="Configuración" className="headerButton" />
           </Link>
           
-          <Link href="">
-            <Avatar className="avatarHeader">
-              <AvatarImage src="https://i.pinimg.com/736x/72/f2/5d/72f25dbaf2f232d4a44850395453b64f.jpg" />
-              <AvatarFallback>PF</AvatarFallback>
-            </Avatar>
-          </Link>
+          <DropdownMenu /> {/* Añadimos el componente DropdownMenu aquí */}
         </div>
       </div>
     </header>
@@ -55,4 +51,3 @@ const Header = () => {
 };
 
 export default Header;
-
