@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MenuDesplegable.css';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-import cerrarsesionLogo from '../public/cerrarsesion.svg';  // Importa la imagen
+import cerrarsesionLogo from '../public/cerrarsesion.svg';
+
+type Usuario = {
+  id: string;
+  email: string;
+  name: string;
+  avatar: string;
+  userName: string;
+  password: string;
+  nacimiento: string;
+  direccion: string;
+  rol: string;
+  gestion: string;
+};
 
 const MenuDesplegable = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [usuarioActual, setUsuarioActual] = useState<Usuario | null>(null);
+
+  useEffect(() => {
+    const usuarioLogueado = localStorage.getItem('usuarioLogueado');
+    if (usuarioLogueado) {
+      setUsuarioActual(JSON.parse(usuarioLogueado));
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -14,11 +35,15 @@ const MenuDesplegable = () => {
   return (
     <div className="dropdown">
       <Avatar className="avatarHeader" onClick={toggleMenu}>
-        <AvatarImage src="https://i.pinimg.com/736x/72/f2/5d/72f25dbaf2f232d4a44850395453b64f.jpg" />
-        <AvatarFallback>PF</AvatarFallback>
+        <AvatarImage src={usuarioActual?.avatar || "https://i.pinimg.com/736x/72/f2/5d/72f25dbaf2f232d4a44850395453b64f.jpg"} />
+        <AvatarFallback>{usuarioActual?.name[0] || 'PF'}</AvatarFallback>
       </Avatar>
-      {isOpen && (
+      {isOpen && usuarioActual && (
         <div className="dropdown-menu">
+          <div className="dropdown-header">
+            <span className="username">{usuarioActual.name}</span>
+            <span className="email">{usuarioActual.email}</span>
+          </div>
           <ul>
             <li className="logout">
               <Link href="/" className="logout-link">
