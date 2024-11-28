@@ -1,6 +1,6 @@
 import { useAuthStore } from '@/app/store';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SocialLogin from './SocialLogin';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,13 +8,21 @@ import './LoginBox.css';
 import "./LoginButton.css";
 import { useRouter } from 'next/navigation';
 
-
 const LoginBox = () => {
   const { usuarios, fetchUsuarios } = useAuthStore();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const { guardarRol } = useAuthStore();
   const router = useRouter();
+
+  const clickSoundRef = useRef<HTMLAudioElement | null>(null);
+
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      clickSoundRef.current = new Audio('/click.mp3');
+    }
+  }, []);
 
   useEffect(() => {
     fetchUsuarios();
@@ -28,7 +36,16 @@ const LoginBox = () => {
     setPassword(e.target.value);
   };
 
-  const logear = () => {
+  const logear = async () => {
+    try {
+      // Solo reproducir el sonido si el objeto Audio ha sido creado correctamente
+      if (clickSoundRef.current) {
+        await clickSoundRef.current.play();
+      }
+    } catch (error) {
+      console.error('Error al reproducir el audio:', error);
+    }
+
     const usuarioEncontrado = usuarios.find((usuario) => usuario.userName === username);
 
     if (usuarioEncontrado && usuarioEncontrado.password === password) {
@@ -71,6 +88,3 @@ const LoginBox = () => {
 
 export default LoginBox;
 
-function guardarRol(rol: string) {
-  throw new Error('Function not implemented.');
-}
