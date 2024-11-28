@@ -9,10 +9,9 @@ import "./LoginButton.css";
 import { useRouter } from 'next/navigation';
 
 const LoginBox = () => {
-  const { usuarios, fetchUsuarios } = useAuthStore();
+  const { usuarios, fetchUsuarios, guardarRol } = useAuthStore();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { guardarRol } = useAuthStore();
   const router = useRouter();
 
   const clickSoundRef = useRef<HTMLAudioElement | null>(null);
@@ -49,6 +48,7 @@ const LoginBox = () => {
 
     if (usuarioEncontrado && usuarioEncontrado.password === password) {
       guardarRol(usuarioEncontrado.rol);
+      localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioEncontrado));
       router.push('/dashboard');
     } else {
       alert('Usuario o contraseña incorrectos');
