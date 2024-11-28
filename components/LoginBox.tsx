@@ -70,7 +70,7 @@ const LoginBox = () => {
         value={password}
         onChange={handlePasswordChange}
       />
-      <Link href="" className="forgot-password">
+      <Link href="/password" className="forgot-password">
         ¿Olvidó su contraseña?
       </Link>
       <div className="Red-Social">
