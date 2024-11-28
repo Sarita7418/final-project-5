@@ -2,6 +2,11 @@ import React from "react";
 import "./GUsuarios.css";
 import pencil from "@/public/pencil.svg";
 
+const playSound = () => {
+  const sound = new Audio("/click.mp3"); 
+  sound.play();
+};
+
 const GUsuarios = () => {
   return (
     <section className="gestion_container">
@@ -64,7 +69,7 @@ const GUsuarios = () => {
           </div>
         </div>
       </div>
-      <button className="gestion_boton">Registrar</button>
+      <button className="gestion_boton" onClick={playSound}>Registrar</button>
     </section>
   );
 };

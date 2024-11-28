@@ -5,6 +5,10 @@ import pdf from "@/public/pdf.svg";
 import "./LecturasTable.css";
 import { generatePDF } from "@/lib/generatePDF";
 
+const playSound = () => {
+  const sound = new Audio("/click.mp3");
+  sound.play();
+};
 interface Lectura {
   createdAt: string;
   sensor: string;
@@ -13,7 +17,7 @@ interface Lectura {
   valor: string;
   recurso: string;
   id: string;
-}
+};
 
 const LecturasTable = () => {
   const [tipoLectura, setTipoLectura] = useState("general");
@@ -66,7 +70,7 @@ const LecturasTable = () => {
         </select>
         <div className="exportar">
           <span>Exportar</span>
-          <button onClick={handleGeneratePDF}>
+          <button onClick={() => {handleGeneratePDF(); playSound();}}>
             <img src={pdf.src} alt="Exportar PDF" />
           </button>
         </div>

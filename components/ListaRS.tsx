@@ -3,6 +3,11 @@ import { Button } from './ui/button'
 import Link from 'next/link'
 import "./ListaRS.css"
 
+const playSound = () =>{
+  const sound = new Audio("/click.mp3");
+  sound.play();
+} 
+
 const ListaRS = () => {
   return (
     <>
@@ -25,10 +30,10 @@ const ListaRS = () => {
           <span className="ubit">Sala 3 - Planta Baja</span>
           <span className="estt inactive">Inactivo</span>
           <div className="buttons-perfil">
-            <Button variant="outline" className="form-button">
+            <Button variant="outline" className="form-button" onClick={playSound}>
               <Link href="/sensoresf">Editar</Link>
             </Button>
-            <Button variant="outline" className="form-button">
+            <Button variant="outline" className="form-button" onClick={playSound}>
               Eliminar
             </Button>
           </div>
@@ -36,7 +41,7 @@ const ListaRS = () => {
 
         {/* Pie de la tabla */}
         <div className="pie">
-          <Button variant="outline" className="bañadir">
+          <Button variant="outline" className="bañadir" onClick={playSound}>
             <Link href="/sensoresf">Añadir</Link>
           </Button>
         </div>

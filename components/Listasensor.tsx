@@ -13,6 +13,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
+const playSound = () =>{
+  const sound = new Audio("/click.mp3");
+  sound.play();
+}
+
 const sensores = [
   {
     id: "1",
@@ -43,7 +49,9 @@ const Listasensor = () => {
       <div className="tabs">
         <button
           className={`tab ${selectedTab === "agua" ? "active_tab" : ""}`}
-          onClick={() => handleTabChange("agua")}
+            onClick={() => {handleTabChange("agua")
+            playSound();
+            }}
         >
           Agua
         </button>
@@ -51,13 +59,17 @@ const Listasensor = () => {
           className={`tab ${
             selectedTab === "electricidad" ? "active_tab" : ""
           }`}
-          onClick={() => handleTabChange("electricidad")}
+            onClick={() => {handleTabChange("electricidad")
+            playSound();
+          }}
         >
           Electricidad
         </button>
         <button
           className={`tab ${selectedTab === "gas" ? "active_tab" : ""}`}
-          onClick={() => handleTabChange("gas")}
+            onClick={() => {handleTabChange("gas")
+            playSound();
+          }}
         >
           Gas
         </button>
@@ -85,10 +97,12 @@ const Listasensor = () => {
                     <TableCell className="ubit">{sensor.ubicacion}</TableCell>
                     <TableCell className="estt">{sensor.estado}</TableCell>
                     <TableCell>
-                      <Button variant="outline" className="form-button">
+                      <Button variant="outline" className="form-button" 
+                        onClick={playSound}>
                         <Link href="">Editar</Link>
                       </Button>
-                      <Button variant="outline" className="form-button">
+                      <Button variant="outline" className="form-button"
+                       onClick={playSound}>
                         <Link href="">Eliminar</Link>
                       </Button>
                     </TableCell>
@@ -97,7 +111,8 @@ const Listasensor = () => {
               </TableBody>
               <TableFooter>
                 <TableCell colSpan={5} className="text-center">
-                  <Button variant="outline" className="bañadir">
+                  <Button variant="outline" className="bañadir" 
+                    onClick={playSound}>
                     <Link href="/sensoresf">Añadir ++</Link>
                   </Button>
                 </TableCell>
@@ -124,10 +139,12 @@ const Listasensor = () => {
                   <TableCell className="ubit">{sensor.ubicacion}</TableCell>
                   <TableCell className="estt">{sensor.estado}</TableCell>
                   <TableCell>
-                    <Button variant="outline" className="form-button">
+                    <Button variant="outline" className="form-button"
+                      onClick={playSound}>
                       <Link href="">Editar</Link>
                     </Button>
-                    <Button variant="outline" className="form-button">
+                    <Button variant="outline" className="form-button"
+                      onClick={playSound}>
                       <Link href="">Eliminar</Link>
                     </Button>
                   </TableCell>
@@ -136,7 +153,8 @@ const Listasensor = () => {
             </TableBody>
             <TableFooter>
               <TableCell colSpan={5} className="text-center">
-                <Button variant="outline" className="bañadir">
+                <Button variant="outline" className="bañadir"
+                  onClick={playSound}>
                   <Link href="/sensoresf">Añadir ++</Link>
                 </Button>
               </TableCell>
@@ -163,10 +181,12 @@ const Listasensor = () => {
                     <TableCell className="ubit">{sensor.ubicacion}</TableCell>
                     <TableCell className="estt">{sensor.estado}</TableCell>
                     <TableCell>
-                      <Button variant="outline" className="form-button">
+                      <Button variant="outline" className="form-button"
+                        onClick={playSound}>
                         <Link href="">Editar</Link>
                       </Button>
-                      <Button variant="outline" className="form-button">
+                      <Button variant="outline" className="form-button"
+                        onClick={playSound}>
                         <Link href="">Eliminar</Link>
                       </Button>
                     </TableCell>
@@ -175,7 +195,8 @@ const Listasensor = () => {
               </TableBody>
               <TableFooter>
                 <TableCell colSpan={5} className="text-center">
-                  <Button variant="outline" className="bañadir">
+                  <Button variant="outline" className="bañadir"
+                    onClick={playSound}>
                     <Link href="/sensoresf">Añadir ++</Link>
                   </Button>
                 </TableCell>
