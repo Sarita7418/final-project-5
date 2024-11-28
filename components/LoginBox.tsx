@@ -79,7 +79,7 @@ const LoginBox = () => {
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
-      <Link href="/password" className="forgot-password">
+      <Link href="" className="forgot-password">
         ¿Olvidó su contraseña?
       </Link>
       <div className="Red-Social">

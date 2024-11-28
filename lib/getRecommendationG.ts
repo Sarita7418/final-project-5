@@ -12,25 +12,25 @@ function trimf(x: number, a: number, b: number, c: number): number {
 
 function fuzzifyConsumo(consumo: number): FuzzySet {
     return {
-        exceso_leve: trimf(consumo, 1, 1, 1.15),
-        exceso_moderado: trimf(consumo, 1.1, 1.2, 1.35),
-        critico_moderado: trimf(consumo, 1.3, 1.5, 1.65),
-        critico_alto: trimf(consumo, 1.6, 1.75, 1.85),
-        descontrolado: trimf(consumo, 1.8, 2, 2),
+        exceso_leve: trimf(consumo, 1, 1, 1.19393139841689),
+        exceso_moderado: trimf(consumo, 1.12269129287599, 1.24, 1.37),
+        critico_moderado: trimf(consumo, 1.3, 1.5, 1.68),
+        critico_alto: trimf(consumo, 1.6, 1.70580474934037, 1.9),
+        descontrolado: trimf(consumo, 1.78759894459103, 2.01, 2.01),
     };
 }
 
-function fuzzifyMes(mes: number): FuzzySet {
+function fuzzifyCantidadHuesped(cantidad: number): FuzzySet {
     return {
-        exceso_leve: trimf(mes, 1, 1, 2.65),
-        exceso_moderado: trimf(mes, 2.5, 3, 3.5),
-        critico_moderado: trimf(mes, 3.3, 5, 6.7),
-        critico_alto: trimf(mes, 6.5, 7, 8),
-        descontrolado: trimf(mes, 7.8, 9, 12),
+        exceso_leve: trimf(cantidad, 1, 1, 2.57915567282322),
+        exceso_moderado: trimf(cantidad, 2.1487598944591, 3.3387598944591, 4.6687598944591),
+        critico_moderado: trimf(cantidad, 4.09894459102902, 5.67, 7.12),
+        critico_alto: trimf(cantidad, 6.61609498680739, 7.64, 9.03),
+        descontrolado: trimf(cantidad, 8.15963060686016, 10, 10),
     };
 }
 
-function applyRules(consumoSet: FuzzySet, mesSet: FuzzySet): FuzzySet {
+function applyRules(consumoSet: FuzzySet, cantidadSet: FuzzySet): FuzzySet {
     const recommendationSet: FuzzySet = {
         exceso_leve: 0,
         exceso_moderado: 0,
@@ -41,43 +41,43 @@ function applyRules(consumoSet: FuzzySet, mesSet: FuzzySet): FuzzySet {
 
     // Aplicar reglas difusas
     recommendationSet.exceso_leve = Math.max(
-        Math.min(consumoSet.exceso_leve, mesSet.exceso_leve),
-        Math.min(consumoSet.exceso_leve, mesSet.exceso_moderado),
-        Math.min(consumoSet.exceso_leve, mesSet.critico_moderado),
-        Math.min(consumoSet.exceso_leve, mesSet.critico_alto),
-        Math.min(consumoSet.exceso_leve, mesSet.descontrolado)
+        Math.min(consumoSet.exceso_leve, cantidadSet.exceso_leve),
+        Math.min(consumoSet.exceso_leve, cantidadSet.exceso_moderado),
+        Math.min(consumoSet.exceso_leve, cantidadSet.critico_moderado),
+        Math.min(consumoSet.exceso_leve, cantidadSet.critico_alto),
+        Math.min(consumoSet.exceso_leve, cantidadSet.descontrolado)
     );
 
     recommendationSet.exceso_moderado = Math.max(
-        Math.min(consumoSet.exceso_moderado, mesSet.exceso_leve),
-        Math.min(consumoSet.exceso_moderado, mesSet.exceso_moderado),
-        Math.min(consumoSet.exceso_moderado, mesSet.critico_moderado),
-        Math.min(consumoSet.exceso_moderado, mesSet.critico_alto),
-        Math.min(consumoSet.exceso_moderado, mesSet.descontrolado)
+        Math.min(consumoSet.exceso_moderado, cantidadSet.exceso_leve),
+        Math.min(consumoSet.exceso_moderado, cantidadSet.exceso_moderado),
+        Math.min(consumoSet.exceso_moderado, cantidadSet.critico_moderado),
+        Math.min(consumoSet.exceso_moderado, cantidadSet.critico_alto),
+        Math.min(consumoSet.exceso_moderado, cantidadSet.descontrolado)
     );
 
     recommendationSet.critico_moderado = Math.max(
-        Math.min(consumoSet.critico_moderado, mesSet.exceso_leve),
-        Math.min(consumoSet.critico_moderado, mesSet.exceso_moderado),
-        Math.min(consumoSet.critico_moderado, mesSet.critico_moderado),
-        Math.min(consumoSet.critico_moderado, mesSet.critico_alto),
-        Math.min(consumoSet.critico_moderado, mesSet.descontrolado)
+        Math.min(consumoSet.critico_moderado, cantidadSet.exceso_leve),
+        Math.min(consumoSet.critico_moderado, cantidadSet.exceso_moderado),
+        Math.min(consumoSet.critico_moderado, cantidadSet.critico_moderado),
+        Math.min(consumoSet.critico_moderado, cantidadSet.critico_alto),
+        Math.min(consumoSet.critico_moderado, cantidadSet.descontrolado)
     );
 
     recommendationSet.critico_alto = Math.max(
-        Math.min(consumoSet.critico_alto, mesSet.exceso_leve),
-        Math.min(consumoSet.critico_alto, mesSet.exceso_moderado),
-        Math.min(consumoSet.critico_alto, mesSet.critico_moderado),
-        Math.min(consumoSet.critico_alto, mesSet.critico_alto),
-        Math.min(consumoSet.critico_alto, mesSet.descontrolado)
+        Math.min(consumoSet.critico_alto, cantidadSet.exceso_leve),
+        Math.min(consumoSet.critico_alto, cantidadSet.exceso_moderado),
+        Math.min(consumoSet.critico_alto, cantidadSet.critico_moderado),
+        Math.min(consumoSet.critico_alto, cantidadSet.critico_alto),
+        Math.min(consumoSet.critico_alto, cantidadSet.descontrolado)
     );
 
     recommendationSet.descontrolado = Math.max(
-        Math.min(consumoSet.descontrolado, mesSet.exceso_leve),
-        Math.min(consumoSet.descontrolado, mesSet.exceso_moderado),
-        Math.min(consumoSet.descontrolado, mesSet.critico_moderado),
-        Math.min(consumoSet.descontrolado, mesSet.critico_alto),
-        Math.min(consumoSet.descontrolado, mesSet.descontrolado)
+        Math.min(consumoSet.descontrolado, cantidadSet.exceso_leve),
+        Math.min(consumoSet.descontrolado, cantidadSet.exceso_moderado),
+        Math.min(consumoSet.descontrolado, cantidadSet.critico_moderado),
+        Math.min(consumoSet.descontrolado, cantidadSet.critico_alto),
+        Math.min(consumoSet.descontrolado, cantidadSet.descontrolado)
     );
 
     return recommendationSet;
@@ -125,9 +125,9 @@ function defuzzify(fuzzySet: FuzzySet): { value: number, label: string } {
     return { value: defuzzifiedValue, label: recommendation };
 }
 
-export function getRecommendationG(consumo: number, mes: number): { value: number, label: string } {
+export function getRecommendationG(consumo: number, cantidad: number): { value: number, label: string } {
     const consumoSet = fuzzifyConsumo(consumo);
-    const mesSet = fuzzifyMes(mes);
-    const recommendationSet = applyRules(consumoSet, mesSet);
+    const cantidadSet = fuzzifyCantidadHuesped(cantidad);
+    const recommendationSet = applyRules(consumoSet, cantidadSet);
     return defuzzify(recommendationSet);
 }

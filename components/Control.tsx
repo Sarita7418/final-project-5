@@ -19,14 +19,6 @@ const FloorControl = ({ onFloorChange }: { onFloorChange: (value: string) => voi
     <section className="floor-control">
       <div className="options">
         <h3>Control De Pisos</h3>
-        <button className="add-area-btn" onClick={playSound}>
-          <img src={Plus.src} alt="" />
-          <Link href="">Añadir Áreas</Link>
-        </button>
-        <button className="all-areas-btn" onClick={playSound}>
-          <img src={Calendar.src} alt="" />
-          <Link href="">Todas Las Áreas</Link>
-        </button>
       </div>
       <div className="floor-selector">
         <label htmlFor="floor-select">Seleccionar Piso:</label>

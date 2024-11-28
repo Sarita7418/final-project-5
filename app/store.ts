@@ -19,6 +19,7 @@ type Alerta = {
   limiteConsumo: string;
   consumoActual: string;
   uMedida: string;
+  promedioClientes: string;
 };
 
 type Area = {
