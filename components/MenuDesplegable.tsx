@@ -3,6 +3,7 @@ import './MenuDesplegable.css';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from '@/components/ui/button';
 import Link from "next/link";
+import Login from "@/components/Login";
 
 const MenuDesplegable = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,16 +20,10 @@ const MenuDesplegable = () => {
       </Avatar>
       {isOpen && (
         <div className="dropdown-menu">
-          <div className="dropdown-header">
-            <span className="username">Evelyn</span>
-            <span className="email">evelynburgoa04@gmail.com</span>
-          </div>
           <ul>
-            <li>Ver Perfil</li>
-            <li>Configuracion</li>
             <li className="logout">
               <Button variant="outline">
-                <Link href="/logout">Cerrar sesión</Link>
+                <Link href="/page">Cerrar sesión</Link>
               </Button>
             </li>
           </ul>
