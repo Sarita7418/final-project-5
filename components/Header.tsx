@@ -7,7 +7,7 @@ import "@/components/Header.css";
 import configLogo from "../public/002-notification-1.svg";
 import alertLogo from "../public/settings 1.svg";
 import { useAuthStore } from "@/app/store";
-import DropdownMenu from './MenuDesplegable'; // Importamos el componente
+import MenuDesplegable from "./MenuDesplegable";
 
 const Header = () => {
   const pathname = usePathname(); 
@@ -43,7 +43,7 @@ const Header = () => {
             <img src={configLogo.src} alt="Configuración" className="headerButton" />
           </Link>
           
-          <DropdownMenu /> {/* Añadimos el componente DropdownMenu aquí */}
+          <MenuDesplegable/>
         </div>
       </div>
     </header>
