@@ -201,10 +201,10 @@ const GUsuarios = () => {
         </div>
       </div>
       <div className="usuarios-buttons">
-        <button className="gestion_boton" onClick={agregarUsuario}>
+        <button className="gestion_boton" onClick={() => {agregarUsuario(); playSound();}}>
           Registrar
         </button>
-        <button className="gestion_boton" onClick={editarUsuario} disabled={validate}>
+        <button className="gestion_boton" onClick={() => {editarUsuario(); playSound();}} disabled={validate}>
           Editar
         </button>
       </div>

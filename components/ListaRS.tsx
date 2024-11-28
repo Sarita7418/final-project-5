@@ -3,6 +3,12 @@ import { Button } from "./ui/button";
 import "./ListaRS.css";
 import FormSensor from "./FormSensor";
 import Link from "next/link";
+import "./ListaRS.css";
+
+const playSound = () => {
+  const sound = new Audio("/click.mp3");
+  sound.play();
+};
 
 interface Sensor {
   id: string;
@@ -49,10 +55,11 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
 
   const ocultarSensor = async (id: string) => {
     try {
+      // Actualizar el sensor en el servidor para marcarlo como oculto
       await fetch(
         `https://673778bcaafa2ef22233f00b.mockapi.io/Sensores/${id}`,
         {
-          method: "PUT",
+          method: "PUT", // Usar PUT o PATCH para actualizar
           headers: {
             "Content-Type": "application/json",
           },
@@ -93,38 +100,49 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
             <span>Opciones de sensor</span>
           </div>
 
-          {sensores.length > 0 ? (
-            sensores.map((sensor) => (
-              <div key={sensor.id} className="perfil_s">
-                <div className="user_principal">
-                  <span className="sensort">{sensor.sensor}</span>
-                </div>
-                <span className="tipot">{sensor.tipo}</span>
-                <span className="ubit">{sensor.ubicacion}</span>
-                <span className={`estt ${sensor.estado.toLowerCase()}`}>
-                  {sensor.estado}
-                </span>
-                <div className="buttons-perfil">
-                  <Button
-                    variant="outline"
-                    className="form-button"
-                    onClick={() => handleEditar(sensor)} 
-                  >
-                    Editar
-                  </Button>
-                  <Button
-                    variant="outline"
-                    className="form-button"
-                    onClick={() => ocultarSensor(sensor.id)}
-                  >
-                    Eliminar
-                  </Button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No hay sensores disponibles para el recurso seleccionado.</p>
-          )}
+      {/* Filas de datos */}
+      {sensores.length > 0 ? (
+        sensores.map((sensor) => (
+          <div key={sensor.id} className="perfil_s">
+            <div className="user_principal">
+              <span className="sensort">{sensor.sensor}</span>
+            </div>
+            <span className="tipot">{sensor.tipo}</span>
+            <span className="ubit">{sensor.ubicacion}</span>
+            <span className={`estt ${sensor.estado.toLowerCase()}`}>
+              {sensor.estado}
+            </span>
+            <div className="buttons-perfil">
+              <Button
+                variant="outline"
+                className="form-button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  playSound();
+
+                  setTimeout(() => {
+                    window.location.href = `/sensoresf/${sensor.id}`;
+                  }, 200);
+                }}
+              >
+                <Link href={`/sensoresf/${sensor.id}`}>Editar</Link>
+              </Button>
+              <Button
+                variant="outline"
+                className="form-button"
+                onClick={() => {
+                  ocultarSensor(sensor.id);
+                  playSound();
+                }}
+              >
+                Eliminar
+              </Button>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p>No hay sensores disponibles para el recurso seleccionado.</p>
+      )}
 
           <div className="pie">
             <Button variant="outline" className="bañadir">

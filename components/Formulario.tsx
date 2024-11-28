@@ -4,6 +4,11 @@ import "./Formulario.css";
 import { Button } from "./ui/button";
 import Link from "next/link";
 
+const playSound = () => {
+  const sound = new Audio("/click.mp3");
+  sound.play();
+}
+
 const Formulario = () => {
   const [sensor, setSensor] = useState("");
   const [tipo, setTipo] = useState("");
@@ -136,10 +141,10 @@ const Formulario = () => {
         </div>
 
         <div className="form-buttons">
-          <Button type="submit" variant="outline" className="form-buttonG">
+          <Button type="submit" variant="outline" className="form-buttonG" onClick={playSound}>
             Guardar
           </Button>
-          <Button variant="outline" className="form-buttonC">
+          <Button variant="outline" className="form-buttonC" onClick={playSound}>
             <Link href="/SensoresP">Cancelar</Link>
           </Button>
         </div>

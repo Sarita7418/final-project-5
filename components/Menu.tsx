@@ -17,6 +17,11 @@ import areaPlomo from "@/public/mdi_report-line.svg";
 import areaMorado from "@/public/mdi_report-line-morado.svg";
 import { useAuthStore } from "@/app/store";
 
+const playSound = () => {
+  const sound = new Audio("/click.mp3");
+  sound.play();
+};
+
 const Menu = () => {
   const pathname = usePathname(); // Obtener la ruta actual
   const { rolselected } = useAuthStore();
@@ -30,7 +35,7 @@ const Menu = () => {
     },
     {
       label: "Sensores",
-      href:["/SensoresP", "/sensoresf"],
+      href: ["/SensoresP", "/sensoresf"],
       iconPlomo: sensorPlomo,
       iconMorado: sensorMorado,
     },
@@ -64,13 +69,12 @@ const Menu = () => {
     <nav className="sidebar">
       <ul className="menu">
         {menuItems.map((item) => {
-          if (item.label === 'Usuarios' && rolselected === 'Mantenimiento') {
+          if (item.label === "Usuarios" && rolselected === "Mantenimiento") {
             return null;
           }
-          const isActive =
-            Array.isArray(item.href)
-              ? item.href.includes(pathname) // Verifica si `pathname` está en la lista
-              : pathname === item.href;
+          const isActive = Array.isArray(item.href)
+            ? item.href.includes(pathname)
+            : pathname === item.href;
 
           return (
             <li
@@ -82,7 +86,12 @@ const Menu = () => {
                 src={isActive ? item.iconMorado.src : item.iconPlomo.src}
                 alt={`${item.label} icon`}
               />
-              <Link href={Array.isArray(item.href) ? item.href[0] : item.href}>
+              <Link
+                href={Array.isArray(item.href) ? item.href[0] : item.href}
+                onClick={() => {
+                  playSound(); // Reproducir sonido
+                }}
+              >
                 {item.label}
               </Link>
             </li>
