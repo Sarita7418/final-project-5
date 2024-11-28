@@ -10,14 +10,13 @@ interface Sensor {
   tipo: string;
   ubicacion: string;
   estado: string;
-  recurso: string; // Aseguramos que esta propiedad esté presente
+  recurso: string; 
   oculto?: boolean;
 }
 
 const ListaRS = ({ recurso }: { recurso: string }) => {
   const [sensores, setSensores] = useState<Sensor[]>([]);
-  const [editandoSensor, setEditandoSensor] = useState<Sensor | null>(null); // Estado para el sensor en edición
-
+  const [editandoSensor, setEditandoSensor] = useState<Sensor | null>(null); 
   useEffect(() => {
     const fetchSensores = async () => {
       try {
@@ -29,10 +28,10 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
         }
         const data: Sensor[] = await response.json();
 
-        // Asegurarse de que cada sensor tenga la propiedad 'recurso'
+       
         const sensoresConRecurso = data.map((sensor) => ({
           ...sensor,
-          recurso: sensor.recurso || "Default Recurso", // Valor predeterminado si 'recurso' no está presente
+          recurso: sensor.recurso || "Default Recurso", 
         }));
 
         const sensoresVisibles = sensoresConRecurso.filter(
@@ -41,7 +40,7 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
         setSensores(sensoresVisibles);
       } catch (error) {
         console.error("Error al cargar sensores:", error);
-        setSensores([]); // En caso de error, muestra una lista vacía.
+        setSensores([]);
       }
     };
 
@@ -70,11 +69,11 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
   };
 
   const handleEditar = (sensor: Sensor) => {
-    setEditandoSensor(sensor); // Establece el sensor para editar
+    setEditandoSensor(sensor); 
   };
 
   const handleCerrarEdicion = () => {
-    setEditandoSensor(null); // Cierra el formulario de edición
+    setEditandoSensor(null); 
   };
 
   return (
@@ -109,7 +108,7 @@ const ListaRS = ({ recurso }: { recurso: string }) => {
                   <Button
                     variant="outline"
                     className="form-button"
-                    onClick={() => handleEditar(sensor)} // Abrir el formulario de edición
+                    onClick={() => handleEditar(sensor)} 
                   >
                     Editar
                   </Button>

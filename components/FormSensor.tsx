@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "./ui/button"; // Asegúrate de importar Button si lo usas
+import { Button } from "./ui/button"; 
 import "./Formulario.css";
 interface Sensor {
   id?: string;
@@ -12,13 +12,13 @@ interface Sensor {
 
 const FormSensor = ({ sensor, onClose }: { sensor: Sensor; onClose: () => void }) => {
   const [sensorData, setSensorData] = useState<Sensor>(sensor);
-  const [recurso, setRecurso] = useState<string>(sensor.recurso); // Estado para 'recurso'
-  const [estado, setEstado] = useState<string>(sensor.estado); // Estado para 'estado'
+  const [recurso, setRecurso] = useState<string>(sensor.recurso); 
+  const [estado, setEstado] = useState<string>(sensor.estado); 
 
   useEffect(() => {
-    setSensorData(sensor); // Actualiza los datos del sensor
-    setRecurso(sensor.recurso); // Actualiza el recurso
-    setEstado(sensor.estado); // Actualiza el estado
+    setSensorData(sensor); 
+    setRecurso(sensor.recurso); 
+    setEstado(sensor.estado); 
   }, [sensor]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,14 +28,14 @@ const FormSensor = ({ sensor, onClose }: { sensor: Sensor; onClose: () => void }
 
   const handleSelectChangeRecurso = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
-    setRecurso(value); // Actualiza el valor del recurso
-    setSensorData((prevData) => ({ ...prevData, recurso: value })); // También actualiza el objeto completo
+    setRecurso(value); 
+    setSensorData((prevData) => ({ ...prevData, recurso: value })); 
   };
 
   const handleSelectChangeEstado = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = e.target;
-    setEstado(value); // Actualiza el estado
-    setSensorData((prevData) => ({ ...prevData, estado: value })); // También actualiza el objeto completo
+    setEstado(value); 
+    setSensorData((prevData) => ({ ...prevData, estado: value })); 
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -59,7 +59,7 @@ const FormSensor = ({ sensor, onClose }: { sensor: Sensor; onClose: () => void }
       }
 
       alert("Sensor guardado exitosamente");
-      onClose(); // Cierra el formulario después de guardar
+      onClose(); 
     } catch (error) {
       console.error("Error al guardar el sensor:", error);
     }
@@ -125,7 +125,7 @@ const FormSensor = ({ sensor, onClose }: { sensor: Sensor; onClose: () => void }
           <select
             id="sensor-status"
             className="form-select"
-            value={estado} // El valor aquí es el que se corresponde con el estado del sensor
+            value={estado} 
             onChange={handleSelectChangeEstado}
             required
           >
@@ -143,7 +143,7 @@ const FormSensor = ({ sensor, onClose }: { sensor: Sensor; onClose: () => void }
           <select
             id="sensor-recurso"
             className="form-select"
-            value={recurso} // El valor aquí es el que se corresponde con el recurso del sensor
+            value={recurso} 
             onChange={handleSelectChangeRecurso}
             required
           >
