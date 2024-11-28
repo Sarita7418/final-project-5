@@ -99,7 +99,7 @@ type AuthStore = {
   editarUsuarioA: (id: string, usuario: Usuario) => Promise<void>;
 };
 
-export const useAuthStore = create<AuthStore>((set) => ({
+export const useAuthStore = create<AuthStore>((set, get) => ({
   usuarios: [],
   alertas: [],
   areas: [],
@@ -205,6 +205,25 @@ export const useAuthStore = create<AuthStore>((set) => ({
           body: JSON.stringify({ password: newPassword }),
         }
       );
+
+      if (response.ok) {
+        set((state) => ({
+          usuarios: state.usuarios.map((usuario) =>
+            usuario.id === id
+              ? { ...usuario, password: newPassword }
+              : usuario
+          ),
+          isLoading: false,
+          errorMessage: null,
+        }));
+        return true; // Contraseña actualizada exitosamente
+      } else {
+        set({
+          isLoading: false,
+          errorMessage: "Error al cambiar la contraseña",
+        });
+        return false; // Error en la respuesta
+      }
       if (!response.ok) {
         throw new Error("Error al cambiar la contraseña");
       }
@@ -240,3 +259,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     }
   },
 }));
+
+function get(): { usuarios: any } {
+  throw new Error("Function not implemented.");
+}

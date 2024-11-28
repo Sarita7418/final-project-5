@@ -1,43 +1,29 @@
-"use client"; 
+"use client";
 
 import React, { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
-import Password from "@/components/NewPassword";
+import Password from "@/components/CambiarPassword";
 import { useAuthStore } from "../store";
 
 const password = () => {
-  const { usuarios, fetchUsuarios, user } = useAuthStore(); // Obtener usuarios y user desde el store
+  const { user, usuarios } = useAuthStore();
   const [message, setMessage] = useState("");
 
-  // Cargar los usuarios cuando la página se monta
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetchUsuarios(); // Cargar usuarios
-    };
-    fetchData();
-  }, [fetchUsuarios]);
-
-  // Verificar si el usuario está autenticado
-  const isAuthenticated = user !== null;
+  const isAuthenticated = !!user;
 
   return (
-    <div>
-      <Header />
-      <section className="content">
-        <Menu />
-        <section className="page_content">
-          <h2>Restablecer Contraseña</h2>
-
-          {/* Si el usuario está autenticado, mostramos el formulario */}
+    <div className="password-container">
           {isAuthenticated ? (
-            <Password userId={user.id} />
+            <div>
+              <p>Ya estás autenticado, puedes cambiar tu contraseña.</p>
+            </div>
           ) : (
-            <p>Debes estar autenticado para cambiar tu contraseña.</p>
+            <Password />
           )}
-        </section>
-      </section>
+          {message && <p>{message}</p>}
     </div>
   );
 };
+
 export default password;
