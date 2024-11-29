@@ -25,6 +25,11 @@ const LecturasTable = () => {
   const [lecturas, setLecturas] = useState<Lectura[]>([]);
   const [lecturasFiltradas, setLecturasFiltradas] = useState<Lectura[]>([]);
   const { reportID } = useAuthStore();
+  const { cmensual, fetchCmensual } = useAuthStore();
+
+  useEffect(() => {
+    fetchCmensual();
+  }, [fetchCmensual]);
 
   useEffect(() => {
     if (reportID) {
@@ -60,7 +65,7 @@ const LecturasTable = () => {
   }, [tipoLectura, lecturas]);
 
   const handleGeneratePDF = () => {
-    generatePDF(tipoLectura);
+    generatePDF(tipoLectura, cmensual);
   };
 
   return (

@@ -1,8 +1,10 @@
 // lib/generatePDF.ts
+import { useAuthStore } from "@/app/store";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import { useEffect } from "react";
 
-export const generatePDF = (tipoLectura: string) => {
+export const generatePDF = (tipoLectura: string, cmensual: any[]) => {
   const doc = new jsPDF();
 
   // Agrega el nombre del hotel en la esquina superior izquierda
@@ -10,11 +12,38 @@ export const generatePDF = (tipoLectura: string) => {
   doc.text("Hotel Flamingo", 10, 10);
 
   // Determina el título basado en el tipo de lectura
-  const titulo = tipoLectura === "general" ? "Reporte de lecturas general" : `Reporte de lecturas de ${tipoLectura}`;
+  const titulo =
+    tipoLectura === "general"
+      ? "Reporte de lecturas general"
+      : `Reporte de lecturas de ${tipoLectura}`;
 
   // Agrega el título centrado en la línea siguiente
   doc.setFontSize(18);
-  doc.text(titulo, doc.internal.pageSize.getWidth() / 2, 25, { align: "center" });
+  doc.text(titulo, doc.internal.pageSize.getWidth() / 2, 25, {
+    align: "center",
+  });
+
+  let Reporte = "";
+  if (tipoLectura === "general") {
+    Reporte = `Consumo total de Agua: ${cmensual[0].consumo} ${cmensual[0].uMedida}, Gas: ${cmensual[1].consumo} ${cmensual[1].uMedida}, Electricidad: ${cmensual[2].consumo} ${cmensual[2].uMedida}`;
+  } else {
+    let total = 0;
+    let medida = "";
+    if (tipoLectura === "agua") {
+      total = cmensual[0].consumo;
+      medida = cmensual[0].uMedida;
+    } else if (tipoLectura === "electricidad") {
+      total = cmensual[2].consumo;
+      medida = cmensual[2].uMedida;
+    } else {
+      total = cmensual[1].consumo;
+      medida = cmensual[1].uMedida;
+    }
+    Reporte = `Reporte total de ${tipoLectura}: ${total} ${medida}`;
+  }
+
+  doc.setFontSize(14);
+  doc.text(Reporte, 10, 40); // Ajusta la posición del reporte
 
   const tableData: string[][] = [];
   document.querySelectorAll(".perfil_s").forEach((row) => {
@@ -28,7 +57,7 @@ export const generatePDF = (tipoLectura: string) => {
   (doc as any).autoTable({
     head: [["Sensor", "Fecha", "Hora", "Valor", "Recursos"]],
     body: tableData,
-    startY: 31, // Ajusta la posición de inicio de la tabla para que no se superponga con el título
+    startY: 50, // Ajusta la posición de inicio de la tabla para que no se superponga con el título
     styles: {
       halign: "center", // Centrar el contenido de las celdas
       fillColor: [230, 230, 255], // Fondo morado muy claro
@@ -60,7 +89,10 @@ export const generatePDF = (tipoLectura: string) => {
   // Obtener la fecha y hora actual
   const now = new Date();
   const fecha = now.toLocaleDateString();
-  const hora = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Formatear la hora sin segundos
+  const hora = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  }); // Formatear la hora sin segundos
 
   // Agregar el texto al final de la tabla
   const finalY = (doc as any).lastAutoTable.finalY || 27; // Obtener la posición Y final de la tabla
